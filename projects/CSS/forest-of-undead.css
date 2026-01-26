@@ -134,9 +134,10 @@ body {
 ================================ */
 
 .project-actions {
-    display: flex;
+  display: flex;
   justify-content: center;
   padding: 0 16px;
+  padding-bottom: 80px;
 }
 
 .btn-primary,
