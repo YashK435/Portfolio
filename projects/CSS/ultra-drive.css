@@ -1,0 +1,183 @@
+@import url("forest-of-undead.css");
+
+/* ================================
+   Extra 
+================================ */
+/* CARD */
+.screenshot-card {
+    background: #181b22;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.screenshot-card:hover {
+    transform: translateY(-4px);
+}
+
+/* IMAGE (80%) */
+.screenshot-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* TEXT (20%) */
+.screenshot-text {
+    padding: 16px 18px;
+}
+
+.screenshot-text h4 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #eaeaea;
+}
+
+.screenshot-text p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #b0b0b0;
+}
+
+/* CODE EDITOR STYLE BLOCK */
+
+.code-block {
+    max-width: 1100px; /* wider */
+    margin: 40px auto 0;
+    background: #0d0f14;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+}
+
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #141720;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-bottom: 1px solid #1f2430;
+}
+
+.copy-btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background: var(--accent);
+    color: var(--bg-main);
+}
+
+
+.code-block pre {
+    max-height: 460px; /* taller */
+    padding: 22px;
+    overflow-y: auto;
+    font-size: 14.5px;
+    line-height: 1.7;
+}
+
+/* CUSTOM SCROLLBAR — CODE BLOCK ONLY */
+
+.code-block pre::-webkit-scrollbar {
+    width: 8px;
+}
+
+.code-block pre::-webkit-scrollbar-track {
+    background: #0d0f14;
+}
+
+.code-block pre::-webkit-scrollbar-thumb {
+    background: #2a2f3a;
+    border-radius: 10px;
+}
+
+.code-block pre::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Firefox */
+.code-block pre {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2f3a #0d0f14;
+}
+
+/* Prevent editing */
+.code-block code {
+    pointer-events: none;
+}
+
+/* CIRCUIT DIAGRAM */
+
+.diagram-desc {
+    max-width: 900px;
+    margin: 10px auto 30px;
+    color: var(--text-muted);
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.diagram-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px; 
+    margin: 0 auto;
+    padding-top: 56.25%; /* 16:9 ratio */
+    background: #0d0f14;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+.diagram-wrapper img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 18px;
+}
+
+/* PIN LEGEND */
+
+.pin-legend {
+    max-width: 520px;
+    margin: 28px auto 0;
+    padding: 18px 22px;
+    background: #0d0f14;
+    border-radius: 10px;
+    border: 1px solid #1f2430;
+}
+
+.pin-legend h4 {
+    margin-bottom: 10px;
+    color: var(--accent);
+    font-size: 16px;
+}
+
+.pin-legend ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.pin-legend li {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+

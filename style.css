@@ -7,6 +7,10 @@
     --accent: #2fffdc;
 }
 
+/* ================================
+   RESET
+================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -21,13 +25,19 @@ body {
     min-width: 320px;
 }
 
+/* ================================
+   CONTAINER
+================================ */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-/* NAVBAR */
+/* ================================
+   NAVBAR
+================================ */
 
 .navbar {
     position: sticky;
@@ -64,7 +74,9 @@ body {
     opacity: 1;
 }
 
-/* HERO */
+/* ================================
+   HERO
+================================ */
 
 .hero {
     padding: 150px 0;
@@ -106,7 +118,15 @@ body {
     object-fit: cover;
 }
 
-/* BUTTONS */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* ================================
+   BUTTONS
+================================ */
 
 .btn {
     padding: 12px 26px;
@@ -114,6 +134,10 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
 }
 
 .primary {
@@ -130,7 +154,9 @@ body {
     transform: translateY(-2px);
 }
 
-/* SECTIONS */
+/* ================================
+   SECTIONS
+================================ */
 
 section {
     padding: 80px 0;
@@ -141,10 +167,30 @@ section {
     margin-bottom: 40px;
 }
 
-/* PROJECTS */
+/* ================================
+   PROJECTS
+================================ */
 
 .projects {
     background: var(--bg-secondary);
+}
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-all-btn {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.view-all-btn:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
 
 .projects-wrapper {
@@ -157,23 +203,29 @@ section {
     gap: 25px;
     width: max-content;
     will-change: transform;
+    padding-top: 10px;
 }
 
-/* CARD */
+/* ================================
+   PROJECT CARD
+================================ */
 
 .project-card {
+    all: unset;
     width: 360px;
+    display: flex;
+    flex-direction: column;
     background: var(--card-bg);
     border-radius: 12px;
     overflow: hidden;
     flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
+    cursor: pointer;
     transition: 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-6px);
+    box-shadow: 0 2px 10px #0c0e11;
 }
 
 .project-card img {
@@ -188,6 +240,41 @@ section {
     flex-direction: column;
     height: 100%;
 }
+
+/* ================================
+   PROJECT TAGS (NEW)
+================================ */
+
+.project-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    width: fit-content;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Finished */
+.project-tag.finished {
+    background: rgba(47,255,220,0.15);
+    color: var(--accent);
+}
+
+/* Prototype */
+.project-tag.prototype {
+    background: rgba(255,180,90,0.15);
+    color: #ffb45a;
+}
+
+/* Game Jam */
+.project-tag.jam {
+    background: rgba(255,140,200,0.15);
+    color: #ff8cc8;
+}
+
+/* ================================
+   PROJECT TEXT
+================================ */
 
 .project-meta {
     color: var(--accent);
@@ -207,26 +294,72 @@ section {
     overflow: hidden;
 }
 
-.card-content a {
-    margin-top: auto;
-    color: var(--accent);
-    text-decoration: none;
-}
+/* ================================
+   PROJECT LINKS
+================================ */
 
 .project-links {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    margin-top: 10px;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-top: auto;
 }
+
 .itch-link {
     display: flex;
     gap: 10px;
     align-items: center;
 }
-/* SKILLS */
+
+.project-links img {
+    width: 26px;
+    height: 26px;
+    filter: invert(85%) sepia(50%) saturate(500%) hue-rotate(110deg);
+    transition: transform 0.2s ease;
+}
+
+.project-links img:hover {
+    transform: scale(1.15);
+}
+/* HOW I MAKE GAMES */
+
+.process {
+  background: var(--bg-secondary);
+}
+
+.process-steps {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.process-step {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.process-step h3 {
+  color: var(--accent);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.process-step p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+
+/* ================================
+   SKILLS
+================================ */
 
 .skills-grid {
     display: flex;
@@ -241,7 +374,9 @@ section {
     font-size: 14px;
 }
 
-/* CENTERED */
+/* ================================
+   CENTERED SECTIONS
+================================ */
 
 .center-section {
     text-align: center;
@@ -253,7 +388,9 @@ section {
     color: var(--text-muted);
 }
 
-/* EDUCATION */
+/* ================================
+   EDUCATION
+================================ */
 
 .education-card {
     background: var(--card-bg);
@@ -263,7 +400,9 @@ section {
     margin: 0 auto;
 }
 
-/* CONTACT */
+/* ================================
+   CONTACT
+================================ */
 
 .social-icons {
     display: flex;
@@ -283,7 +422,9 @@ section {
     text-decoration: none;
 }
 
-/* FOOTER */
+/* ================================
+   FOOTER
+================================ */
 
 .footer {
     text-align: center;
@@ -291,7 +432,28 @@ section {
     opacity: 0.6;
 }
 
-/* RESPONSIVE */
+/* ================================
+   ANIMATION
+================================ */
+
+.page-enter {
+    animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
 
 @media (max-width: 768px) {
     .hero-inner {
@@ -317,6 +479,10 @@ section {
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    .hero-buttons {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -334,5 +500,14 @@ section {
 
     .project-desc {
         -webkit-line-clamp: 4;
+    }
+
+    .hero-buttons {
+        flex-direction: caolumn;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
     }
 }

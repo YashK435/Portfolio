@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Owner | Yash Kamble</title>
+
+    <link rel="stylesheet" href="CSS/hello-owner.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container nav-inner">
+        <div class="logo">Yash Kamble</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero project-hero page-enter">
+    <div class="container center-section">
+        <h3>Hello Owner</h3>
+        <p class="tagline">
+            A narrative-driven psychological horror experience built around
+            routine, restriction, and environmental control.
+        </p>
+
+        <div class="project-meta">
+            <span>Unreal Engine</span>
+            <span>PC</span>
+            <span>Solo Developer</span>
+            <span>Completed</span>
+        </div>
+
+        <a href="https://old-monkey.itch.io/hello-owner" target="_blank" class="btn-secondary">
+            View on Itch.io
+        </a>
+    </div>
+</section>
+
+<!-- VIDEO -->
+<section class="project-video">
+    <div class="container">
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+                title="Hello Owner Gameplay"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- ACTION BUTTON -->
+<section class="project-actions">
+    <a href="./Gdd/GDD_HelloOwner.pdf" class="btn-primary" target="_blank">
+        Download Game Design Document (PDF)
+    </a>
+</section>
+
+<!-- OVERVIEW -->
+<section class="project-section alt-bg">
+    <div class="container">
+        <h2>Game Overview</h2>
+        <p>
+            Hello Owner places the player in an abandoned warehouse for a late-night
+            job unloading parcels. What begins as routine labor slowly escalates
+            into psychological horror as the environment reacts, restricts movement,
+            and tests obedience. Player choices and exploration paths determine
+            multiple endings.
+        </p>
+    </div>
+</section>
+
+
+<!-- SCREENSHOTS (FIXED) -->
+<section class="screenshots-carousel">
+  <div class="container">
+    <h2>Screenshots</h2>
+
+    <div class="carousel">
+      <div class="carousel-track">
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata"
+            src="./Imgs/HelloOwner/Wh_ending.mp4"></video>
+          <div class="carousel-caption">
+            <h4>Arrival at the Forest</h4>
+            <p>The player navigates a quiet forest environment, setting tone, isolation, and unease before the horror escalates.</p>
+          </div>
+        </div>
+
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata"
+            src="./Imgs/HelloOwner/WH_Forest.mp4"></video>
+          <div class="carousel-caption">
+            <h4>Maze & Environmental Control</h4>
+            <p>A reconfigured warehouse maze that restricts movement and tests player awareness under psychological pressure.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata"
+            src="./Imgs/HelloOwner/WH_maze.mp4"></video>
+          <div class="carousel-caption">
+            <h4>Narrative Cutscene</h4>
+            <p>A story-driven in-game cutscene used to reveal context and shift player understanding without breaking immersion.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata"
+            src="./Imgs/HelloOwner/WH_bossBox.mp4"></video>
+          <div class="carousel-caption">
+            <h4>Endgame Outcomes</h4>
+            <p>Final cutscenes reflecting the player’s choices and concluding the psychological horror experience.</p>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <!-- ARROWS (UNCHANGED) -->
+      <button class="carousel-btn prev">‹</button>
+      <button class="carousel-btn next">›</button>
+    </div>
+
+    <div class="carousel-indicators"></div>
+  </div>
+</section>
+
+<!-- DESIGN PILLARS -->
+<section class="project-section alt-bg">
+    <div class="container">
+        <h2>Design Pillars</h2>
+
+        <h3>Normalcy Before Horror</h3>
+        <p>
+            The experience begins grounded and believable. Horror emerges gradually
+            through subtle environmental disruptions rather than immediate threats.
+        </p>
+
+        <h3>Environment as an Antagonist</h3>
+        <p>
+            The warehouse actively reacts to the player by blocking paths,
+            reconfiguring space, and enforcing movement rules.
+        </p>
+
+        <h3>Maze as Psychological Pressure</h3>
+        <p>
+            The maze is a rule-based test, not a puzzle. Lighting constraints,
+            enforced stillness, and moving racks strip player agency and
+            increase psychological tension.
+        </p>
+
+        <h3>No Combat, Only Consequences</h3>
+        <p>
+            The player cannot fight back. Progress depends on awareness,
+            restraint, and understanding environmental rules.
+        </p>
+    </div>
+</section>
+
+
+<!-- ENDINGS -->
+<section class="project-section ">
+    <div class="container">
+        <h2>Multiple Endings</h2>
+        <p>
+            Player behavior, exploration, and compliance determine which ending
+            unfolds. Each ending reinforces the themes of ownership, greed,
+            and escape.
+        </p>
+    </div>
+</section>
+
+<!-- POSTMORTEM -->
+<section class="project-section alt-bg">
+    <div class="container">
+        <h2>Postmortem</h2>
+
+        <div class="postmortem-grid">
+            <div>
+                <h3>What Went Right</h3>
+                <ul>
+                    <li>Strong atmosphere with minimal mechanics</li>
+                    <li>Completed end-to-end as a solo project</li>
+                    <li>Clear narrative-driven structure</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>What Could Improve</h3>
+                <ul>
+                    <li>More mid-game interaction variety</li>
+                    <li>Expanded environmental consequences</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 Kash. All rights reserved.</p>
+</footer>
+
+<!-- FIXED JS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".carousel-track");
+  const slides = Array.from(track.children);
+  const nextBtn = document.querySelector(".carousel-btn.next");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const indicatorWrap = document.querySelector(".carousel-indicators");
+
+  let index = 0;
+  let interval = null;
+  const SLIDE_TIME = 20000; // ⏱ change this (ms)
+
+  if (!track || slides.length === 0) return;
+
+  /* ===============================
+     INDICATORS
+  =============================== */
+  slides.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.className = "indicator";
+    dot.innerHTML = `<span class="indicator-fill"></span>`;
+    indicatorWrap.appendChild(dot);
+
+    dot.addEventListener("click", () => {
+      index = i;
+      resetAutoSlide();
+      updateCarousel();
+    });
+  });
+
+  const indicators = Array.from(indicatorWrap.children);
+
+  function updateIndicators() {
+    indicators.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+
+      const fill = dot.querySelector(".indicator-fill");
+      fill.style.transition = "none";
+      fill.style.width = "0%";
+
+      if (i === index) {
+        requestAnimationFrame(() => {
+          fill.style.transition = `width ${SLIDE_TIME}ms linear`;
+          fill.style.width = "100%";
+        });
+      }
+    });
+  }
+
+  /* ===============================
+     VIDEO CONTROL (GIF STYLE)
+  =============================== */
+  function updateVideos() {
+    slides.forEach((slide, i) => {
+      const video = slide.querySelector("video");
+      if (!video) return;
+
+      if (i === index) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }
+
+  /* ===============================
+     CORE UPDATE
+  =============================== */
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    updateIndicators();
+    updateVideos();
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  /* ===============================
+     AUTO SLIDE
+  =============================== */
+  function startAutoSlide() {
+    interval = setInterval(nextSlide, SLIDE_TIME);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(interval);
+    startAutoSlide();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    resetAutoSlide();
+    nextSlide();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    resetAutoSlide();
+    prevSlide();
+  });
+
+  /* ===============================
+     INIT
+  =============================== */
+  updateCarousel();
+  startAutoSlide();
+});
+</script>
+
+</body>
+</html>

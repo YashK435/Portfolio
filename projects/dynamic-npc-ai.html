@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic NPC AI System | Yash Kamble</title>
+
+    <link rel="stylesheet" href="CSS/dynamic-npc-ai.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container nav-inner">
+        <div class="logo">Yash Kamble</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero page-enter">
+    <div class="container center-section">
+        <span class="wip-badge">WORK IN PROGRESS</span>
+        <h3>Dynamic NPC AI System</h3>
+
+        <p class="tagline">
+            An AI-driven interaction system where conversation itself is the core mechanic.
+            Built as a scalable, attribute-based NPC architecture rather than scripted dialogue.
+        </p>
+
+        <div class="project-meta">
+            <span>System Prototype</span>
+            <span>AI-Driven NPCs</span>
+            <span>Text-to-Text</span>
+            <span>Solo Developer</span>
+        </div>
+
+        <!-- DO NOT CHANGE -->
+        <a href="#" class="btn-secondary" target="_blank">
+            View on Itch.io
+        </a>
+    </div>
+</section>
+
+<!-- VIDEO -->
+<section class="project-video">
+    <div class="container">
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+                title="Dynamic NPC AI Demo"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ACTION BUTTON -->
+<section class="project-actions">
+    <a
+        href="./Gdd/GDD Dynamic NPC AI System.pdf"
+        class="btn-primary"
+        target="_blank"
+    >
+        Download Game Design Document (PDF)
+    </a>
+</section>
+
+<!-- OVERVIEW -->
+<section class="project-section ">
+    <div class="container">
+        <h2>System Overview</h2>
+        <p>
+            The Dynamic NPC AI System is designed as a system-first prototype where AI interaction
+            replaces traditional scripted dialogue trees. All NPCs share a single AI framework,
+            with behavioral diversity emerging purely from attribute configuration.
+        </p>
+    </div>
+</section>
+
+<!-- SCREENSHOTS (FIXED) -->
+<section class="screenshots-carousel">
+  <div class="container">
+    <h2>Screenshots</h2>
+
+    <div class="carousel">
+      <div class="carousel-track">
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata"
+            src="./Imgs/DynamicNPC/NPC_1.mp4"></video>
+          <div class="carousel-caption">
+            <h4>Attribute-Driven NPC Interaction</h4>
+            <p>Player engages in real-time conversation with an NPC, demonstrating how shared AI logic produces unique responses through attributes.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata"
+            src="./Imgs/DynamicNPC/NPC_Demo.mp4"></video>
+          <div class="carousel-caption">
+            <h4>Core AI Logic — Isolated Test</h4>
+            <p>The AI system running without environment or presentation layers to validate behavior, stability, and response flow.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata"
+            src="./Imgs/DynamicNPC/NPC_Prototype.mp4"></video>
+          <div class="carousel-caption">
+            <h4>Early Development Conversation Test</h4>
+            <p>Initial prototype using an actor component to test dialogue flow and AI responsiveness before full integration.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata"
+            src="./Imgs/DynamicNPC/NPC_2.mp4"></video>
+          <div class="carousel-caption">
+            <h4>Cross-NPC Response Variation</h4>
+            <p>Player interacts with a different NPC, showing how the same system generates distinct behavior through per-NPC attributes.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ARROWS (UNCHANGED) -->
+      <button class="carousel-btn prev">‹</button>
+      <button class="carousel-btn next">›</button>
+    </div>
+
+    <div class="carousel-indicators"></div>
+  </div>
+</section>
+
+
+<!-- CURRENT IMPLEMENTATION -->
+<section class="project-section ">
+    <div class="container">
+        <h2>Current Implementation</h2>
+
+        <h3>Shared AI Architecture</h3>
+        <p>
+            All NPCs operate on the same AI logic layer. Personality, tone, and response behavior
+            are controlled entirely through attribute values, allowing scalability without
+            duplicated logic or content.
+        </p>
+
+        <h3>NPC World Behavior</h3>
+        <p>
+            NPCs exist as active world entities. They roam freely, pause movement on player
+            proximity, and transition seamlessly into AI-driven dialogue without menu-based
+            interaction.
+        </p>
+
+        <h3>Text-to-Text Interaction</h3>
+        <p>
+            Player input is free-form text. There are no dialogue options or prompts.
+            The system is intentionally open-ended to evaluate response diversity,
+            immersion consistency, and architectural clarity.
+        </p>
+    </div>
+</section>
+
+<!-- CORE LOOP -->
+<section class="project-section alt-bg">
+    <div class="container">
+        <h2>Core Interaction Loop</h2>
+        <p class="loop-text">
+            Player Approaches NPC → AI Interaction Triggered →
+            Free-Form Text Input → Attribute-Conditioned AI Response →
+            Dialogue Ends → NPC Resumes World Behavior
+        </p>
+    </div>
+</section>
+
+<!-- LIMITATIONS -->
+<section class="project-section">
+    <div class="container">
+        <h2>Current Limitations</h2>
+        <ul class="bullet-list">
+            <li>No conversational memory or persistence</li>
+            <li>No world-state changes driven by dialogue</li>
+            <li>No progression, failure, or success conditions</li>
+            <li>Text-only interaction (no voice)</li>
+        </ul>
+
+        <p class="muted-note">
+            These limitations are intentional to keep the prototype focused on
+            evaluating system scalability and behavior variation.
+        </p>
+    </div>
+</section>
+
+<!-- FUTURE SCOPE -->
+<section class="project-section alt-bg">
+    <div class="container">
+        <h2>Future Scope</h2>
+
+        <h3>Voice-to-Voice Interaction</h3>
+        <p>
+            Replace text input/output with Speech-to-Text (STT) and Text-to-Speech (TTS),
+            keeping the underlying AI logic unchanged.
+        </p>
+
+        <h3>Conversational Memory</h3>
+        <p>
+            Introduce short-term and long-term memory, allowing NPCs to remember past
+            interactions, contradictions, and player intent.
+        </p>
+
+        <h3>Visual Feedback</h3>
+        <p>
+            Drive facial animation, tone modulation, and emotional feedback using meta human lipsync directly
+            from AI response analysis.
+        </p>
+
+        <h3>Full Gameplay Integration</h3>
+        <p>
+            Expand the system into a deduction-based experience where players must
+            infer truth through conversation alone.
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 Kash. System Prototype – Work in Progress.</p>
+</footer>
+
+<!-- FIXED JS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".carousel-track");
+  const slides = Array.from(track.children);
+  const nextBtn = document.querySelector(".carousel-btn.next");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const indicatorWrap = document.querySelector(".carousel-indicators");
+
+  let index = 0;
+  let interval = null;
+  const SLIDE_TIME = 20000; // ⏱ change this (ms)
+
+  if (!track || slides.length === 0) return;
+
+  /* ===============================
+     INDICATORS
+  =============================== */
+  slides.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.className = "indicator";
+    dot.innerHTML = `<span class="indicator-fill"></span>`;
+    indicatorWrap.appendChild(dot);
+
+    dot.addEventListener("click", () => {
+      index = i;
+      resetAutoSlide();
+      updateCarousel();
+    });
+  });
+
+  const indicators = Array.from(indicatorWrap.children);
+
+  function updateIndicators() {
+    indicators.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+
+      const fill = dot.querySelector(".indicator-fill");
+      fill.style.transition = "none";
+      fill.style.width = "0%";
+
+      if (i === index) {
+        requestAnimationFrame(() => {
+          fill.style.transition = `width ${SLIDE_TIME}ms linear`;
+          fill.style.width = "100%";
+        });
+      }
+    });
+  }
+
+  /* ===============================
+     VIDEO CONTROL (GIF STYLE)
+  =============================== */
+  function updateVideos() {
+    slides.forEach((slide, i) => {
+      const video = slide.querySelector("video");
+      if (!video) return;
+
+      if (i === index) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }
+
+  /* ===============================
+     CORE UPDATE
+  =============================== */
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    updateIndicators();
+    updateVideos();
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  /* ===============================
+     AUTO SLIDE
+  =============================== */
+  function startAutoSlide() {
+    interval = setInterval(nextSlide, SLIDE_TIME);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(interval);
+    startAutoSlide();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    resetAutoSlide();
+    nextSlide();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    resetAutoSlide();
+    prevSlide();
+  });
+
+  /* ===============================
+     INIT
+  =============================== */
+  updateCarousel();
+  startAutoSlide();
+});
+</script>
+
+
+</body>
+</html>

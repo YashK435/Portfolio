@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yash Kamble | Game Developer</title>
+
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -14,7 +15,7 @@
     <div class="container nav-inner">
         <div class="logo">Yash Kamble</div>
         <ul class="nav-links">
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="projects/projects.html">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#about">About</a></li>
@@ -28,17 +29,21 @@
     <div class="container hero-inner">
         <div class="hero-left">
             <h1>Yash Kamble</h1>
-            <h2>Game Developer | Unreal Engine | Gameplay & Systems</h2>
-            <p>I build immersive gameplay experiences  with a focus on atmosphere, mechanics, and rapid prototyping.</p>
+            <h2>Game Developer · Systems · Unreal & Unity</h2>
+            <p>
+        I design and build complete, playable game experiences from concept to final build,
+        with a strong focus on player engagement and clarity of execution.
+            </p>
+
             <div class="hero-buttons">
-                <a href="#projects" class="btn primary">View Projects</a>
-                <a href="Documents/Yash_2026_Resume.pdf" class="btn secondary" target="_blank">Download CV</a>
+                <a href="projects/projects.html" class="btn primary">View Projects</a>
+                <a href="Documents/Yash_2026_Resume.pdf" class="btn secondary" target="_blank">Download Resume</a>
             </div>
         </div>
 
         <div class="hero-right">
             <div class="profile-wrapper">
-                <img src="Imgs/ProfilePic.jpeg" alt="Yash Kamble">
+                <img src="projects/Imgs/ProfilePic.jpeg" alt="Yash Kamble">
             </div>
         </div>
     </div>
@@ -47,84 +52,102 @@
 <!-- PROJECTS -->
 <section id="projects" class="projects">
     <div class="container">
-        <h2 class="section-title">Projects</h2>
+        <div class="projects-header">
+            <h2 class="section-title">Projects</h2>
+            <a href="projects/projects.html" class="view-all-btn">View All →</a>
+        </div>
 
         <div class="projects-wrapper">
             <div class="projects-slider" id="projectsSlider">
 
                 <!-- Forest of Undead -->
-                <div class="project-card">
-                    <img src="Imgs/Project/FotuGif1.gif" alt="Forest of Undead">
+                <div class="project-card" data-link="projects/forest-of-undead.html">
+                    <img src="projects/Imgs/Project/FotuGif1.gif" alt="Forest of Undead">
                     <div class="card-content">
+                        <span class="project-tag finished">Finished</span>
                         <h3>Forest of Undead</h3>
-                        <p class="project-meta">2D Shooter | Unity</p>
+                        <p class="project-meta">Systems-Driven Survival · Unity</p>
                         <p class="project-desc">
-                            Wave-based survival shooter with progressive upgrades and escalating difficulty.
+                            Endless survival shooter focused on scalable systems,
+                            readable chaos, and build-based progression.
                         </p>
+
                         <div class="project-links">
-                            <div class="itch-link">
-                            <a class="social-icons" href="https://old-monkey.itch.io/forest-of-undead" target="_blank"><img src="Icons/Itchio.svg"></a>
-                            <a class="social-icons" href="https://old-monkey.itch.io/forest-of-undead" target="_blank">Forest of Undead</a>
-                            </div>
-                            <a class="social-icons" href="https://www.youtube.com/channel/UCfPYMyD16am0YsGe_Pd9vEw" target="_blank"><img src="Icons/youtube.png"></a>
+                            <a href="https://old-monkey.itch.io/forest-of-undead" target="_blank" class="external-link">
+                                <img src="projects/Icons/Itchio.svg" alt="Itch.io">
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=itYoGsxn9BU" target="_blank" class="external-link">
+                                <img src="projects/Icons/youtube.png" alt="YouTube">
+                            </a>
                         </div>
-                        
                     </div>
                 </div>
 
                 <!-- Ultra Drive -->
-                <div class="project-card">
-                    <img src="Imgs/Project/UltraDriveGif1.gif" alt="Ultra Drive">
+                <div class="project-card" data-link="projects/ultra-drive.html">
+                    <img src="projects/Imgs/Project/UltraDriveGif1.gif" alt="Ultra Drive">
                     <div class="card-content">
+                        <span class="project-tag prototype">Prototype</span>
                         <h3>Ultra Drive</h3>
-                        <p class="project-meta">Experimental Racing | Unreal + ESP8266</p>
+                        <p class="project-meta">Hardware-Integrated Racing · Unreal</p>
                         <p class="project-desc">
-                            Hardware-integrated racing prototype using real-world motion sensors.
+                            Experimental racing prototype controlled using real-world
+                            motion sensors via ESP8266.
                         </p>
+
                         <div class="project-links">
-                            <div class="itch-link">
-                            <a class="social-icons" href="https://old-monkey.itch.io/ultra-drive" target="_blank"><img src="Icons/Itchio.svg"></a>
-                            <a class="social-icons" href="https://old-monkey.itch.io/ultra-drive" target="_blank">Ultra Drive</a>
-                            </div>
-                            <a class="social-icons" href="https://www.youtube.com/channel/UCfPYMyD16am0YsGe_Pd9vEw" target="_blank"><img src="Icons/youtube.png"></a>
+                            <a href="https://old-monkey.itch.io/ultra-drive" target="_blank" class="external-link">
+                                <img src="projects/Icons/Itchio.svg" alt="Itch.io">
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCfPYMyD16am0YsGe_Pd9vEw" target="_blank" class="external-link">
+                                <img src="projects/Icons/youtube.png" alt="YouTube">
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Loop.exe -->
-                <div class="project-card">
-                    <img src="Imgs/Project/Loopexe-Gif1.gif" alt="Loop.exe">
+                <div class="project-card" data-link="projects/loop-exe.html">
+                    <img src="projects/Imgs/Project/Loopexe-Gif1.gif" alt="Loop.exe">
                     <div class="card-content">
+                        <span class="project-tag jam">Game Jam</span>
                         <h3>Loop.exe</h3>
-                        <p class="project-meta">Puzzle | GMTK 2025</p>
+                        <p class="project-meta">Cognitive Pressure Puzzle · GMTK 2025</p>
                         <p class="project-desc">
-                            Memory-based puzzle built for GMTK Game Jam focused on execution under pressure.
+                            Memory-based puzzle game where difficulty emerges from
+                            mental load, not mechanical complexity.
                         </p>
+
                         <div class="project-links">
-                            <div class="itch-link">
-                            <a class="social-icons" href="https://old-monkey.itch.io/loopexe" target="_blank"><img src="Icons/Itchio.svg"></a>
-                            <a class="social-icons" href="https://old-monkey.itch.io/loopexe" target="_blank">Loop.exe</a>
-                            </div>
-                            <a class="social-icons" href="https://www.youtube.com/channel/UCfPYMyD16am0YsGe_Pd9vEw" target="_blank"><img src="Icons/youtube.png"></a>
+                            <a href="https://old-monkey.itch.io/loopexe" target="_blank" class="external-link">
+                                <img src="projects/Icons/Itchio.svg" alt="Itch.io">
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=NZ2YteY25RY" target="_blank" class="external-link">
+                                <img src="projects/Icons/youtube.png" alt="YouTube">
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Hello Owner -->
-                <div class="project-card">
-                    <img src="Imgs/Project/HelloOwnerGif1.gif" alt="Hello Owner">
+                <div class="project-card" data-link="projects/hello-owner.html">
+                    <img src="projects/Imgs/Project/HelloOwnerGif1.gif" alt="Hello Owner">
                     <div class="card-content">
+                        <span class="project-tag finished">Finished</span>
                         <h3>Hello Owner</h3>
-                        <p class="project-meta">Psychological Horror | Unreal</p>
+                        <p class="project-meta">Psychological Horror · Unreal</p>
                         <p class="project-desc">
-                            Story-driven horror experience with multiple endings and environmental storytelling.
+                            Narrative-driven horror focused on routine, control,
+                            and rule-based environmental tension.
                         </p>
+
                         <div class="project-links">
-                            <div class="itch-link">
-                            <a class="social-icons" href="https://old-monkey.itch.io/hello-owner" target="_blank"><img src="Icons/Itchio.svg"></a>
-                            <a class="social-icons" href="https://old-monkey.itch.io/hello-owner" target="_blank">Hello Owner</a>
-                            </div>
-                            <a class="social-icons" href="https://www.youtube.com/channel/UCfPYMyD16am0YsGe_Pd9vEw" target="_blank"><img src="Icons/youtube.png"></a>
+                            <a href="https://old-monkey.itch.io/hello-owner" target="_blank" class="external-link">
+                                <img src="projects/Icons/Itchio.svg" alt="Itch.io">
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCfPYMyD16am0YsGe_Pd9vEw" target="_blank" class="external-link">
+                                <img src="projects/Icons/youtube.png" alt="YouTube">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -134,21 +157,104 @@
     </div>
 </section>
 
+
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container center-section">
+    <h2 class="section-title">About Me</h2>
+
+    <p>
+      I am a game developer focused on building complete, playable experiences
+      from start to finish. My work covers the full development cycle, including
+      concept definition, gameplay design, implementation, iteration, and final delivery.
+    </p>
+
+    <p>
+      I begin each project by defining the experience I want the player to have
+      at the end of a session, and then design the mechanics, progression, and structure
+      needed to support that goal. The approach is chosen based on what best serves
+      the player and the intended experience, rather than following a fixed design style.
+    </p>
+
+    <p>
+      I currently work primarily in <strong>Unreal Engine</strong>, using Blueprints to
+      design, implement, and iterate on gameplay logic, interactions, and level behavior
+      as a solo developer. I place strong emphasis on finishing projects and refining
+      the player experience before release.
+    </p>
+
+    <p>
+      My long-term goal is to create games that engage and amuse players,
+      whether through progression, atmosphere, or carefully paced experiences.
+    </p>
+  </div>
+</section>
+
+
 <!-- SKILLS -->
 <section id="skills" class="skills">
     <div class="container">
         <h2 class="section-title">Skills</h2>
         <div class="skills-grid">
+            <span>Gameplay Systems & Core Loops</span>
+            <span>Psychological Horror Design</span>
             <span>Unreal Engine 5 (Blueprints)</span>
-            <span>Unity</span>
-            <span>Gameplay Systems</span>
-            <span>Hardware Integration (ESP8266)</span>
-            <span>Prototyping</span>
-            <span>Atmosphere Design</span>
-            <span>Level Design</span>
+            <span>Unity (2D Systems)</span>
+            <span>Hardware → Game Integration</span>
+            <span>Rapid Prototyping</span>
             <span>System Design</span>
         </div>
     </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="process">
+  <div class="container center-section">
+    <h2 class="section-title">How I Make Games</h2>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <h3>1. Define the Experience</h3>
+        <p>
+          I start by deciding what the player should feel or understand
+          by the end of a play session.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <h3>2. Prototype Core Gameplay</h3>
+        <p>
+          I build early gameplay prototypes to test mechanics,
+          pacing, and player clarity.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <h3>3. Build a Playable Structure</h3>
+        <p>
+          The prototype is expanded into a complete gameplay loop
+          or vertical slice.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <h3>4. Iterate and Refine</h3>
+        <p>
+          Mechanics and progression are refined to better match
+          the intended player experience.
+        </p>
+      </div>
+
+      <div class="process-step">
+        <h3>5. Polish and Finish</h3>
+        <p>
+          I focus on stability, clarity, and delivery of a finished,
+          playable build.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- EDUCATION -->
@@ -157,21 +263,13 @@
         <h2 class="section-title">Education</h2>
         <div class="education-card">
             <h3>B.E. in Information Technology</h3>
+            <h4>2022 - 2026</h4>
             <p>Terna Engineering College, Mumbai University</p>
-            <p>CGPA: 8.3 | 4th Year</p>
+            <p> 4th Year</p>
         </div>
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="about">
-    <div class="container center-section">
-        <h2 class="section-title">About Me</h2>
-        <p>I am a 20-year-old game developer and software developer currently pursuing a Bachelor's degree in Information Technology at Terna Engineering College, Mumbai University.</p>
-        <p>I focus on building complete, playable experiences using Unreal Engine and Unity, with strengths in gameplay systems, atmosphere-driven design, and experimental prototypes.</p>
-        <p>I am actively seeking internship and junior-level opportunities where I can contribute to real projects and grow as a professional.</p>
-    </div>
-</section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
@@ -179,14 +277,15 @@
         <h2 class="section-title">Contact</h2>
 
         <div class="social-icons">
-            <a href="https://www.linkedin.com/in/yash-kamble-93395a2a9/" target="_blank"><img src="Icons/linkedin.png"></a>
-            <a href="https://github.com/yourprofile" target="_blank"><img src="Icons/github.png"></a>
-            <a href="https://instagram.com/yourprofile" target="_blank"><img src="Icons/instagram.png"></a>
-            <a href="https://www.youtube.com/channel/UCfPYMyD16am0YsGe_Pd9vEw" target="_blank"><img src="Icons/youtube.png"></a>
-            <a href="https://old-monkey.itch.io" target="_blank"><img src="Icons/Itchio.svg"></a>
+            <a href="https://www.linkedin.com/in/yash-kamble-93395a2a9/" target="_blank"><img src="projects/Icons/linkedin.png"></a>
+            <a href="https://github.com/YashK435" target="_blank"><img src="projects/Icons/github.png"></a>
+            <a href="https://old-monkey.itch.io" target="_blank"><img src="projects/Icons/Itchio.svg"></a>
+            <a href="https://www.youtube.com/channel/UCfPYMyD16am0YsGe_Pd9vEw" target="_blank"><img src="projects/Icons/youtube.png"></a>
         </div>
 
-        <a href="mailto:yashkamble435hd@gmail.com" class="email-link">yashkamble435hd@gmail.com</a>
+        <a href="mailto:yashkamble435hd@gmail.com" class="email-link">
+            yashkamble435hd@gmail.com
+        </a>
     </div>
 </section>
 
@@ -197,33 +296,37 @@
 <script>
 const slider = document.getElementById("projectsSlider");
 
-let speed = 0.3; // lower = slower
+let speed = 0.3;
 let position = 0;
 let isPaused = false;
 
-// duplicate content
 slider.innerHTML += slider.innerHTML;
 
 function animate() {
     if (!isPaused) {
         position -= speed;
-
-        if (Math.abs(position) >= slider.scrollWidth / 2) {
-            position = 0;
-        }
-
+        if (Math.abs(position) >= slider.scrollWidth / 2) position = 0;
         slider.style.transform = `translateX(${position}px)`;
     }
-
     requestAnimationFrame(animate);
 }
+
+animate();
 
 slider.addEventListener("mouseenter", () => isPaused = true);
 slider.addEventListener("mouseleave", () => isPaused = false);
 
-animate();
-</script>
+/* CARD NAVIGATION */
+document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", () => {
+        window.location.href = card.dataset.link;
+    });
+});
 
+document.querySelectorAll(".external-link").forEach(link => {
+    link.addEventListener("click", e => e.stopPropagation());
+});
+</script>
 
 </body>
 </html>

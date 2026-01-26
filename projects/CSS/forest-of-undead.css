@@ -1,0 +1,482 @@
+:root {
+  --bg-main: #0f1115;
+  --bg-secondary: #12141a;
+  --card-bg: #181b22;
+  --text-main: #eaeaea;
+  --text-muted: #b0b0b0;
+  --accent: #2fffdc;
+}
+
+/* ================================
+   RESET
+================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ================================
+   CONTAINER
+================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  background: var(--bg-main);
+  z-index: 100;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo {
+  font-weight: 700;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+  padding: 60px 0 10px;
+}
+
+.center-section {
+  text-align: center;
+}
+
+.center-section h3 {
+  font-size: 32px;
+}
+
+.tagline {
+  max-width: 700px;
+  margin: 20px auto 30px;
+  color: var(--text-muted);
+}
+
+.project-meta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ================================
+   VIDEO
+================================ */
+
+.project-video {
+  padding: 80px 0;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 56.25%;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.project-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 30px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+.btn-secondary{
+    margin-top: 200px;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background: var(--accent);
+  color: var(--bg-main);
+  transform: translateY(-2px);
+}
+
+.btn-secondary { 
+    display: inline-block;
+     margin-top: 20px; padding: 14px 30px;
+      border: 2px solid var(--accent);
+       color: var(--accent); text-decoration: none;
+        font-weight: 600; border-radius: 6px;
+         transition: all 0.25s ease;
+         }
+         
+.btn-secondary { 
+    padding: 14px 30px;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none; 
+    font-weight: 600; 
+    border-radius: 6px; 
+    transition: all 0.25s ease; 
+} 
+       
+.btn-secondary:hover { 
+    background: var(--accent); 
+    color: var(--bg-main); 
+    transform: translateY(-2px); 
+}
+/* ================================
+   SECTIONS
+================================ */
+
+.project-section {
+  padding: 90px 0;
+}
+
+.alt-bg {
+  background-color: var(--bg-secondary);
+}
+
+.project-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.project-section h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.project-section p {
+  max-width: 900px;
+  color: var(--text-muted);
+}
+
+.loop-text {
+  font-size: 18px;
+  opacity: 0.9;
+}
+/* ================================
+   SCREENSHOTS CAROUSEL (FIXED)
+================================ */
+
+.screenshots-carousel {
+  padding: 90px 0;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  max-width: 960px;
+  margin: 30px auto 0;
+  background: #000;
+}
+
+/* Track */
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+/* Slide */
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+  aspect-ratio: 16 / 9; /* 🔥 REAL RESPONSIVE RATIO */
+  background: #000;
+}
+
+/* Images & Videos */
+.carousel-slide img,
+.carousel-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Caption */
+.carousel-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 24px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.carousel-caption h4 {
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.carousel-caption p {
+  color: var(--text-muted);
+  max-width: 720px;
+}
+
+/* ================================
+   ARROWS (PRO LEVEL)
+================================ */
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: 
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.carousel-btn.prev { left: 14px; }
+.carousel-btn.next { right: 14px; }
+
+.carousel-btn:hover {
+  background: rgba(47, 255, 220, 0.15);
+  box-shadow: 0 0 18px rgba(47, 255, 220, 0.35);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* ================================
+   INDICATORS (UNCHANGED, SAFE)
+================================ */
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* ================================
+   NETFLIX-STYLE INDICATORS
+================================ */
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.indicator.active {
+  width: 40px;
+  background: rgba(255,255,255,0.2);
+}
+
+.indicator-fill {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width linear;
+}
+
+.indicator-fill::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(47,255,220,0.6);
+  opacity: 0;
+}
+
+.indicator.active .indicator-fill::after {
+  opacity: 1;
+}
+
+
+/* ================================
+   POSTMORTEM
+================================ */
+
+.postmortem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+}
+
+.postmortem-grid ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.postmortem-grid li {
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.6;
+}
+
+/* ================================
+   ANIMATION
+================================ */
+
+.page-enter {
+  animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .carousel-slide img {
+    height: 300px;
+  }
+
+  .indicator.active {
+    width: 32px;
+  }
+
+  .nav-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 50px 0;
+  }
+
+  .tagline {
+    font-size: 14px;
+  }
+
+  .project-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-video {
+    padding: 40px 0;
+  }
+
+  .project-actions {
+    margin-bottom: 50px;
+  }
+}
