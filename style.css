@@ -501,7 +501,10 @@ section {
     .project-desc {
         -webkit-line-clamp: 4;
     }
-
+    .project-links img{
+        height: 26px;
+        width: 26px;
+    }
     .hero-buttons {
         flex-direction: caolumn;
         width: 100%;

@@ -134,9 +134,9 @@ body {
 ================================ */
 
 .project-actions {
-  display: flex;
+    display: flex;
   justify-content: center;
-  margin-bottom: 80px;
+  padding: 0 16px;
 }
 
 .btn-primary,
@@ -152,6 +152,25 @@ body {
 .btn-secondary{
     margin-top: 200px;
 }
+.btn-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 14px 24px;
+  max-width: 100%;
+  width: fit-content;
+
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+
+  transition: all 0.25s ease;
+}
+
 
 .btn-primary:hover,
 .btn-secondary:hover {
@@ -505,6 +524,13 @@ body {
 
   .project-actions {
     margin-bottom: 50px;
+
+  }
+
+    .btn-primary {
+    width: 100%;
+    max-width: 420px;
+    font-size: 14px;
   }
     .carousel-caption {
     padding: 12px;
