@@ -1,142 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects | Kash</title>
-
-    <link rel="stylesheet" href="./CSS/projects.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Yash Kamble</title>
+  <link rel="stylesheet" href="./CSS/projects.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="container nav-inner">
-        <div class="logo">Kash</div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li>
-            <li><a href="../index.html#skills">Skills</a></li>
-            <li><a href="../index.html#about">About</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-    </div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
+    <ul class="nav-links">
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="nav-resume">Resume <span>↗</span></a>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+    <li><a href="../Documents/Yash_2026_Resume.pdf" target="_blank">Resume ↗</a></li>
+  </ul>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-    <div class="container center-section">
-        <h1>Projects</h1>
-        <p>
-            A focused collection of finished games, experimental systems,
-            and technical explorations.
-        </p>
-        <!-- 
-          <div class="project-filters">
-            <span class="project-tag finished">Finished · 1</span>
-            <span class="project-tag prototype">Prototype · 2</span>
-            <span class="project-tag jam">Game Jam · 1</span>
-            </div>
-            -->
+<section class="page-hero">
+  <div class="section-container">
+    <div class="section-label">Portfolio</div>
+    <h1 class="page-title">All Projects</h1>
+    <p class="page-sub">Complete games, experimental systems, and technical explorations — built solo from concept to final build.</p>
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="finished">Finished</button>
+      <button class="filter-btn" data-filter="prototype">Prototype</button>
+      <button class="filter-btn" data-filter="jam">Game Jam</button>
     </div>
+  </div>
 </section>
 
-<!-- PROJECT GRID -->
 <section class="projects-grid-section">
-    <div class="container">
+  <div class="section-container">
+    <div class="projects-grid" id="projectsGrid">
 
-        <div class="projects-grid">
-
-            <!-- Hello Owner -->
-            <a href="hello-owner.html" class="project-card">
-                <div class="media">
-                    <img src="Imgs/Project/HelloOwnerGif1.gif" alt="Hello Owner">
-                </div>
-                <div class="card-content">
-                    <span class="project-tag finished">Work in Progress</span>
-                    <h3>Hello Owner</h3>
-                    <p class="project-meta">Psychological Horror · Unreal Engine</p>
-                    <p class="project-desc">
-                        Narrative-driven psychological horror built around
-                        rule-based environments, audio tension, and player choice.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Forest of Undead -->
-            <a href="forest-of-undead.html" class="project-card">
-                <div class="media">
-                    <img src="Imgs/Project/FotuGif1.gif" alt="Forest of Undead">
-                </div>
-                <div class="card-content">
-                    <span class="project-tag finished">Finished</span>
-                    <h3>Forest of Undead</h3>
-                    <p class="project-meta">2D Survival Shooter · Unity</p>
-                    <p class="project-desc">
-                        Top-down survival shooter focused on readable chaos,
-                        long-term scaling, and replayable upgrade systems.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Ultra Drive -->
-            <a href="ultra-drive.html" class="project-card">
-                <div class="media">
-                    <img src="Imgs/Project/UltraDriveGif1.gif" alt="Ultra Drive">
-                </div>
-                <div class="card-content">
-                    <span class="project-tag prototype">Prototype</span>
-                    
-                    <h3>Ultra Drive</h3>
-                    <p class="project-meta">Hardware-Controlled Racing · Unreal + ESP8266</p>
-                    <p class="project-desc">
-                        Experimental racing project exploring real-time hardware
-                        input mapped directly into Unreal Engine vehicle control.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Dynamic NPC AI -->
-            <a href="dynamic-npc-ai.html" class="project-card">
-                <div class="media">
-                    <img src="Imgs/Project/NPC.gif" alt="Dynamic NPC AI">
-                </div>
-                <div class="card-content">
-                    <span class="project-tag prototype">Prototype</span>
-                    <h3>Dynamic NPC AI System</h3>
-                    <p class="project-meta">AI Interaction · Attribute-Based Dialogue</p>
-                    <p class="project-desc">
-                        Shared AI framework demonstrating scalable NPC behavior
-                        using attribute-driven responses instead of scripted trees.
-                    </p>
-                </div>
-            </a>
-
-            <!-- Loop.exe -->
-            <a href="loop-exe.html" class="project-card">
-                <div class="media">
-                    <img src="Imgs/Project/Loopexe-Gif1.gif" alt="Loop.exe">
-                </div>
-                <div class="card-content">
-                    <span class="project-tag jam">Game Jam</span>
-                    <h3>Loop.exe</h3>
-                    <p class="project-meta">Puzzle · GMTK Game Jam 2025</p>
-                    <p class="project-desc">
-                        High-pressure memory puzzle designed under strict
-                        constraints with permanent consequences.
-                    </p>
-                </div>
-            </a>
-
+      <!-- Hello Owner -->
+      <a href="hello-owner.html" class="project-card" data-category="finished">
+        <div class="card-media">
+          <img src="Imgs/Project/HelloOwnerGif1.gif" alt="Hello Owner">
+          <div class="card-media-overlay"></div>
+          <div class="card-hover-cta">View Project →</div>
         </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="tag tag-finished">Completed</span>
+            <span class="card-engine">Unreal Engine</span>
+          </div>
+          <h3>Hello Owner</h3>
+          <p class="card-desc">Narrative-driven psychological horror — a late-night warehouse job becomes a supernatural trap. Built on routine, obedience and environmental control.</p>
+          <div class="card-footer">
+            <span class="card-genre">Horror · Narrative · Solo</span>
+            <span class="card-duration">~7 months</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Forest of Undead -->
+      <a href="forest-of-undead.html" class="project-card" data-category="finished">
+        <div class="card-media">
+          <img src="Imgs/Project/FotuGif1.gif" alt="Forest of Undead">
+          <div class="card-media-overlay"></div>
+          <div class="card-hover-cta">View Project →</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="tag tag-finished">Finished</span>
+            <span class="card-engine">Unity 2D</span>
+          </div>
+          <h3>Forest of Undead</h3>
+          <p class="card-desc">Top-down survival shooter where upgrades compound into inevitable failure. Scalable enemy architecture, randomised builds, readable chaos.</p>
+          <div class="card-footer">
+            <span class="card-genre">Survival · Systems · Solo</span>
+            <span class="card-duration">~1 month</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Time Echo -->
+      <a href="time-echo.html" class="project-card" data-category="prototype">
+        <div class="card-media card-media-placeholder">
+          <img src="Imgs/Project/TimeEchoThumb.gif" alt="Time Echo"
+            onerror="this.style.display='none'; this.parentNode.classList.add('no-img')">
+          <div class="card-media-overlay"></div>
+          <div class="card-hover-cta">View Project →</div>
+          <div class="placeholder-label">Time Echo</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="tag tag-proto">Prototype</span>
+            <span class="card-engine">Unreal C++</span>
+          </div>
+          <h3>Time Echo</h3>
+          <p class="card-desc">First-person puzzle platformer — record your own actions and deploy cooperative clones to solve spatial puzzles. Built in C++ with a custom frame-data replay system.</p>
+          <div class="card-footer">
+            <span class="card-genre">Puzzle · C++ Architecture</span>
+            <span class="card-duration">2025</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Ultra Drive -->
+      <a href="ultra-drive.html" class="project-card" data-category="prototype">
+        <div class="card-media">
+          <img src="Imgs/Project/UltraDriveGif1.gif" alt="Ultra Drive">
+          <div class="card-media-overlay"></div>
+          <div class="card-hover-cta">View Project →</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="tag tag-proto">Prototype</span>
+            <span class="card-engine">Unreal + ESP8266</span>
+          </div>
+          <h3>Ultra Drive</h3>
+          <p class="card-desc">Racing prototype controlled by real-world ultrasonic and PIR sensors via ESP8266 serial pipeline. Distance-based steering replaces traditional input entirely.</p>
+          <div class="card-footer">
+            <span class="card-genre">Hardware · Racing · Solo</span>
+            <span class="card-duration">~3 weeks</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Dynamic NPC AI -->
+      <a href="dynamic-npc-ai.html" class="project-card" data-category="prototype">
+        <div class="card-media">
+          <img src="Imgs/Project/NPC.gif" alt="Dynamic NPC AI">
+          <div class="card-media-overlay"></div>
+          <div class="card-hover-cta">View Project →</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="tag tag-wip">WIP</span>
+            <span class="card-engine">Unreal Engine</span>
+          </div>
+          <h3>Dynamic NPC AI System</h3>
+          <p class="card-desc">Shared LLM framework where four NPCs behave entirely differently through attribute-based logic. No scripted trees — conversation IS the mechanic.</p>
+          <div class="card-footer">
+            <span class="card-genre">AI · Dialogue Systems</span>
+            <span class="card-duration">In progress</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Loop.exe -->
+      <a href="loop-exe.html" class="project-card" data-category="jam">
+        <div class="card-media">
+          <img src="Imgs/Project/Loopexe-Gif1.gif" alt="Loop.exe">
+          <div class="card-media-overlay"></div>
+          <div class="card-hover-cta">View Project →</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="tag tag-jam">Game Jam</span>
+            <span class="card-engine">Unreal Engine 5</span>
+          </div>
+          <h3>Loop.exe</h3>
+          <p class="card-desc">Memory-execution puzzle built in 4 days for GMTK 2025. Every mistake permanently deletes an execution thread. Difficulty emerges from cognitive load, not mechanics.</p>
+          <div class="card-footer">
+            <span class="card-genre">Puzzle · GMTK 2025</span>
+            <span class="card-duration">4 days</span>
+          </div>
+        </div>
+      </a>
+
     </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
-    <p>© 2026 Kash. All rights reserved.</p>
+  <div class="footer-inner">
+    <span class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></span>
+    <span>© 2026 Yash Kamble.</span>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="footer-resume">Resume ↗</a>
+  </div>
 </footer>
 
+<script>
+/* cursor */
+const cursor=document.getElementById('cursor'),follower=document.getElementById('cursorFollower');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){cursor.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;follower.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.classList.add('cursor-hover');follower.classList.add('cursor-hover')});
+  el.addEventListener('mouseleave',()=>{cursor.classList.remove('cursor-hover');follower.classList.remove('cursor-hover')});
+});
+/* navbar */
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>40));
+/* hamburger */
+const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
+/* filters */
+const btns=document.querySelectorAll('.filter-btn');
+const cards=document.querySelectorAll('.project-card[data-category]');
+btns.forEach(btn=>btn.addEventListener('click',()=>{
+  btns.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const f=btn.dataset.filter;
+  cards.forEach(c=>{
+    const show=f==='all'||c.dataset.category===f;
+    c.style.transition='opacity .35s, transform .35s';
+    c.style.opacity=show?'1':'0.2';
+    c.style.transform=show?'':'scale(0.97)';
+    c.style.pointerEvents=show?'':'none';
+  });
+}));
+/* reveal */
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.project-card').forEach((el,i)=>{el.style.transitionDelay=`${i*.07}s`;obs.observe(el)});
+</script>
 </body>
 </html>
