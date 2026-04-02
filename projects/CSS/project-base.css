@@ -43,6 +43,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
 
 /* LAYOUT */
 .container{max-width:1100px;margin:0 auto;padding:0 40px}
+.center-section{text-align:center;margin-left:auto;margin-right:auto}
+.tagline,.project-tagline{font-size:17px;color:var(--text-muted);max-width:640px;margin:0 auto 40px;line-height:1.6}
+.project-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:28px}
+.project-meta span{font-size:12px;padding:6px 14px;border:1px solid var(--border);border-radius:100px;color:var(--text-muted)}
 
 /* PROJECT HERO */
 .project-hero{padding:140px 0 80px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
@@ -58,7 +62,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
 .tag-neutral{background:rgba(255,255,255,.06);color:var(--text-muted);border:1px solid var(--border)}
 
 .project-title{font-family:var(--font-display);font-size:clamp(48px,7vw,90px);font-weight:800;line-height:.95;margin-bottom:28px}
-.project-tagline{font-size:17px;color:var(--text-muted);max-width:640px;margin:0 auto 40px;line-height:1.6}
 .hero-cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--accent);color:#080a0e;text-decoration:none;font-family:var(--font-display);font-weight:600;font-size:13px;border-radius:100px;transition:transform .2s,box-shadow .2s}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,245,60,.3)}
@@ -69,6 +72,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
 
 /* SECTIONS */
 .project-section{padding:90px 0}
+.project-actions{display:flex;justify-content:center;padding:56px 40px;border-bottom:1px solid var(--border)}
 .alt-bg{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .project-section h2{font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:24px;line-height:1.1}
 .project-section h3{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--accent);margin-top:36px;margin-bottom:10px}
@@ -80,12 +84,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
 .loop-arrow{color:var(--accent);margin:0 4px}
 
 /* VIDEO */
+.project-video{padding:60px 0;border-bottom:1px solid var(--border)}
+.project-video .container{max-width:1100px}
 .video-wrap{position:relative;width:100%;max-width:960px;margin:0 auto;padding-top:56.25%;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border)}
 .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%}
 
 /* CAROUSEL */
-.carousel-section{padding:90px 0}
-.carousel-section h2{font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:36px}
+.carousel-section,.screenshots-carousel{padding:90px 0}
+.carousel-section h2,.screenshots-carousel h2{font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:36px}
 .carousel{position:relative;overflow:hidden;border-radius:var(--radius-lg);max-width:960px;margin:0 auto;background:#000;border:1px solid var(--border)}
 .carousel-track{display:flex;transition:transform .6s var(--ease)}
 .carousel-slide{min-width:100%;position:relative;aspect-ratio:16/9;background:#000}
@@ -144,7 +150,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
 
 /* FOOTER */
 .footer{padding:24px 40px;border-top:1px solid var(--border)}
-.footer-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--text-dim)}
+.footer-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text-dim)}
+.footer .logo{font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--text)}
 .footer-resume{color:var(--text-dim);text-decoration:none;transition:color .2s}
 .footer-resume:hover{color:var(--accent)}
 
@@ -157,8 +164,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
   .navbar{padding:0 20px}.nav-links,.nav-resume{display:none}.hamburger{display:flex}
   .container{padding:0 20px}
   .project-hero{padding:110px 0 60px}
-  .project-section,.carousel-section{padding:60px 0}
+  .project-actions{padding:40px 20px}
+  .project-section,.carousel-section,.screenshots-carousel{padding:60px 0}
   .postmortem-grid{grid-template-columns:1fr;gap:32px}
+  .footer-inner{flex-direction:column;text-align:center;justify-content:center}
   body{cursor:auto}.cursor,.cursor-follower{display:none}
 }
 @media(max-width:480px){
@@ -167,5 +176,4 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
   .carousel-caption p{display:none}
 }
 
-/* SHARED CAROUSEL JS INIT — included once here for all pages */
-/* Pages must call: initCarousel() after DOM ready */
+/* Carousels: inline scripts on each project page handle track/indicators. */
