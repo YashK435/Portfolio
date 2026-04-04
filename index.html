@@ -47,64 +47,62 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <!-- Video background — uses Ultra Drive footage as reel -->
-  <div class="hero-video-wrap">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto"
-      src="projects/Imgs/Ultradirve/UD_Overlap.mp4"></video>
-    <div class="hero-video-overlay"></div>
-    <!-- Grain texture -->
-    <div class="hero-grain"></div>
+  <div class="hero-canvas-wrap">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-canvas-fade"></div>
   </div>
 
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-dot"></span>
-      <span>Game Developer · Unreal · Unity</span>
+  <div class="hero-inner">
+
+    <!-- LEFT: content -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>Game Developer · Unreal · Unity</span>
+      </div>
+
+      <h1 class="hero-name">
+        <span class="name-line" data-delay="0">Yash</span>
+        <span class="name-line accent-stroke" data-delay="100">Kamble</span>
+      </h1>
+
+      <p class="hero-tagline">
+        Building complete games from concept to final build —<br>
+        systems, hardware, AI and atmosphere.
+      </p>
+
+      <div class="hero-actions">
+        <a href="projects/projects.html" class="btn-hero-primary">
+          <span>View Projects</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn-hero-ghost">Get in touch</a>
+      </div>
     </div>
 
-    <h1 class="hero-name">
-      <span class="name-line" data-delay="0">Yash</span>
-      <span class="name-line accent-stroke" data-delay="100">Kamble</span>
-    </h1>
+    <!-- RIGHT: profile + stats -->
+    <div class="hero-right" id="heroRight">
+      <div class="hero-profile">
+        <div class="profile-ring">
+          <img src="projects/Imgs/ProfilePic.jpeg" alt="Yash Kamble">
+        </div>
+        <div class="profile-status">
+          <span class="status-dot"></span>
+          <span>Open to opportunities</span>
+        </div>
+      </div>
 
-    <p class="hero-tagline">
-      Building complete games from concept to final build —<br>
-      systems, hardware, AI and atmosphere.
-    </p>
-
-    <div class="hero-actions">
-      <a href="projects/projects.html" class="btn-hero-primary">
-        <span>View Projects</span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="#contact" class="btn-hero-ghost">Get in touch</a>
+      <div class="hero-stats">
+        <div class="hero-stats-row">
+          <div class="stat"><span class="stat-num">6</span><span class="stat-label">Projects</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years</span></div>
+          <div class="stat-div"></div>
+          <div class="stat"><span class="stat-num">2</span><span class="stat-label">Engines</span></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Stats row -->
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Projects</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years Building</span></div>
-      <div class="stat-div"></div>
-      <div class="stat"><span class="stat-num">2</span><span class="stat-label">Engines</span></div>
-    </div>
-  </div>
-
-  <!-- Profile picture -->
-  <div class="hero-profile">
-    <div class="profile-ring">
-      <img src="projects/Imgs/ProfilePic.jpeg" alt="Yash Kamble">
-    </div>
-    <div class="profile-status">
-      <span class="status-dot"></span>
-      <span>Open to opportunities</span>
-    </div>
-  </div>
-
-  <!-- Scroll hint -->
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
   </div>
 </section>
 
@@ -201,7 +199,7 @@
       <!-- Time Echo -->
       <div class="project-card" data-link="projects/time-echo.html">
         <div class="card-media card-media-placeholder">
-          <img src="projects/Imgs/Project/TimeEchoThumb.gif" alt="Time Echo"
+          <img src="projects/Imgs/Project/time echo thumbnail.gif" alt="Time Echo"
             onerror="this.style.display='none'; this.parentNode.classList.add('no-img')">
           <div class="card-media-overlay"></div>
           <div class="placeholder-label">Time Echo</div>
@@ -342,31 +340,37 @@
     <h2 class="section-title">Skills</h2>
     <div class="skills-grid">
       <div class="skill-card">
+        <span class="skill-num">01</span>
         <div class="skill-icon">◈</div>
         <h4>Unreal Engine 5</h4>
         <p>Blueprints, C++, gameplay systems, level scripting, plugin integration</p>
       </div>
       <div class="skill-card">
+        <span class="skill-num">02</span>
         <div class="skill-icon">◈</div>
         <h4>Unity 2D</h4>
         <p>C#, scalable systems design, wave mechanics, upgrade architecture</p>
       </div>
       <div class="skill-card">
+        <span class="skill-num">03</span>
         <div class="skill-icon">◈</div>
         <h4>Gameplay Systems</h4>
         <p>Core loops, rule-based mechanics, difficulty scaling, player feedback</p>
       </div>
       <div class="skill-card">
+        <span class="skill-num">04</span>
         <div class="skill-icon">◈</div>
         <h4>Hardware Integration</h4>
         <p>ESP8266, ultrasonic sensors, PIR, serial COM, real-time Unreal pipeline</p>
       </div>
       <div class="skill-card">
+        <span class="skill-num">05</span>
         <div class="skill-icon">◈</div>
         <h4>AI & Dialogue</h4>
         <p>LLM-driven NPC systems, attribute-based response architecture</p>
       </div>
       <div class="skill-card">
+        <span class="skill-num">06</span>
         <div class="skill-icon">◈</div>
         <h4>Horror Design</h4>
         <p>Environmental storytelling, audio-first tension, rule-based antagonism</p>
@@ -452,15 +456,14 @@ mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 
 /* ── HERO ENTRANCE ── */
 window.addEventListener('load', () => {
-  document.querySelectorAll('.name-line').forEach((el, i) => {
+  document.querySelectorAll('.name-line').forEach((el) => {
     el.style.animationDelay = el.dataset.delay + 'ms';
     el.classList.add('revealed');
   });
   document.querySelector('.hero-eyebrow').classList.add('revealed');
   setTimeout(() => document.querySelector('.hero-tagline').classList.add('revealed'), 400);
   setTimeout(() => document.querySelector('.hero-actions').classList.add('revealed'), 600);
-  setTimeout(() => document.querySelector('.hero-stats').classList.add('revealed'), 800);
-  setTimeout(() => document.querySelector('.hero-profile').classList.add('revealed'), 300);
+  setTimeout(() => document.getElementById('heroRight').classList.add('revealed'), 300);
 });
 
 /* ── SLIDER ── */
@@ -468,7 +471,6 @@ const slider = document.getElementById('projectsSlider');
 const cards = slider.querySelectorAll('.project-card');
 const cardW = () => cards[0].offsetWidth + 24;
 let pos = 0, isPaused = false, autoDir = -1;
-let autoInterval;
 
 function clampPos() {
   const maxScroll = slider.scrollWidth - slider.parentElement.offsetWidth;
@@ -476,20 +478,19 @@ function clampPos() {
   if (pos < -maxScroll) { pos = -maxScroll; autoDir = 1; }
 }
 
-function startAuto() {
-  autoInterval = setInterval(() => {
-    if (!isPaused) { pos += autoDir * 0.5; clampPos(); slider.style.transform = `translateX(${pos}px)`; }
-  }, 16);
-}
-startAuto();
+setInterval(() => {
+  if (!isPaused) { pos += autoDir * 0.5; clampPos(); slider.style.transform = `translateX(${pos}px)`; }
+}, 16);
 
 document.getElementById('sliderNext').addEventListener('click', () => {
-  pos -= cardW(); clampPos(); slider.style.transition = 'transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)';
+  pos -= cardW(); clampPos();
+  slider.style.transition = 'transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)';
   slider.style.transform = `translateX(${pos}px)`;
   setTimeout(() => slider.style.transition = '', 500);
 });
 document.getElementById('sliderPrev').addEventListener('click', () => {
-  pos += cardW(); clampPos(); slider.style.transition = 'transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)';
+  pos += cardW(); clampPos();
+  slider.style.transition = 'transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)';
   slider.style.transform = `translateX(${pos}px)`;
   setTimeout(() => slider.style.transition = '', 500);
 });
@@ -502,6 +503,121 @@ document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', () => window.location.href = card.dataset.link);
 });
 document.querySelectorAll('.icon-link').forEach(l => l.addEventListener('click', e => e.stopPropagation()));
+
+/* ── PARTICLE NODE NETWORK ── */
+(function () {
+  const canvas = document.getElementById('particleCanvas');
+  const ctx = canvas.getContext('2d');
+
+  const ACCENT          = [212, 245, 60];
+  const ACCENT2         = [60, 255, 212];
+  const NODE_COUNT      = 72;
+  const CONNECT_DIST    = 160;
+  const SPEED           = 0.2;
+  const WANDER_STRENGTH = 0.018;
+  const WANDER_INTERVAL = 80;
+
+  let W, H, nodes = [], frame = 0;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function makeNode() {
+    const accent = Math.random() < 0.18 ? ACCENT2 : ACCENT;
+    const angle  = Math.random() * Math.PI * 2;
+    return {
+      x:  Math.random() * W,
+      y:  Math.random() * H,
+      vx: Math.cos(angle) * SPEED * (0.3 + Math.random() * 0.7),
+      vy: Math.sin(angle) * SPEED * (0.3 + Math.random() * 0.7),
+      r:  Math.random() * 1.8 + 1,
+      a:  accent,
+      opacity:      Math.random() * 0.5 + 0.25,
+      wanderOffset: Math.random() * 1000,
+      wanderTimer:  Math.floor(Math.random() * WANDER_INTERVAL),
+    };
+  }
+
+  function wander(n) {
+    n.wanderTimer++;
+    if (n.wanderTimer >= WANDER_INTERVAL) {
+      /* random direction kick every N frames */
+      n.wanderTimer = 0;
+      const angle = Math.random() * Math.PI * 2;
+      n.vx += Math.cos(angle) * WANDER_STRENGTH * 8;
+      n.vy += Math.sin(angle) * WANDER_STRENGTH * 8;
+    } else {
+      /* smooth sinusoidal nudge between kicks */
+      const t = (frame + n.wanderOffset) * 0.008;
+      n.vx += Math.cos(t * 1.3 + n.wanderOffset) * WANDER_STRENGTH;
+      n.vy += Math.sin(t * 0.9 + n.wanderOffset * 0.7) * WANDER_STRENGTH;
+    }
+    /* clamp max speed */
+    const spd = Math.sqrt(n.vx * n.vx + n.vy * n.vy);
+    if (spd > SPEED * 1.8) {
+      n.vx = (n.vx / spd) * SPEED * 1.8;
+      n.vy = (n.vy / spd) * SPEED * 1.8;
+    }
+    /* prevent nodes from stopping completely */
+    if (spd < SPEED * 0.15) {
+      const a2 = Math.random() * Math.PI * 2;
+      n.vx = Math.cos(a2) * SPEED * 0.4;
+      n.vy = Math.sin(a2) * SPEED * 0.4;
+    }
+  }
+
+  function draw() {
+    frame++;
+    ctx.clearRect(0, 0, W, H);
+
+    nodes.forEach(n => {
+      wander(n);
+      n.x += n.vx;
+      n.y += n.vy;
+      if (n.x < -20)    n.x = W + 20;
+      if (n.x > W + 20) n.x = -20;
+      if (n.y < -20)    n.y = H + 20;
+      if (n.y > H + 20) n.y = -20;
+    });
+
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < CONNECT_DIST) {
+          const alpha = (1 - d / CONNECT_DIST) * 0.2;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(200,255,150,${alpha})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${n.a[0]},${n.a[1]},${n.a[2]},${n.opacity})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  function init() {
+    resize();
+    nodes = Array.from({ length: NODE_COUNT }, makeNode);
+    draw();
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('load', init);
+})();
 
 /* ── SCROLL REVEAL ── */
 const observer = new IntersectionObserver(entries => {

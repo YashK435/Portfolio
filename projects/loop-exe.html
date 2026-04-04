@@ -1,304 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loop.exe | Yash Kamble</title>
-
-    <link rel="stylesheet" href="CSS/loop-exe.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loop.exe | Yash Kamble</title>
+  <link rel="stylesheet" href="CSS/project-base.css">
+  <style>
+    :root {
+  --pa:       #6db33f;
+  --pa2:      #c9d16a;
+  --pa-glow:  rgba(109,179,63,0.13);
+  --pa-glow2: rgba(109,179,63,0.05);
+}
+    /* CRT scanline overlay on hero */
+    .proj-hero::after {
+      content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent, transparent 2px,
+    rgba(109,179,63,0.015) 2px, rgba(109,179,63,0.015) 4px
+  );
+}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="container nav-inner">
-        <div class="logo">Yash Kamble</div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="../index.html#skills">Skills</a></li>
-            <li><a href="../index.html#about">About</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-    </div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cf"></div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
+    <ul class="nav-links">
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="nav-resume">Resume <span>↗</span></a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
 </nav>
+<div class="mobile-menu" id="mob">
+  <ul>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+    <li><a href="../Documents/Yash_2026_Resume.pdf" target="_blank">Resume ↗</a></li>
+  </ul>
+</div>
 
-<!-- HERO -->
-<section class="hero project-hero page-enter">
-    <div class="container center-section">
-        <h3>Loop.exe</h3>
-        <p class="tagline">
-            A high-pressure memory execution game where mistakes permanently delete
-            execution threads. Designed and built solo for GMTK Game Jam 2025.
-        </p>
+<!-- ═══ HERO ═══ -->
+<section class="proj-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-rings">
+    <div class="ring ring-1"></div><div class="ring ring-2"></div>
+    <div class="ring ring-3"></div><div class="ring ring-4"></div>
+  </div>
 
-        <div class="project-meta">
-            <span>Unreal Engine 5</span>
-            <span>PC</span>
-            <span>Solo Developer</span>
-            <span>GMTK Game Jam 2025</span>
-        </div>
-
-        <a
-            href="https://old-monkey.itch.io/loopexe"
-            target="_blank"
-            class="btn-secondary"
-        >
-            View on Itch.io
-        </a>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal-up" style="--d:0ms">
+      <span class="eyebrow-pill pill-jam">Game Jam</span>
+      <span class="eyebrow-dot"></span>
+      <span class="eyebrow-text">GMTK 2025 · Unreal Engine 5 · 4 Days</span>
     </div>
-</section>
-
-<!-- VIDEO -->
-<section class="project-video">
-    <div class="container">
-        <div class="video-wrapper">
-            <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-                title="Loop.exe Gameplay Demo"
-                frameborder="0"
-                allowfullscreen>
-            </iframe>
-        </div>
+    <h1 class="proj-title reveal-up" style="--d:120ms">
+      <span class="title-solid">Loop</span>
+      <span class="title-outline">.exe</span>
+    </h1>
+    <p class="hero-sub reveal-up" style="--d:250ms">
+      Every mistake permanently deletes an execution thread.<br>
+      Memory-execution puzzle built for GMTK Game Jam 2025 in 4 days.
+    </p>
+    <div class="hero-tags reveal-up" style="--d:360ms">
+      <span class="htag">Unreal Engine 5</span>
+      <span class="htag">PC — Keyboard Only</span>
+      <span class="htag">GMTK 2025</span>
+      <span class="htag">Solo Developer</span>
+      <span class="htag">Submitted Ahead of Deadline</span>
     </div>
+    <div class="hero-cta reveal-up" style="--d:460ms">
+      <a href="https://old-monkey.itch.io/loopexe" target="_blank" class="btn-primary">Play on Itch.io ↗</a>
+      <a href="Gdd/GDD_LOOP_exe.pdf" target="_blank" class="btn-secondary">Download GDD</a>
+      <a href="projects.html" class="btn-ghost">← All Projects</a>
+    </div>
+  </div>
+  
 </section>
 
-<!-- ACTION BUTTON -->
-<section class="project-actions">
-    <a
-        href="./Gdd/GDD_LOOP.exe.pdf"
-        class="btn-primary"
-        target="_blank"
-    >
-        Download Game Design Document (PDF)
-    </a>
-</section>
-
-<!-- SCREENSHOTS -->
-<section class="screenshots-carousel alt-bg">
+<!-- ═══ YOUTUBE ═══ -->
+<section class="yt-section">
   <div class="container">
-    <h2>Screenshots</h2>
-
-    <div class="carousel">
-
-      <!-- REQUIRED TRACK -->
-      <div class="carousel-track">
-
-        <div class="carousel-slide">
-          <img src="./Imgs/Loop/Loopexe-Gif1.gif" alt="">
-          <div class="carousel-caption">
-            <h4>System Boot & Game Start</h4>
-            <p>Player enters the system and initiates the first sequence, establishing the minimal, terminal-style presentation.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <img src="./Imgs/Loop/Loopexe-Gif2.gif" alt="">
-          <div class="carousel-caption">
-            <h4>Timer-Based Pressure</h4>
-            <p>After the beginner phase, a timer activates to increase cognitive load and execution pressure.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <img src="./Imgs/Loop/Loopexe-Gif3.gif" alt="">
-          <div class="carousel-caption">
-            <h4>Thread Failure Visualization</h4>
-            <p>Losing a thread triggers a screen shake and visual feedback, reinforcing permanent consequences without interrupting flow.</p>
-          </div>
-        </div>
-        <div class="carousel-slide">
-          <img src="./Imgs/Loop/Loopexe-Gif4.gif" alt="">
-          <div class="carousel-caption">
-            <h4>Loop Purged (Game Over)</h4>
-            <p>Final failure state where all threads are lost and the execution loop is terminated.</p>
-          </div>
-        </div>       
-      </div>
-
-      <!-- ARROWS -->
-      <button class="carousel-btn prev">‹</button>
-      <button class="carousel-btn next">›</button>
+    <div class="section-eyebrow">Gameplay Demo</div>
+    <h2>Watch It In Action</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/NZ2YteY25RY" title="Loop.exe Gameplay Demo" allowfullscreen></iframe>
     </div>
-
-    <!-- NETFLIX INDICATORS -->
-    <div class="carousel-indicators"></div>
-
   </div>
 </section>
 
+<!-- ═══ CAROUSEL ═══ -->
+<section class="carousel-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Gameplay Footage</div>
+    <h2 class="section-h2">Screenshots &amp; GIFs</h2>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="track">
 
-<!-- OVERVIEW -->
-<section class="project-section">
-    <div class="container">
-        <h2>Game Overview</h2>
-        <p>
-            Loop.exe is a memory-based execution game where difficulty emerges from
-            cognitive pressure rather than mechanical complexity. Players must
-            input increasingly long command sequences while managing a limited
-            number of execution threads. Every mistake permanently removes a
-            thread, creating irreversible tension.
-        </p>
-    </div>
-</section>
-
-<!-- CORE LOOP -->
-<section class="project-section alt-bg">
-    <div class="container">
-        <h2>Core Gameplay Loop</h2>
-        <p class="loop-text">
-            Generate Sequence → Display on CRT UI → Player Inputs Keys →
-            Correct Input Extends Loop → Incorrect Input Deletes Thread →
-            All Threads Lost → Loop Purged
-        </p>
-    </div>
-</section>
-
-<!-- SYSTEMS -->
-<section class="project-section">
-    <div class="container">
-        <h2>Key Systems & Design Decisions</h2>
-
-        <h3>Thread System</h3>
-        <p>
-            Threads represent the player’s remaining mental capacity rather than
-            traditional health. They do not regenerate, enforcing permanent
-            consequences and deliberate play.
-        </p>
-
-        <h3>Cognitive Difficulty Scaling</h3>
-        <p>
-            Difficulty increases naturally through longer input sequences and
-            accumulated player pressure. No speed multipliers or artificial
-            difficulty spikes are used.
-        </p>
-
-        <h3>CRT-Based UI Pipeline</h3>
-        <p>
-            The UI is rendered to a material and applied to a curved mesh to
-            simulate a physical CRT display. This approach enhanced immersion but
-            introduced minor input latency — a documented tradeoff.
-        </p>
-    </div>
-</section>
-
-<!-- POSTMORTEM -->
-<section class="project-section alt-bg">
-    <div class="container">
-        <h2>Postmortem</h2>
-
-        <div class="postmortem-grid">
-            <div>
-                <h3>What Worked</h3>
-                <ul>
-                    <li>Strong, focused core mechanic</li>
-                    <li>Clear scope control under time constraints</li>
-                    <li>Completed and submitted ahead of deadline</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3>What I’d Improve</h3>
-                <ul>
-                    <li>Reduce input latency by reworking UI pipeline</li>
-                    <li>Optimize build size for jam accessibility</li>
-                    <li>Explore stronger twists on memory-game expectations</li>
-                </ul>
-            </div>
+        <div class="carousel-slide">
+          <img src="Imgs/Loop/Loopexe-Gif1.gif" alt="Loop.exe — System Boot">
+          <div class="slide-caption">
+            <h4>System Boot &amp; Game Start</h4>
+            <p>Player enters the system and initiates the first sequence — establishing the minimal terminal-style presentation before cognitive pressure begins.</p>
+          </div>
         </div>
+
+        <div class="carousel-slide">
+          <img src="Imgs/Loop/Loopexe-Gif2.gif" alt="Loop.exe — Timer Pressure">
+          <div class="slide-caption">
+            <h4>Timer-Based Pressure</h4>
+            <p>After the beginner phase, a timer activates — adding time pressure to an already growing sequence length. Cognitive load compounds.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="Imgs/Loop/Loopexe-Gif3.gif" alt="Loop.exe — Thread Failure">
+          <div class="slide-caption">
+            <h4>Thread Failure Visualization</h4>
+            <p>A wrong input triggers screen shake and visual feedback. The thread is deleted permanently. There is no recovery within a run.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img src="Imgs/Loop/Loopexe-Gif4.gif" alt="Loop.exe — Game Over">
+          <div class="slide-caption">
+            <h4>Loop Purged — Game Over</h4>
+            <p>All threads exhausted. The execution loop terminates. The only option is to restart and commit the sequence to memory better next time.</p>
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-btn prev" id="prev">‹</button>
+      <button class="carousel-btn next" id="next">›</button>
     </div>
+    <div class="carousel-dots" id="dots"></div>
+  </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══ OVERVIEW ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Overview</div>
+    <h2 class="section-h2">Game Overview</h2>
+    <p>Loop.exe is a memory-based execution game where difficulty emerges entirely from cognitive pressure rather than mechanical complexity. Players input increasingly long command sequences while managing a limited number of execution threads. Every mistake permanently removes a thread — creating irreversible, mounting tension.</p>
+    <p>The design goal was to make players feel like they are executing commands inside a failing system, not playing a traditional puzzle game. Keyboard-only input. No movement. No camera. Difficulty is purely cognitive.</p>
+    <p>Built solo in 4 days for GMTK Game Jam 2025 and submitted 1 day and 6 hours before the deadline.</p>
+  </div>
+</section>
+
+<!-- ═══ CORE LOOP ═══ -->
+<section class="project-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Gameplay</div>
+    <h2 class="section-h2">Core Loop</h2>
+    <div class="loop-flow">
+      <span class="loop-step">Generate Sequence</span> → Display on CRT UI →
+      <span class="loop-step">Player Inputs Keys</span> → Correct: Sequence Extends →
+      <span class="loop-step">Incorrect: Thread Deleted</span> → All Threads Lost →
+      <span class="loop-step">Loop Purged</span>
+    </div>
+    <p style="margin-top:24px">The loop continues indefinitely with increasing sequence complexity. There are no artificial difficulty spikes — length and accumulated pressure are the only scaling mechanisms.</p>
+  </div>
+</section>
+
+<!-- ═══ DESIGN PILLARS ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Design</div>
+    <h2 class="section-h2">Design Pillars</h2>
+    <div class="pillars-grid">
+      <div class="pillar-card" style="--i:0">
+        <div class="pillar-num">01</div>
+        <h4>Cognitive Pressure Over Mechanics</h4>
+        <p>No movement, no camera control, no aiming. Difficulty comes purely from memory and precision. The challenge is mental, not manual.</p>
+      </div>
+      <div class="pillar-card" style="--i:1">
+        <div class="pillar-num">02</div>
+        <h4>Permanent Consequences</h4>
+        <p>Mistakes delete execution threads forever. There is no undo, no retry within a run. Threads function as mental capacity, not health — they don't regenerate.</p>
+      </div>
+      <div class="pillar-card" style="--i:2">
+        <div class="pillar-num">03</div>
+        <h4>Minimal Input, Maximum Tension</h4>
+        <p>Keyboard-only. A single interaction stream. Constraints are deliberate — they enforce focused, unhurried play while the sequence length grows longer every cycle.</p>
+      </div>
+      <div class="pillar-card" style="--i:3">
+        <div class="pillar-num">04</div>
+        <h4>Retro-System Aesthetic</h4>
+        <p>CRT-inspired visuals and terminal presentation. The UI is rendered to a material and applied to a curved cylinder mesh — the screen exists as a physical object, not an overlay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KEY SYSTEMS ═══ -->
+<section class="project-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Systems</div>
+    <h2 class="section-h2">Key Technical Decisions</h2>
+    <div class="systems-grid">
+      <div class="sys-card" style="--i:0">
+        <div class="sys-card-icon">🧵</div>
+        <h4>Thread System</h4>
+        <p>Players start with 3 execution threads. Each incorrect input removes one permanently. Threads represent mental capacity — not health. No regeneration. No recovery mid-run.</p>
+      </div>
+      <div class="sys-card" style="--i:1">
+        <div class="sys-card-icon">📈</div>
+        <h4>Cognitive Difficulty Scaling</h4>
+        <p>Longer input sequences and accumulated player pressure create natural difficulty growth. No speed multipliers, no artificial spikes — only cognitive load compounds over time.</p>
+      </div>
+      <div class="sys-card" style="--i:2">
+        <div class="sys-card-icon">📺</div>
+        <h4>CRT UI Pipeline</h4>
+        <p>UI rendered to a material applied to a curved cylinder mesh — creating a physically curved screen rather than a flat overlay. Tradeoff: minor input latency during high-intensity sequences. Documented, not hidden.</p>
+      </div>
+      <div class="sys-card" style="--i:3">
+        <div class="sys-card-icon">🥚</div>
+        <h4>Hidden Easter Eggs</h4>
+        <p>10 hidden easter eggs discoverable by attentive players. Optional discoveries that reward curiosity without affecting the core gameplay loop — designed for the kind of player who reads terminal output.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POSTMORTEM ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Reflection</div>
+    <h2 class="section-h2">Postmortem</h2>
+    <div class="pm-grid">
+      <div class="pm-col">
+        <div class="pm-head"><span class="pm-dot green"></span><h3>What Worked</h3></div>
+        <ul class="pm-list">
+          <li>Clear, focused core mechanic that communicated instantly</li>
+          <li>Controlled scope — nothing cut, everything shipped</li>
+          <li>Submitted 1 day and 6 hours ahead of the deadline</li>
+          <li>CRT aesthetic created strong visual identity and immersion</li>
+        </ul>
+      </div>
+      <div class="pm-col">
+        <div class="pm-head"><span class="pm-dot yellow"></span><h3>What I'd Improve</h3></div>
+        <ul class="pm-list">
+          <li>Minor input latency from UI material pipeline — needs a flat UI + post-processing CRT approach</li>
+          <li>470MB build size discouraged jam players — web-first next time</li>
+          <li>Memory-game structure felt familiar; stronger mechanic twist would help</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="project-actions">
+  <a href="Gdd/GDD_LOOP_exe.pdf" target="_blank" class="btn-primary">Download Game Design Document</a>
+  <a href="projects.html" class="btn-ghost">← All Projects</a>
+</div>
+
 <footer class="footer">
-    <p>© 2026 Yash Kamble. All rights reserved.</p>
+  <div class="footer-inner">
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
+    <span>© 2026 Yash Kamble. All rights reserved.</span>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="footer-resume">Resume ↗</a>
+  </div>
 </footer>
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const indicatorWrap = document.querySelector('.carousel-indicators');
 
-  const SLIDE_DURATION = 8000;
-  let index = 0;
-  let interval;
-
-  if (!track || slides.length === 0) return;
-
-  // Create indicators
-  slides.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'indicator';
-    dot.innerHTML = `<span class="indicator-fill"></span>`;
-    if (i === 0) dot.classList.add('active');
-    indicatorWrap.appendChild(dot);
-
-    dot.addEventListener('click', () => {
-      clearInterval(interval);
-      index = i;
-      updateCarousel();
-      startAutoSlide();
-    });
-  });
-
-  const indicators = Array.from(indicatorWrap.children);
-
-  function updateCarousel() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    updateIndicators();
-  }
-
-  function updateIndicators() {
-    indicators.forEach((dot, i) => {
-      const fill = dot.querySelector('.indicator-fill');
-      fill.style.transition = 'none';
-      fill.style.width = '0%';
-      dot.classList.remove('active');
-
-      if (i === index) {
-        dot.classList.add('active');
-
-        requestAnimationFrame(() => {
-          fill.style.transition = `width ${SLIDE_DURATION}ms linear`;
-          fill.style.width = '100%';
-        });
-      }
-    });
-  }
-
-  function nextSlide() {
-    index = (index + 1) % slides.length;
-    updateCarousel();
-  }
-
-  function prevSlide() {
-    index = (index - 1 + slides.length) % slides.length;
-    updateCarousel();
-  }
-
-  nextBtn.addEventListener('click', () => {
-    clearInterval(interval);
-    nextSlide();
-    startAutoSlide();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    clearInterval(interval);
-    prevSlide();
-    startAutoSlide();
-  });
-
-  function startAutoSlide() {
-    updateIndicators();
-    interval = setInterval(nextSlide, SLIDE_DURATION);
-  }
-
-  startAutoSlide();
+<script>
+const cur=document.getElementById('cursor'),cf=document.getElementById('cf');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function t(){cur.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;cf.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(t)})();
+document.querySelectorAll('a,button,.pillar-card,.sys-card,.pm-col').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('ch');cf.classList.add('ch')});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('ch');cf.classList.remove('ch')});
 });
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>60));
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
+window.addEventListener('load',()=>{document.querySelectorAll('.reveal-up').forEach(el=>{setTimeout(()=>el.classList.add('visible'),parseInt(el.style.getPropertyValue('--d'))||0)})});
+document.addEventListener('mousemove',e=>{const px=(e.clientX/window.innerWidth-.5)*40,py=(e.clientY/window.innerHeight-.5)*40;document.querySelectorAll('.orb').forEach((o,i)=>{const m=(i+1)*.35;o.style.transform=`translate(${px*m}px,${py*m}px)`})});
+(function(){
+  const track=document.getElementById('track'),slides=Array.from(track.children),dotsWrap=document.getElementById('dots');
+  const SLIDE_TIME=8000; let idx=0,interval;
+  slides.forEach((_,i)=>{const d=document.createElement('div');d.className='cdot'+(i===0?' active':'');d.innerHTML='<span class="cdot-fill"></span>';dotsWrap.appendChild(d);d.addEventListener('click',()=>{idx=i;reset();update()})});
+  const cdots=Array.from(dotsWrap.children);
+  function updateDots(){cdots.forEach((d,i)=>{d.classList.toggle('active',i===idx);const f=d.querySelector('.cdot-fill');f.style.transition='none';f.style.width='0%';if(i===idx)requestAnimationFrame(()=>{f.style.transition=`width ${SLIDE_TIME}ms linear`;f.style.width='100%'})})}
+  function update(){track.style.transform=`translateX(-${idx*100}%)`;updateDots()}
+  function next(){idx=(idx+1)%slides.length;update()}
+  function start(){interval=setInterval(next,SLIDE_TIME)}
+  function reset(){clearInterval(interval);start()}
+  document.getElementById('next').addEventListener('click',()=>{reset();next()});
+  document.getElementById('prev').addEventListener('click',()=>{reset();idx=(idx-1+slides.length)%slides.length;update()});
+  update();start();
+})();
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.pillar-card,.sys-card,.pm-grid').forEach(el=>obs.observe(el));
 </script>
-
 </body>
 </html>

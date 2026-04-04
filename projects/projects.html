@@ -12,6 +12,7 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-follower" id="cursorFollower"></div>
 
+<!-- ── NAVBAR ── -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
@@ -35,38 +36,90 @@
   </ul>
 </div>
 
+<!-- ══════════════════════
+     HERO
+══════════════════════ -->
 <section class="page-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-rings">
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+  </div>
+
   <div class="section-container">
-    <div class="section-label">Portfolio</div>
-    <h1 class="page-title">All Projects</h1>
-    <p class="page-sub">Complete games, experimental systems, and technical explorations — built solo from concept to final build.</p>
-    <div class="filter-row">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="finished">Finished</button>
-      <button class="filter-btn" data-filter="prototype">Prototype</button>
-      <button class="filter-btn" data-filter="jam">Game Jam</button>
+    <div class="hero-content">
+      <div class="section-label reveal-up" style="--d:0ms">Portfolio</div>
+      <h1 class="page-title reveal-up" style="--d:80ms">
+        <span class="title-word-1">All</span>
+        <span class="title-word-2">Projects</span>
+      </h1>
+      <p class="page-sub reveal-up" style="--d:200ms">
+        Complete games, experimental systems, and technical explorations —
+        built solo from concept to final build.
+      </p>
+
+      <div class="hero-meta" id="heroMeta">
+        <div class="meta-stat">
+          <span class="meta-num" id="totalCount">6</span>
+          <span class="meta-label">Projects</span>
+        </div>
+        <div class="meta-div"></div>
+        <div class="meta-stat">
+          <span class="meta-num">2</span>
+          <span class="meta-label">Engines</span>
+        </div>
+        <div class="meta-div"></div>
+        <div class="meta-stat">
+          <span class="meta-num">3+</span>
+          <span class="meta-label">Years Building</span>
+        </div>
+      </div>
+
+      <!-- animated filter pill -->
+      <div class="filter-bar" id="filterBar">
+        <div class="filter-pill" id="filterPill"></div>
+        <button class="filter-btn active" data-filter="all">All <span class="filter-count" id="countAll">6</span></button>
+        <button class="filter-btn" data-filter="finished">Finished <span class="filter-count" id="countFinished">2</span></button>
+        <button class="filter-btn" data-filter="prototype">Prototype <span class="filter-count" id="countProto">3</span></button>
+        <button class="filter-btn" data-filter="jam">Game Jam <span class="filter-count" id="countJam">1</span></button>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ══════════════════════
+     GRID
+══════════════════════ -->
 <section class="projects-grid-section">
   <div class="section-container">
+
+    <div class="grid-header">
+      <div class="result-count" id="resultCount">
+        Showing <strong id="visibleCount">6</strong> projects
+      </div>
+    </div>
+
     <div class="projects-grid" id="projectsGrid">
 
-      <!-- Hello Owner -->
-      <a href="hello-owner.html" class="project-card" data-category="finished">
+      <!-- ── HELLO OWNER — featured ── -->
+      <a href="hello-owner.html" class="project-card project-card--featured" data-category="finished" data-accent="hello-owner">
         <div class="card-media">
           <img src="Imgs/Project/HelloOwnerGif1.gif" alt="Hello Owner">
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
         </div>
         <div class="card-body">
+          <div class="featured-badge"><span class="featured-badge-dot"></span> Featured Project</div>
           <div class="card-top">
             <span class="tag tag-finished">Completed</span>
             <span class="card-engine">Unreal Engine</span>
           </div>
           <h3>Hello Owner</h3>
-          <p class="card-desc">Narrative-driven psychological horror — a late-night warehouse job becomes a supernatural trap. Built on routine, obedience and environmental control.</p>
+          <p class="card-desc">Narrative-driven psychological horror — a late-night warehouse job becomes a supernatural trap. Built on routine, obedience, and an environment that decides whether you leave. Audio-first design with a rule-based maze system that strips player agency entirely.</p>
           <div class="card-footer">
             <span class="card-genre">Horror · Narrative · Solo</span>
             <span class="card-duration">~7 months</span>
@@ -74,8 +127,8 @@
         </div>
       </a>
 
-      <!-- Forest of Undead -->
-      <a href="forest-of-undead.html" class="project-card" data-category="finished">
+      <!-- ── FOREST OF UNDEAD ── -->
+      <a href="forest-of-undead.html" class="project-card" data-category="finished" data-accent="forest-of-undead">
         <div class="card-media">
           <img src="Imgs/Project/FotuGif1.gif" alt="Forest of Undead">
           <div class="card-media-overlay"></div>
@@ -90,15 +143,15 @@
           <p class="card-desc">Top-down survival shooter where upgrades compound into inevitable failure. Scalable enemy architecture, randomised builds, readable chaos.</p>
           <div class="card-footer">
             <span class="card-genre">Survival · Systems · Solo</span>
-            <span class="card-duration">~1 month</span>
+            <span class="card-duration">~7 weeks</span>
           </div>
         </div>
       </a>
 
-      <!-- Time Echo -->
-      <a href="time-echo.html" class="project-card" data-category="prototype">
+      <!-- ── TIME ECHO ── -->
+      <a href="time-echo.html" class="project-card" data-category="prototype" data-accent="time-echo">
         <div class="card-media card-media-placeholder">
-          <img src="Imgs/Project/TimeEchoThumb.gif" alt="Time Echo"
+          <img src="Imgs/Project/time echo thumbnail.gif" alt="Time Echo"
             onerror="this.style.display='none'; this.parentNode.classList.add('no-img')">
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
@@ -110,7 +163,7 @@
             <span class="card-engine">Unreal C++</span>
           </div>
           <h3>Time Echo</h3>
-          <p class="card-desc">First-person puzzle platformer — record your own actions and deploy cooperative clones to solve spatial puzzles. Built in C++ with a custom frame-data replay system.</p>
+          <p class="card-desc">First-person puzzle platformer — record your own actions and deploy cooperative clones to solve spatial puzzles. Custom frame-data replay system in C++.</p>
           <div class="card-footer">
             <span class="card-genre">Puzzle · C++ Architecture</span>
             <span class="card-duration">2025</span>
@@ -118,8 +171,8 @@
         </div>
       </a>
 
-      <!-- Ultra Drive -->
-      <a href="ultra-drive.html" class="project-card" data-category="prototype">
+      <!-- ── ULTRA DRIVE ── -->
+      <a href="ultra-drive.html" class="project-card" data-category="prototype" data-accent="ultra-drive">
         <div class="card-media">
           <img src="Imgs/Project/UltraDriveGif1.gif" alt="Ultra Drive">
           <div class="card-media-overlay"></div>
@@ -139,8 +192,8 @@
         </div>
       </a>
 
-      <!-- Dynamic NPC AI -->
-      <a href="dynamic-npc-ai.html" class="project-card" data-category="prototype">
+      <!-- ── DYNAMIC NPC AI ── -->
+      <a href="dynamic-npc-ai.html" class="project-card" data-category="prototype" data-accent="dynamic-npc">
         <div class="card-media">
           <img src="Imgs/Project/NPC.gif" alt="Dynamic NPC AI">
           <div class="card-media-overlay"></div>
@@ -160,8 +213,8 @@
         </div>
       </a>
 
-      <!-- Loop.exe -->
-      <a href="loop-exe.html" class="project-card" data-category="jam">
+      <!-- ── LOOP.EXE ── -->
+      <a href="loop-exe.html" class="project-card" data-category="jam" data-accent="loop-exe">
         <div class="card-media">
           <img src="Imgs/Project/Loopexe-Gif1.gif" alt="Loop.exe">
           <div class="card-media-overlay"></div>
@@ -173,7 +226,7 @@
             <span class="card-engine">Unreal Engine 5</span>
           </div>
           <h3>Loop.exe</h3>
-          <p class="card-desc">Memory-execution puzzle built in 4 days for GMTK 2025. Every mistake permanently deletes an execution thread. Difficulty emerges from cognitive load, not mechanics.</p>
+          <p class="card-desc">Memory-execution puzzle built in 4 days for GMTK 2025. Every mistake permanently deletes an execution thread. Difficulty from cognitive load, not mechanics.</p>
           <div class="card-footer">
             <span class="card-genre">Puzzle · GMTK 2025</span>
             <span class="card-duration">4 days</span>
@@ -181,51 +234,132 @@
         </div>
       </a>
 
+      <!-- empty state -->
+      <div class="empty-state" id="emptyState">
+        <p>No projects match this filter.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
 <footer class="footer">
   <div class="footer-inner">
-    <span class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></span>
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
     <span>© 2026 Yash Kamble.</span>
     <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="footer-resume">Resume ↗</a>
   </div>
 </footer>
 
 <script>
-/* cursor */
-const cursor=document.getElementById('cursor'),follower=document.getElementById('cursorFollower');
-let mx=0,my=0,fx=0,fy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function loop(){cursor.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;follower.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(loop)})();
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cursor.classList.add('cursor-hover');follower.classList.add('cursor-hover')});
-  el.addEventListener('mouseleave',()=>{cursor.classList.remove('cursor-hover');follower.classList.remove('cursor-hover')});
+/* ── CURSOR ── */
+const cursor = document.getElementById('cursor');
+const follower = document.getElementById('cursorFollower');
+let mx = 0, my = 0, fx = 0, fy = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function loop() {
+  cursor.style.transform = `translate(${mx}px,${my}px)`;
+  fx += (mx - fx) * 0.12; fy += (my - fy) * 0.12;
+  follower.style.transform = `translate(${fx}px,${fy}px)`;
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.classList.add('cursor-hover'); follower.classList.add('cursor-hover'); });
+  el.addEventListener('mouseleave', () => { cursor.classList.remove('cursor-hover'); follower.classList.remove('cursor-hover'); });
 });
-/* navbar */
-window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>40));
-/* hamburger */
-const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
-/* filters */
-const btns=document.querySelectorAll('.filter-btn');
-const cards=document.querySelectorAll('.project-card[data-category]');
-btns.forEach(btn=>btn.addEventListener('click',()=>{
-  btns.forEach(b=>b.classList.remove('active'));
+
+/* ── NAVBAR ── */
+window.addEventListener('scroll', () =>
+  document.getElementById('navbar').classList.toggle('scrolled', scrollY > 40)
+);
+
+/* ── HAMBURGER ── */
+const ham = document.getElementById('hamburger'), mob = document.getElementById('mobileMenu');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  ham.classList.remove('open'); mob.classList.remove('open');
+}));
+
+/* ── HERO REVEAL ── */
+window.addEventListener('load', () => {
+  document.querySelectorAll('.reveal-up').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), parseInt(el.style.getPropertyValue('--d')) || 0);
+  });
+  setTimeout(() => document.getElementById('heroMeta').classList.add('revealed'), 500);
+});
+
+/* ── ANIMATED FILTER PILL ── */
+const filterBar = document.getElementById('filterBar');
+const pill = document.getElementById('filterPill');
+const btns = document.querySelectorAll('.filter-btn');
+
+function movePill(btn) {
+  const barRect = filterBar.getBoundingClientRect();
+  const btnRect = btn.getBoundingClientRect();
+  pill.style.width = btnRect.width + 'px';
+  pill.style.transform = `translateX(${btnRect.left - barRect.left - 5}px)`;
+}
+
+// init pill position on first active btn
+window.addEventListener('load', () => {
+  const active = filterBar.querySelector('.filter-btn.active');
+  if (active) movePill(active);
+});
+window.addEventListener('resize', () => {
+  const active = filterBar.querySelector('.filter-btn.active');
+  if (active) movePill(active);
+});
+
+/* ── FILTERS ── */
+const cards = document.querySelectorAll('.project-card[data-category]');
+const visibleCount = document.getElementById('visibleCount');
+const emptyState = document.getElementById('emptyState');
+
+function updateCount(filter) {
+  const count = filter === 'all'
+    ? cards.length
+    : Array.from(cards).filter(c => c.dataset.category === filter).length;
+  visibleCount.textContent = count;
+  emptyState.classList.toggle('visible', count === 0);
+}
+
+btns.forEach(btn => btn.addEventListener('click', () => {
+  btns.forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  const f=btn.dataset.filter;
-  cards.forEach(c=>{
-    const show=f==='all'||c.dataset.category===f;
-    c.style.transition='opacity .35s, transform .35s';
-    c.style.opacity=show?'1':'0.2';
-    c.style.transform=show?'':'scale(0.97)';
-    c.style.pointerEvents=show?'':'none';
+  movePill(btn);
+
+  const f = btn.dataset.filter;
+  updateCount(f);
+
+  cards.forEach((c, i) => {
+    const show = f === 'all' || c.dataset.category === f;
+    c.style.transitionDelay = show ? `${i * 40}ms` : '0ms';
+    c.classList.toggle('hidden', !show);
   });
 }));
-/* reveal */
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}}),{threshold:.1});
-document.querySelectorAll('.project-card').forEach((el,i)=>{el.style.transitionDelay=`${i*.07}s`;obs.observe(el)});
+
+/* ── SCROLL REVEAL FOR CARDS ── */
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) {
+    e.target.classList.add('in-view');
+    obs.unobserve(e.target);
+  }
+}), { threshold: 0.08 });
+
+cards.forEach((el, i) => {
+  el.style.transitionDelay = `${i * 70}ms`;
+  obs.observe(el);
+});
+
+/* ── ORB PARALLAX ── */
+document.addEventListener('mousemove', e => {
+  const px = (e.clientX / window.innerWidth - .5) * 30;
+  const py = (e.clientY / window.innerHeight - .5) * 30;
+  document.querySelectorAll('.hero-orb').forEach((o, i) => {
+    const m = (i + 1) * .4;
+    o.style.transform = `translate(${px * m}px,${py * m}px)`;
+  });
+});
 </script>
 </body>
 </html>

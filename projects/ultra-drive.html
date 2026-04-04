@@ -1,450 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultra Drive | Yash Kamble</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultra Drive | Yash Kamble</title>
+  <link rel="stylesheet" href="CSS/project-base.css">
 
-    <link rel="stylesheet" href="CSS/ultra-drive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --pa:       #818cf8;
+  --pa2:      #a5b4fc;
+  --pa-glow:  rgba(129,140,248,0.13);
+  --pa-glow2: rgba(129,140,248,0.05);
+}
+
+    .proj-hero::after {
+      content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:repeating-linear-gradient(
+    100deg,
+    transparent,transparent 98px,
+    rgba(129,140,248,0.015) 98px, rgba(129,140,248,0.015) 100px
+  );
+}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="container nav-inner">
-        <div class="logo">Yash Kamble</div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="../index.html#skills">Skills</a></li>
-            <li><a href="../index.html#about">About</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-    </div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cf"></div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
+    <ul class="nav-links">
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="nav-resume">Resume <span>↗</span></a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
 </nav>
+<div class="mobile-menu" id="mob">
+  <ul>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+    <li><a href="../Documents/Yash_2026_Resume.pdf" target="_blank">Resume ↗</a></li>
+  </ul>
+</div>
 
-<!-- HERO -->
-<section class="hero project-hero page-enter">
-    <div class="container center-section">
-        <h3>Ultra Drive</h3>
-        <p class="tagline">
-            Experimental racing prototype controlled using real-world hardware sensors,
-            exploring intuitive physical input and hardware-to-game communication.
-        </p>
-
-        <div class="project-meta">
-            <span>Unreal Engine 5</span>
-            <span>PC + Custom Hardware</span>
-            <span>Solo Developer</span>
-            <span>Experimental Prototype</span>
-        </div>
-
-        <a
-            href="https://old-monkey.itch.io/ultra-drive"
-            target="_blank"
-            class="btn-secondary"
-        >
-            View on Itch.io
-        </a>
-    </div>
-</section>
-
-<!-- VIDEO
-<section class="project-video">
-    <div class="container">
-        <div class="video-wrapper">
-            <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-                title="Ultra Drive Gameplay Demo"
-                frameborder="0"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-</section>
- -->
-
-<!-- SCREENSHOTS (FIXED) -->
-<section class="screenshots-carousel">
-  <div class="container">
-    <h2>Screenshots</h2>
-
-    <div class="carousel">
-      <div class="carousel-track">
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata"
-            src="./Imgs/Ultradirve/UD_Overlap.mp4"></video>
-          <div class="carousel-caption">
-            <h4>Real-Time Hardware Gameplay</h4>
-            <p>Live gameplay overlaid with physical hand and sensor footage, demonstrating direct hardware input mapped into in-game vehicle control.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata"
-            src="./Imgs/Ultradirve/UD_GameMode.mp4"></video>
-          <div class="carousel-caption">
-            <h4>Multiple Control Test Modes</h4>
-            <p>Classic, Endless, and Tutorial modes used to validate sensor behavior, learning curve, and control stability.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata"
-            src="./Imgs/Ultradirve/UD_Boost.mp4"></video>
-          <div class="carousel-caption">
-            <h4>Motion-Triggered Boost</h4>
-            <p>: A PIR sensor detects player movement to trigger boost events, separating acceleration from steering inputs.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata"
-            src="./Imgs/Ultradirve/UD_OnlySensor.mp4"></video>
-          <div class="carousel-caption">
-            <h4>Physical Sensor Interaction</h4>
-            <p>Direct view of ultrasonic and PIR sensors in use, showing the physical interaction that drives in-game behavior.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata"
-            src="./Imgs/Ultradirve/UD_SeonsorValue.mp4"></video>
-          <div class="carousel-caption">
-            <h4>Early Prototype & Debug Visualization</h4>
-            <p>Initial Unreal Engine build with live debug values (−1, 0, 1) used to verify sensor detection and steering logic</p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ARROWS (UNCHANGED) -->
-      <button class="carousel-btn prev">‹</button>
-      <button class="carousel-btn next">›</button>
-    </div>
-
-    <div class="carousel-indicators"></div>
+<!-- ═══ HERO ═══ -->
+<section class="proj-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-rings">
+    <div class="ring ring-1"></div><div class="ring ring-2"></div>
+    <div class="ring ring-3"></div><div class="ring ring-4"></div>
   </div>
-</section>
 
-<!-- ACTION BUTTON -->
-<section class="project-actions">
-    <a
-        href="./Gdd/GDD_UltraDrive.pdf"
-        class="btn-primary"
-        target="_blank"
-    >
-        Download Game Design Document (PDF)
-    </a>
-</section>
-
-<!-- OVERVIEW -->
-<section class="project-section alt-bg">
-    <div class="container">
-        <h2>Game Overview</h2>
-        <p>
-            Ultra Drive is an experimental racing prototype where traditional controllers
-            are replaced by physical motion sensors. Steering, drifting, and boosting are
-            driven by real-world hand movement, emphasizing embodied interaction over
-            mechanical complexity or racing realism.
-        </p>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal-up" style="--d:0ms">
+      <span class="eyebrow-pill pill-proto">Prototype</span>
+      <span class="eyebrow-dot"></span>
+      <span class="eyebrow-text">Unreal Engine 5 · ESP8266 · Hardware Integration</span>
     </div>
-</section>
-
-
-
-
-
-<!-- CORE LOOP -->
-<section class="project-section alt-bg">
-    <div class="container">
-        <h2>Core Interaction Loop</h2>
-        <p class="loop-text">
-            Hand Movement → Sensor Distance Reading → ESP8266 Processing →
-            Serial Communication → Unreal Engine Input Mapping → Vehicle Response
-        </p>
-    </div>
-</section>
-
-<!-- ARDUINO CODE -->
-<section class="project-section ">
-  <div class="container">
-    <h2>Arduino Code</h2>
-
-    <div class="code-block">
-      <div class="code-header">
-        <span>arduino_ultra_drive.ino</span>
-        <button class="copy-btn" onclick="copyCode('arduino-code')">
-          Copy
-        </button>
-      </div>
-
-      <pre id="arduino-code"><code>
-            #define trigPin1 D2
-            #define echoPin1 D1
-            #define trigPin2 D8
-            #define echoPin2 D7
-            #define pirPin   D5
-
-            void setup() {
-            Serial.begin(9600);
-
-            pinMode(trigPin1, OUTPUT);
-            pinMode(echoPin1, INPUT);
-            pinMode(trigPin2, OUTPUT);
-            pinMode(echoPin2, INPUT);
-
-            pinMode(pirPin, INPUT);
-            }
-
-            long readDistance(int trigPin, int echoPin) {
-            digitalWrite(trigPin, LOW);
-            delayMicroseconds(2);
-            digitalWrite(trigPin, HIGH);
-            delayMicroseconds(10);
-            digitalWrite(trigPin, LOW);
-            return pulseIn(echoPin, HIGH) * 0.034 / 2;
-            }
-
-            void loop() {
-            // PIR reset detection
-            if (digitalRead(pirPin) == HIGH) {
-                Serial.println("RESET");
-                delay(50);  // Debounce the PIR trigger
-                return;
-            }
-            
-            // Read ultrasonic distances
-            long distance1 = readDistance(trigPin1, echoPin1); // Left
-            long distance2 = readDistance(trigPin2, echoPin2); // Right
-
-            // Logic for drifting and normal turns
-            if (distance1 > 5 && distance1 <= 20 && distance2 > 20) {
-                Serial.println("LEFT");
-            } else if (distance1 <= 5 && distance2 > 20) {
-                Serial.println("LEFTDRIFT");
-            } else if (distance2 > 5 && distance2 <= 20 && distance1 > 20) {
-                Serial.println("RIGHT");
-            } else if (distance2 <= 5 && distance1 > 20) {
-                Serial.println("RIGHTDRIFT");
-            } else {
-                Serial.println("NONE");
-            }
-
-            delay(50); // Avoid spamming
-            }
-      </code></pre>
-    </div>
-  </div>
-</section>
-
-<!-- CIRCUIT DIAGRAM -->
-<section class="project-section alt-bg" >
-  <div class="container">
-    <h2>Sensor Circuit Diagram</h2>
-
-    <p class="diagram-desc">
-      Hardware wiring layout for Ultra Drive showing ESP8266 (NodeMCU),
-      dual ultrasonic sensors for steering input, and a PIR sensor used
-      as a motion-based boost trigger.
+    <h1 class="proj-title reveal-up" style="--d:120ms">
+      <span class="title-solid">Ultra</span>
+      <span class="title-outline">Drive</span>
+    </h1>
+    <p class="hero-sub reveal-up" style="--d:250ms">
+      A racing prototype controlled by real-world ultrasonic and PIR sensors.<br>
+      Distance-based steering replaces traditional input entirely.
     </p>
-
-    <div class="diagram-wrapper">
-      <img
-        src="Imgs/Ultradirve/Cktdg.png"
-        alt="Ultra Drive ESP8266 Sensor Circuit Diagram"
-      />
+    <div class="hero-tags reveal-up" style="--d:360ms">
+      <span class="htag">Unreal Engine 5</span>
+      <span class="htag">ESP8266 NodeMCU</span>
+      <span class="htag">Hardware Integration</span>
+      <span class="htag">PC + Custom Hardware</span>
+      <span class="htag">Solo Developer</span>
     </div>
+    <div class="hero-cta reveal-up" style="--d:460ms">
+      <a href="https://old-monkey.itch.io/ultra-drive" target="_blank" class="btn-primary">View on Itch.io ↗</a>
+      <a href="Gdd/GDD_UltraDrive.pdf" target="_blank" class="btn-secondary">Download GDD</a>
+      <a href="projects.html" class="btn-ghost">← All Projects</a>
+    </div>
+  </div>
+ 
+</section>
 
+<!-- ═══ CAROUSEL ═══ -->
+<section class="carousel-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Gameplay &amp; Hardware</div>
+    <h2 class="section-h2">Screenshots &amp; Clips</h2>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="track">
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_Overlap.mp4"></video>
+          <div class="slide-caption">
+            <h4>Real-Time Hardware Gameplay</h4>
+            <p>Live gameplay overlaid with physical hand and sensor footage — direct hardware input mapped into in-game vehicle control.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_GameMode.mp4"></video>
+          <div class="slide-caption">
+            <h4>Multiple Control Modes</h4>
+            <p>Classic, Endless, and Tutorial modes used to validate sensor behavior, learning curve, and control stability across different contexts.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_Boost.mp4"></video>
+          <div class="slide-caption">
+            <h4>Motion-Triggered Boost</h4>
+            <p>A PIR sensor detects player movement to trigger boost events — separating acceleration from the ultrasonic steering inputs entirely.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_OnlySensor.mp4"></video>
+          <div class="slide-caption">
+            <h4>Physical Sensor Interaction</h4>
+            <p>Direct view of ultrasonic and PIR sensors in use, showing the physical hand movement that drives all in-game behavior.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_SeonsorValue.mp4"></video>
+          <div class="slide-caption">
+            <h4>Early Prototype &amp; Debug Visualization</h4>
+            <p>Initial Unreal Engine build with live debug values (−1, 0, 1) used to verify sensor detection and steering logic before the full pipeline was completed.</p>
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-btn prev" id="prev">‹</button>
+      <button class="carousel-btn next" id="next">›</button>
+    </div>
+    <div class="carousel-dots" id="dots"></div>
+  </div>
+</section>
+
+<!-- ═══ OVERVIEW ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Overview</div>
+    <h2 class="section-h2">Project Overview</h2>
+    <p>Ultra Drive is an experimental racing prototype where traditional controllers are replaced by real-world physical sensors. The project explores stable, real-time communication between custom hardware and Unreal Engine — translating physical distance and motion into responsive in-game vehicle behavior.</p>
+    <p>The primary goal is not racing realism, but investigating alternative input systems, hardware-software integration, and intuitive physical interaction within a game engine. Hand movement replaces button presses. Distance becomes steering depth. Motion triggers boost.</p>
+  </div>
+</section>
+
+<!-- ═══ CORE LOOP ═══ -->
+<section class="project-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">System Pipeline</div>
+    <h2 class="section-h2">Core Interaction Loop</h2>
+    <div class="loop-flow">
+      <span class="loop-step">Hand Movement</span> → Sensor Distance Reading →
+      <span class="loop-step">ESP8266 Processing</span> → Serial String Output →
+      <span class="loop-step">Unreal Engine</span> → String Filtering → Blueprint Events → Vehicle Response
+    </div>
+    <p style="margin-top:24px">Communication is intentionally string-based to prioritize transparency, rapid debugging, and ease of iteration during prototyping. Keywords like LEFT, RIGHT, LEFTDRIFT, RIGHTDRIFT, and RESET map directly to Blueprint-based vehicle inputs.</p>
+  </div>
+</section>
+
+<!-- ═══ KEY SYSTEMS ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Systems</div>
+    <h2 class="section-h2">Key Systems</h2>
+    <div class="systems-grid">
+      <div class="sys-card" style="--i:0">
+        <div class="sys-card-icon">📡</div>
+        <h4>Distance-Based Steering</h4>
+        <p>Ultrasonic sensors translate hand distance into layered steering responses. 5–20cm triggers normal steering. 2–5cm triggers steering combined with braking (drift). Low-cost sensors behave like analog controls.</p>
+      </div>
+      <div class="sys-card" style="--i:1">
+        <div class="sys-card-icon">⚡</div>
+        <h4>PIR Motion Boost Trigger</h4>
+        <p>A passive infrared sensor detects player movement as a binary trigger — separating acceleration input from the ultrasonic steering system entirely, adding a distinct physical gesture to boost.</p>
+      </div>
+      <div class="sys-card" style="--i:2">
+        <div class="sys-card-icon">🔗</div>
+        <h4>Serial COM Pipeline</h4>
+        <p>ESP8266 outputs keyword strings via serial. Unreal Engine reads continuously via the Serial COM Plugin. Strings are trimmed and sanitized before keyword matching — solving the hidden newline bug discovered during development.</p>
+      </div>
+      <div class="sys-card" style="--i:3">
+        <div class="sys-card-icon">🎮</div>
+        <h4>Three Gameplay Modes</h4>
+        <p>Tutorial (free-roam, sensor learning), Endless (infinite looping track, flow mastery), and Classic (fixed track, time trial). Each mode validates a different aspect of the hardware-based control experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CIRCUIT DIAGRAM ═══ -->
+<section class="project-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Hardware</div>
+    <h2 class="section-h2">Sensor Circuit Diagram</h2>
+    <p class="diagram-desc">Hardware wiring layout showing the ESP8266 NodeMCU, dual ultrasonic sensors for distance-based steering, and PIR sensor used as the motion-based boost trigger.</p>
+    <div class="diagram-img-wrap">
+      <img src="Imgs/Ultradirve/Cktdg.png" alt="Ultra Drive ESP8266 Circuit Diagram">
+    </div>
     <div class="pin-legend">
       <h4>Pin Mapping</h4>
       <ul>
-        <li><strong>Left Ultrasonic:</strong> Trig → D1, Echo → D2</li>
-        <li><strong>Right Ultrasonic:</strong> Trig → D5, Echo → D6</li>
-        <li><strong>PIR Sensor:</strong> Signal → D7</li>
-        <li><strong>Power:</strong> All sensors powered via 5V & GND rails</li>
+        <li><strong>Left Ultrasonic:</strong> Trig → D2, Echo → D1</li>
+        <li><strong>Right Ultrasonic:</strong> Trig → D8, Echo → D7</li>
+        <li><strong>PIR Sensor:</strong> Signal → D5</li>
+        <li><strong>Power:</strong> All sensors powered via 5V &amp; GND rails</li>
       </ul>
     </div>
   </div>
 </section>
 
-
-<!-- SYSTEMS -->
+<!-- ═══ ARDUINO CODE ═══ -->
 <section class="project-section">
-    <div class="container">
-        <h2>Key Systems</h2>
+  <div class="container">
+    <div class="section-eyebrow">Source Code</div>
+    <h2 class="section-h2">Arduino Firmware</h2>
+    <p>The ESP8266 firmware reads both ultrasonic sensors and the PIR sensor, applies distance thresholds, and outputs keyword strings via serial at 50ms intervals to avoid input spam.</p>
+    <div class="code-block">
+      <div class="code-header">
+        <span>arduino_ultra_drive.ino</span>
+        <button class="copy-btn" id="copyBtn">Copy</button>
+      </div>
+      <pre id="arduinoCode"><code>#define trigPin1 D2
+#define echoPin1 D1
+#define trigPin2 D8
+#define echoPin2 D7
+#define pirPin   D5
 
-        <h3>Hardware-Based Input System</h3>
-        <p>
-            Ultrasonic sensors are used to translate hand distance into steering depth,
-            enabling analog-like control without traditional input devices.
-        </p>
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin1, OUTPUT); pinMode(echoPin1, INPUT);
+  pinMode(trigPin2, OUTPUT); pinMode(echoPin2, INPUT);
+  pinMode(pirPin, INPUT);
+}
 
-        <h3>Steering Depth System</h3>
-        <p>
-            Distance thresholds determine layered vehicle responses such as normal steering
-            and drift, allowing expressive control using low-cost sensors.
-        </p>
+long readDistance(int trigPin, int echoPin) {
+  digitalWrite(trigPin, LOW);  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH); delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  return pulseIn(echoPin, HIGH) * 0.034 / 2;
+}
+
+void loop() {
+  // PIR boost / reset detection
+  if (digitalRead(pirPin) == HIGH) {
+    Serial.println("RESET");
+    delay(50);
+    return;
+  }
+
+  long distance1 = readDistance(trigPin1, echoPin1); // Left hand
+  long distance2 = readDistance(trigPin2, echoPin2); // Right hand
+
+  // Steering depth system: 5-20cm = normal, <5cm = drift
+  if (distance1 > 5 && distance1 <= 20 && distance2 > 20) {
+    Serial.println("LEFT");
+  } else if (distance1 <= 5 && distance2 > 20) {
+    Serial.println("LEFTDRIFT");
+  } else if (distance2 > 5 && distance2 <= 20 && distance1 > 20) {
+    Serial.println("RIGHT");
+  } else if (distance2 <= 5 && distance1 > 20) {
+    Serial.println("RIGHTDRIFT");
+  } else {
+    Serial.println("NONE");
+  }
+
+  delay(50); // Avoid serial spam
+}</code></pre>
     </div>
+  </div>
 </section>
 
-<!-- POSTMORTEM -->
+<!-- ═══ POSTMORTEM ═══ -->
 <section class="project-section alt-bg">
-    <div class="container">
-        <h2>Postmortem</h2>
-
-        <div class="postmortem-grid">
-            <div>
-                <h3>What Went Right</h3>
-                <ul>
-                    <li>Stable real-time hardware communication</li>
-                    <li>Clear sensor-to-vehicle input mapping</li>
-                    <li>Effective debugging through transparent serial data</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3>What Could Improve</h3>
-                <ul>
-                    <li>Hardware dependency limits accessibility</li>
-                    <li>No calibration or sensitivity tuning system</li>
-                </ul>
-            </div>
-        </div>
+  <div class="container">
+    <div class="section-eyebrow">Reflection</div>
+    <h2 class="section-h2">Postmortem</h2>
+    <div class="pm-grid">
+      <div class="pm-col">
+        <div class="pm-head"><span class="pm-dot green"></span><h3>What Went Right</h3></div>
+        <ul class="pm-list">
+          <li>Stable, low-latency real-time hardware-to-engine communication</li>
+          <li>Clear sensor-to-vehicle input mapping that players learned quickly</li>
+          <li>String-based pipeline made debugging transparent and fast</li>
+          <li>Distance thresholds successfully created analog-like feel from digital sensors</li>
+        </ul>
+      </div>
+      <div class="pm-col">
+        <div class="pm-head"><span class="pm-dot yellow"></span><h3>What Could Improve</h3></div>
+        <ul class="pm-list">
+          <li>Hardware dependency significantly limits accessibility</li>
+          <li>No sensitivity calibration or threshold tuning system for different hand sizes</li>
+          <li>Wireless implementation would remove the cable tethering constraint</li>
+          <li>Engine-plugin version mismatch (UE5.4 vs 5.5) required workarounds</li>
+        </ul>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
+<div class="project-actions">
+  <a href="Gdd/GDD_UltraDrive.pdf" target="_blank" class="btn-primary">Download Game Design Document</a>
+  <a href="projects.html" class="btn-ghost">← All Projects</a>
+</div>
+
 <footer class="footer">
-    <p>© 2026 Yash Kamble. All rights reserved.</p>
+  <div class="footer-inner">
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
+    <span>© 2026 Yash Kamble. All rights reserved.</span>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="footer-resume">Resume ↗</a>
+  </div>
 </footer>
-    <script>
-        function copyCode(id) {
-        const text = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(text);
 
-        const btn = event.target;
-        btn.innerText = "Copied!";
-        setTimeout(() => btn.innerText = "Copy", 1200);
-        }
-</script>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".carousel-track");
-  const slides = Array.from(track.children);
-  const nextBtn = document.querySelector(".carousel-btn.next");
-  const prevBtn = document.querySelector(".carousel-btn.prev");
-  const indicatorWrap = document.querySelector(".carousel-indicators");
-
-  let index = 0;
-  let interval = null;
-  const SLIDE_TIME = 20000; // ⏱ change this (ms)
-
-  if (!track || slides.length === 0) return;
-
-  /* ===============================
-     INDICATORS
-  =============================== */
-  slides.forEach((_, i) => {
-    const dot = document.createElement("div");
-    dot.className = "indicator";
-    dot.innerHTML = `<span class="indicator-fill"></span>`;
-    indicatorWrap.appendChild(dot);
-
-    dot.addEventListener("click", () => {
-      index = i;
-      resetAutoSlide();
-      updateCarousel();
-    });
-  });
-
-  const indicators = Array.from(indicatorWrap.children);
-
-  function updateIndicators() {
-    indicators.forEach((dot, i) => {
-      dot.classList.toggle("active", i === index);
-
-      const fill = dot.querySelector(".indicator-fill");
-      fill.style.transition = "none";
-      fill.style.width = "0%";
-
-      if (i === index) {
-        requestAnimationFrame(() => {
-          fill.style.transition = `width ${SLIDE_TIME}ms linear`;
-          fill.style.width = "100%";
-        });
-      }
-    });
-  }
-
-  /* ===============================
-     VIDEO CONTROL (GIF STYLE)
-  =============================== */
-  function updateVideos() {
-    slides.forEach((slide, i) => {
-      const video = slide.querySelector("video");
-      if (!video) return;
-
-      if (i === index) {
-        video.currentTime = 0;
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
-  }
-
-  /* ===============================
-     CORE UPDATE
-  =============================== */
-  function updateCarousel() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    updateIndicators();
-    updateVideos();
-  }
-
-  function nextSlide() {
-    index = (index + 1) % slides.length;
-    updateCarousel();
-  }
-
-  function prevSlide() {
-    index = (index - 1 + slides.length) % slides.length;
-    updateCarousel();
-  }
-
-  /* ===============================
-     AUTO SLIDE
-  =============================== */
-  function startAutoSlide() {
-    interval = setInterval(nextSlide, SLIDE_TIME);
-  }
-
-  function resetAutoSlide() {
-    clearInterval(interval);
-    startAutoSlide();
-  }
-
-  nextBtn.addEventListener("click", () => {
-    resetAutoSlide();
-    nextSlide();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    resetAutoSlide();
-    prevSlide();
-  });
-
-  /* ===============================
-     INIT
-  =============================== */
-  updateCarousel();
-  startAutoSlide();
+const cur=document.getElementById('cursor'),cf=document.getElementById('cf');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function t(){cur.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;cf.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(t)})();
+document.querySelectorAll('a,button,.sys-card,.pm-col').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('ch');cf.classList.add('ch')});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('ch');cf.classList.remove('ch')});
 });
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>60));
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
+window.addEventListener('load',()=>{document.querySelectorAll('.reveal-up').forEach(el=>{setTimeout(()=>el.classList.add('visible'),parseInt(el.style.getPropertyValue('--d'))||0)})});
+document.addEventListener('mousemove',e=>{const px=(e.clientX/window.innerWidth-.5)*40,py=(e.clientY/window.innerHeight-.5)*40;document.querySelectorAll('.orb').forEach((o,i)=>{const m=(i+1)*.35;o.style.transform=`translate(${px*m}px,${py*m}px)`})});
+document.getElementById('copyBtn').addEventListener('click',function(){
+  const text=document.getElementById('arduinoCode').innerText;
+  navigator.clipboard.writeText(text);
+  this.textContent='Copied!';
+  setTimeout(()=>this.textContent='Copy',1400);
+});
+(function(){
+  const track=document.getElementById('track'),slides=Array.from(track.children),dotsWrap=document.getElementById('dots');
+  const SLIDE_TIME=18000; let idx=0,interval;
+  slides.forEach((_,i)=>{const d=document.createElement('div');d.className='cdot'+(i===0?' active':'');d.innerHTML='<span class="cdot-fill"></span>';dotsWrap.appendChild(d);d.addEventListener('click',()=>{idx=i;reset();update()})});
+  const cdots=Array.from(dotsWrap.children);
+  function updateDots(){cdots.forEach((d,i)=>{d.classList.toggle('active',i===idx);const f=d.querySelector('.cdot-fill');f.style.transition='none';f.style.width='0%';if(i===idx)requestAnimationFrame(()=>{f.style.transition=`width ${SLIDE_TIME}ms linear`;f.style.width='100%'})})}
+  function updateVideos(){slides.forEach((s,i)=>{const v=s.querySelector('video');if(!v)return;if(i===idx){v.currentTime=0;v.play().catch(()=>{})}else{v.pause();v.currentTime=0}})}
+  function update(){track.style.transform=`translateX(-${idx*100}%)`;updateDots();updateVideos()}
+  function next(){idx=(idx+1)%slides.length;update()}
+  function start(){interval=setInterval(next,SLIDE_TIME)}
+  function reset(){clearInterval(interval);start()}
+  document.getElementById('next').addEventListener('click',()=>{reset();next()});
+  document.getElementById('prev').addEventListener('click',()=>{reset();idx=(idx-1+slides.length)%slides.length;update()});
+  update();start();
+})();
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.sys-card,.pm-grid').forEach(el=>obs.observe(el));
 </script>
-
 </body>
 </html>

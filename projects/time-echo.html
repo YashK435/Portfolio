@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Echo | Yash Kamble</title>
+  <link rel="stylesheet" href="CSS/project-base.css">
+  <style>
+    :root {
+      --pa:       #a78bfa;
+      --pa2:      #c4b5fd;
+      --pa-glow:  rgba(167,139,250,0.14);
+      --pa-glow2: rgba(167,139,250,0.05);
+    }
+    /* FFrameData table */
+    .fdt { width:100%; border-radius:var(--r); overflow:hidden; border:1px solid var(--border); font-size:13px; }
+    .fdt-head { display:grid; grid-template-columns:110px 110px 1fr; background:var(--pa-glow); padding:10px 14px; }
+    .fdt-head span { font-size:11px; font-weight:700; color:var(--pa); text-transform:uppercase; letter-spacing:.06em; }
+    .fdt-row { display:grid; grid-template-columns:110px 110px 1fr; padding:10px 14px; border-top:1px solid var(--border); align-items:center; }
+    .fdt-row:hover { background:var(--pa-glow2); }
+    .fdt-code { font-family:'Courier New',monospace; font-size:12px; color:var(--pa2); }
+    .fdt-type { font-size:12px; color:#ffb45a; }
+    .fdt-row span:last-child { font-size:12px; color:var(--text-muted); }
+    /* Clone vis */
+    .clone-vis { display:flex; flex-direction:column; align-items:center; gap:12px; width:100%; }
+    .cv-node { padding:12px 20px; border-radius:var(--r); font-size:13px; font-weight:600; text-align:center; }
+    .cv-player { background:rgba(212,245,60,.08); border:1px solid rgba(212,245,60,.2); color:#d4f53c; }
+    .cv-ghost  { background:var(--pa-glow); border:1px solid rgba(167,139,250,.3); color:var(--pa); }
+    .cv-label  { font-size:12px; color:var(--text-dim); }
+    /* Laser vis */
+    .laser-vis { display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:center; width:100%; }
+    .lv-beam { width:6px; height:80px; background:linear-gradient(to bottom, rgba(255,80,80,.9), rgba(255,80,80,.2)); border-radius:3px; box-shadow:0 0 12px rgba(255,80,80,.5); flex-shrink:0; }
+    .lv-clone { padding:14px 16px; background:var(--pa-glow); border:1px solid rgba(167,139,250,.3); border-radius:var(--r); color:var(--pa); font-size:12px; font-weight:600; text-align:center; }
+    .lv-player { padding:14px 16px; background:rgba(212,245,60,.08); border:1px solid rgba(212,245,60,.2); border-radius:var(--r); color:#d4f53c; font-size:12px; font-weight:600; text-align:center; }
+    /* Interact vis */
+    .int-vis { display:flex; flex-direction:column; align-items:center; gap:10px; width:100%; }
+    .int-row  { display:flex; align-items:center; gap:10px; width:100%; justify-content:center; }
+    .int-node { padding:10px 14px; border-radius:var(--r); font-size:12px; font-weight:600; text-align:center; flex-shrink:0; }
+    .int-player { background:rgba(212,245,60,.08); border:1px solid rgba(212,245,60,.2); color:#d4f53c; }
+    .int-clone  { background:var(--pa-glow); border:1px solid rgba(167,139,250,.3); color:var(--pa); }
+    .int-button { background:var(--bg3); border:1px solid var(--border); color:var(--text-muted); padding:10px 20px; font-size:12px; border-radius:var(--r); }
+    .int-mid { font-size:11px; color:var(--text-dim); text-align:center; padding:6px 12px; border:1px dashed var(--border); border-radius:100px; flex:1; }
+    .int-arr { color:var(--pa-glow); font-size:18px; }
+    /* Timeline phase grouping */
+    .tl-group-label { font-size:11px; font-weight:700; color:var(--pa); text-transform:uppercase; letter-spacing:.12em; margin:28px 0 8px 36px; }
+    .tl-group-label:first-child { margin-top:0; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cf"></div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
+    <ul class="nav-links">
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="nav-resume">Resume <span>↗</span></a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob">
+  <ul>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+    <li><a href="../Documents/Yash_2026_Resume.pdf" target="_blank">Resume ↗</a></li>
+  </ul>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="proj-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-rings">
+    <div class="ring ring-1"></div><div class="ring ring-2"></div>
+    <div class="ring ring-3"></div><div class="ring ring-4"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal-up" style="--d:0ms">
+      <span class="eyebrow-pill pill-proto">Prototype</span>
+      <span class="eyebrow-dot"></span>
+      <span class="eyebrow-text">Unreal Engine · C++ · First-Person Puzzle</span>
+    </div>
+    <h1 class="proj-title reveal-up" style="--d:120ms">
+      <span class="title-solid">Time</span>
+      <span class="title-outline">Echo</span>
+    </h1>
+    <p class="hero-sub reveal-up" style="--d:250ms">
+      Record your actions. Deploy a cooperative clone of your past self.<br>
+      Solve puzzles by working with your own echo — in C++.
+    </p>
+    <div class="hero-tags reveal-up" style="--d:360ms">
+      <span class="htag">Unreal Engine</span>
+      <span class="htag">C++</span>
+      <span class="htag">First-Person Puzzle</span>
+      <span class="htag">Replay System</span>
+      <span class="htag">20 Levels</span>
+      <span class="htag">Solo Developer</span>
+    </div>
+    <div class="hero-cta reveal-up" style="--d:460ms">
+      <a href="Gdd/GDD_TimeEcho.pdf" target="_blank" class="btn-primary">Download GDD</a>
+      <a href="projects.html" class="btn-ghost">← All Projects</a>
+    </div>
+  </div>
+  
+</section>
+
+<!-- ═══ PHASE CARDS ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Core Mechanic</div>
+    <h2 class="section-h2">The Echo Loop</h2>
+    <div class="phase-grid">
+      <div class="phase-card" style="--i:0">
+        <div class="phase-num">01</div>
+        <div class="phase-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/></svg>
+        </div>
+        <h3>Observe</h3>
+        <p>Survey the puzzle. Identify what must be triggered simultaneously — buttons, pressure plates, laser paths, movable platforms.</p>
+      </div>
+      <div class="phase-connector">→</div>
+      <div class="phase-card" style="--i:1">
+        <div class="phase-num">02</div>
+        <div class="phase-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+        </div>
+        <h3>Record</h3>
+        <p>Press Q to capture your state at fixed intervals — position, rotation, sprint, jump, and interact flags. Up to 10 seconds per recording.</p>
+      </div>
+      <div class="phase-connector">→</div>
+      <div class="phase-card" style="--i:2">
+        <div class="phase-num">03</div>
+        <div class="phase-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <h3>Deploy</h3>
+        <p>Press R to spawn a ghosted Time Echo clone. It replays every captured frame at your recording's start position — frame-accurate, frame-rate independent.</p>
+      </div>
+      <div class="phase-connector">→</div>
+      <div class="phase-card" style="--i:3">
+        <div class="phase-num">04</div>
+        <div class="phase-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Cooperate</h3>
+        <p>Act in real-time while the clone executes. Coordinate to solve what neither can accomplish alone. If the recording ends early, the clone freezes in place.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAROUSEL ═══ -->
+<section class="carousel-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Prototype Footage</div>
+    <h2 class="section-h2">Screenshots &amp; Clips</h2>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="track">
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata" src="Imgs/TimeEcho/Clone Record.mp4"></video>
+          <div class="slide-caption">
+            <h4>Recording in Action</h4>
+            <p>The TERecordingComponent captures FFrameData at fixed intervals — position, rotation, sprint, jump, and interact flags — independent of GPU frame rate.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata" src="Imgs/TimeEcho/Clone Spawn.mp4"></video>
+          <div class="slide-caption">
+            <h4>Clone Deployment</h4>
+            <p>ACloneActor spawns at the recording's start position and replays all captured frames. Translucent ghosted material keeps the clone visually distinct from the player at all times.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata" src="Imgs/TimeEcho/Clone Lazer.mp4"></video>
+          <div class="slide-caption">
+            <h4>Clone as Laser Shield</h4>
+            <p>The clone physically blocks laser beams using a proximity check against three height sample points — allowing the player to pass through otherwise-impassable zones.</p>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <video muted loop playsinline preload="metadata" src="Imgs/TimeEcho/Presure Plate.mp4"></video>
+          <div class="slide-caption">
+            <h4>Frozen Clone on Pressure Plate</h4>
+            <p>A frozen clone holds a pressure plate indefinitely until its lifetime expires — a core puzzle pattern from Level 4 onward that combines recording timing with spatial planning.</p>
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-btn prev" id="prev">‹</button>
+      <button class="carousel-btn next" id="next">›</button>
+    </div>
+    <div class="carousel-dots" id="dots"></div>
+  </div>
+</section>
+
+<!-- ═══ OVERVIEW + STATS ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="overview-grid">
+      <div class="col-text">
+        <div class="section-eyebrow">Overview</div>
+        <h2 class="section-h2">What Is Time Echo?</h2>
+        <p>A first-person puzzle-platformer built in Unreal Engine using C++. The core revolves around a recording system that captures the player's actions every fixed interval and replays them through a ghosted Clone Actor — cooperative problem-solving with your own past.</p>
+        <p>Players solve environmental puzzles that require buttons, pressure plates, laser hazards, and movable platforms to be engaged simultaneously — only possible by coordinating live actions with recorded ones.</p>
+        <p>The project is at a complete and polishing stage, featuring 20 handcrafted levels that progressively introduce and combine every mechanic. Built entirely in C++ with a modular, delegate-driven architecture designed for expansion.</p>
+      </div>
+      <div class="col-text" style="padding-top:52px">
+        <div class="stats-row" style="grid-template-columns:1fr 1fr">
+          <div class="stat-block"><div class="stat-val">10s</div><div class="stat-label">Max recording window</div></div>
+          <div class="stat-block"><div class="stat-val">C++</div><div class="stat-label">Primary language</div></div>
+          <div class="stat-block"><div class="stat-val">20</div><div class="stat-label">Handcrafted levels</div></div>
+          <div class="stat-block"><div class="stat-val">1→∞</div><div class="stat-label">Clone support (expandable)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GDD DOWNLOAD ═══ -->
+<div class="project-actions">
+  <a href="Gdd/GDD_TimeEcho.pdf" target="_blank" class="btn-primary">Download Game Design Document</a>
+</div>
+
+<!-- ═══ SYSTEMS TABS ═══ -->
+<section class="project-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Architecture</div>
+    <h2 class="section-h2">Key Systems</h2>
+
+    <div class="tab-nav" id="tabNav">
+      <button class="tab-btn active" data-tab="recording">Recording</button>
+      <button class="tab-btn" data-tab="clone">Clone Actor</button>
+      <button class="tab-btn" data-tab="hazard">Lasers</button>
+      <button class="tab-btn" data-tab="interaction">Interaction</button>
+      <button class="tab-btn" data-tab="environment">Environment</button>
+    </div>
+
+    <div class="tab-panels">
+
+      <div class="tab-panel active" id="tab-recording">
+        <div class="tab-inner">
+          <div class="tab-text">
+            <h3>TERecordingComponent</h3>
+            <p><code>TERecordingComponent</code> samples frame data at fixed time intervals using elapsed time accumulation — frame-rate independent, ensuring clone playback is identical regardless of hardware.</p>
+            <p>Data is stored as an ordered array of <code>FTEFrameData</code> structs. On deploy, the complete array is passed to the Clone Actor. Recording window is configurable — currently capped at 10 seconds.</p>
+            <ul class="sys-list">
+              <li>Frame-rate independent capture via time accumulation</li>
+              <li>~10 second max recording window (configurable)</li>
+              <li>Captures position, rotation, sprint, jump, and interact flags</li>
+              <li>Exposes OnCloneSpawned, OnCloneInteracted, OnCloneDestroyed delegates</li>
+              <li>Resets cleanly on death, checkpoint reset, or level restart</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="fdt">
+              <div class="fdt-head"><span>Field</span><span>Type</span><span>Purpose</span></div>
+              <div class="fdt-row"><span class="fdt-code">Location</span><span class="fdt-type">FVector</span><span>World-space position</span></div>
+              <div class="fdt-row"><span class="fdt-code">Rotation</span><span class="fdt-type">FRotator</span><span>Character facing direction</span></div>
+              <div class="fdt-row"><span class="fdt-code">Timestamp</span><span class="fdt-type">float</span><span>Elapsed seconds since recording start</span></div>
+              <div class="fdt-row"><span class="fdt-code">bIsSprinting</span><span class="fdt-type">bool</span><span>Sprint state for animation fidelity</span></div>
+              <div class="fdt-row"><span class="fdt-code">bIsJumping</span><span class="fdt-type">bool</span><span>Airborne state for animation</span></div>
+              <div class="fdt-row"><span class="fdt-code">bIsInteracting</span><span class="fdt-type">bool</span><span>Triggers button/plate events during replay</span></div>
+            </div>
+            <div class="vis-caption">FTEFrameData Struct</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-clone">
+        <div class="tab-inner">
+          <div class="tab-text">
+            <h3>ATECloneActor</h3>
+            <p><code>ATECloneActor</code> receives the full frame array via <code>InitialiseWithFrames()</code> and iterates using a repeating timer matching the original capture interval.</p>
+            <p>Transforms are applied directly via <code>SetActorLocation</code> — no physics simulation — for precise path replay. If the recording ends before the fixed lifetime, the clone freezes in place at its last frame, enabling it to hold pressure plates or block lasers indefinitely.</p>
+            <ul class="sys-list">
+              <li>Spawned at the player's recorded start position</li>
+              <li>Direct transform replay — no pathfinding, no physics</li>
+              <li>Translucent ghosted material for visual clarity</li>
+              <li>Fires bIsInteracting events — activates nearby buttons on playback</li>
+              <li>Freezes at last frame when recording is shorter than lifetime</li>
+              <li>Self-destructs after TotalLifetime expires</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="clone-vis">
+              <div class="cv-node cv-player">Player — records path</div>
+              <div class="cv-label">↓ TArray&lt;FTEFrameData&gt; passed on deploy</div>
+              <div class="cv-node cv-ghost">ATECloneActor — replays exact transforms</div>
+              <div class="cv-label">Freezes at last frame if recording is short</div>
+            </div>
+            <div class="vis-caption">Clone lifecycle</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-hazard">
+        <div class="tab-inner">
+          <div class="tab-text">
+            <h3>ATELaserHazard</h3>
+            <p>Laser hazards are directional beams that perform two-pass detection every <code>CheckInterval</code> seconds. The clone blocking check always runs first — protecting the player if the clone is in position.</p>
+            <p>Clone blocking uses a custom proximity algorithm: three height sample points are tested (feet, mid-body, chest) against the beam's closest point. If any sample falls within 80 units, the laser dims to dark red and the player cannot be hit.</p>
+            <ul class="sys-list">
+              <li>Clone blocking checked before player hit detection — always</li>
+              <li>Three height samples per clone against beam closest point</li>
+              <li>80-unit proximity threshold for block detection</li>
+              <li>Visual dim to dark red when clone is blocking</li>
+              <li>Player hit: stops recording, freezes clone, camera shake, DeathCooldown</li>
+              <li>Respawns at nearest active checkpoint on hit</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="laser-vis">
+              <div class="lv-beam"></div>
+              <div class="lv-clone">Clone<br><small>shields beam</small></div>
+              <div class="lv-player">Player<br><small>passes through</small></div>
+            </div>
+            <div class="vis-caption">Clone-as-shield — the laser dims when blocked</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-interaction">
+        <div class="tab-inner">
+          <div class="tab-text">
+            <h3>TEInteractableBase</h3>
+            <p>Buttons, pressure plates, and trigger volumes respond to both player and clone through a shared <code>TEInteractableBase</code> interface. Any action the player can perform, the clone can also perform during playback — full parity.</p>
+            <p>Buttons support toggle and momentary (hold-required) modes. Pressure plates deactivate when the character steps off — frozen clones can hold them indefinitely until lifetime expires. Trigger volumes dispatch state-change events to puzzle actors.</p>
+            <ul class="sys-list">
+              <li>Shared interface — player and clone both use identical interaction calls</li>
+              <li>Toggle and momentary button modes supported</li>
+              <li>Pressure plates — active only while character overlaps</li>
+              <li>Frozen clone holds plates until lifetime expires</li>
+              <li>Trigger volumes advance puzzle state, spawn actors, open paths</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="int-vis">
+              <div class="int-row">
+                <div class="int-node int-player">Player <code>E</code></div>
+                <div class="int-mid">TEInteractableBase interface</div>
+                <div class="int-node int-clone">Clone <code>replay</code></div>
+              </div>
+              <div class="int-arr">↓</div>
+              <div class="int-node int-button">Button / Pressure Plate / Trigger Volume</div>
+            </div>
+            <div class="vis-caption">Shared interaction — identical for both actors</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-environment">
+        <div class="tab-inner">
+          <div class="tab-text">
+            <h3>Environmental Systems</h3>
+            <p><code>ATEDoor</code> slides between open and closed states using <code>VInterpTo</code>. Doors lock their linked button during movement and support auto-close with configurable delay.</p>
+            <p><code>TEMovablePlatform</code> translates between a start and end position on character overlap. Supports one-way, looping, and auto-activate modes. Pauses briefly at each end before reversing. Both player and clone activate platforms via overlap.</p>
+            <p><code>ATECheckpoint</code> and <code>ATELevelManager</code> handle respawn. Reset-to-Checkpoint teleports to last reached point. Restart Level returns to the level start. Both reset active recordings and freeze or destroy the active clone.</p>
+            <ul class="sys-list">
+              <li>Doors: VInterpTo sliding, configurable speed and auto-close</li>
+              <li>Platforms: one-way, looping, and auto-activate modes</li>
+              <li>Checkpoints sorted by CheckpointIndex — only advance forward</li>
+              <li>Reset-to-Checkpoint and Restart Level available at any time</li>
+            </ul>
+          </div>
+          <div class="tab-visual">
+            <div class="cv-node cv-ghost" style="width:100%;text-align:center;margin-bottom:12px">TELevelManager<br><small style="color:var(--text-dim);font-size:11px">discovers &amp; sorts all checkpoints at BeginPlay</small></div>
+            <div class="cv-node cv-player" style="width:100%;text-align:center;margin-bottom:12px">ATECheckpoint<br><small style="color:var(--text-dim);font-size:11px">fires OnCheckpointActivatedGlobal</small></div>
+            <div class="int-node int-button" style="width:100%;text-align:center">ResetToCheckpoint / ResetToStart<br><small style="color:var(--text-dim);font-size:11px">stops recording, freezes/destroys clone</small></div>
+            <div class="vis-caption">Checkpoint &amp; reset system</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PUZZLE PROGRESSION TIMELINE ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Level Design</div>
+    <h2 class="section-h2">20-Level Progression</h2>
+    <p class="section-sub">Each level introduces one mechanic, then subsequent levels layer them together. The final two levels are a master challenge and a narrative payoff respectively.</p>
+
+    <div class="timeline">
+
+      <div class="tl-group-label">Phase 1 — Interaction Basics (Levels 1–3)</div>
+
+      <div class="tl-item" style="--i:0">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 1 — First Echo</div>
+          <h4>Button &amp; Door</h4>
+          <p>Introduces button-and-door interaction. Player presses a button to open a door. Teaches basic interaction before the clone is even needed.</p>
+          <div class="tl-chips"><span>Buttons</span><span>Doors</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item" style="--i:1">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 2 — Which One?</div>
+          <h4>Multiple Buttons</h4>
+          <p>Three buttons, only one opens the door. Player must experiment — learning that not all interactables do the same thing.</p>
+          <div class="tl-chips"><span>Buttons</span><span>Experimentation</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item" style="--i:2">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 3 — Distant Reach</div>
+          <h4>Clone Required</h4>
+          <p>A button and door are too far apart to use alone. Player must record pressing the button, then spawn a clone to hold it while they walk through.</p>
+          <div class="tl-chips"><span>Clone</span><span>First Coordination</span></div>
+        </div>
+      </div>
+
+      <div class="tl-group-label">Phase 2 — Pressure &amp; Platforms (Levels 4–7)</div>
+
+      <div class="tl-item" style="--i:3">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 4 — Stand Your Ground</div>
+          <h4>Pressure Plate</h4>
+          <p>Introduces the pressure plate. Door only stays open while something stands on the plate. Clone holds the plate, player passes through.</p>
+          <div class="tl-chips"><span>Pressure Plate</span><span>Frozen Clone</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item" style="--i:3">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 6 — Rising Floor</div>
+          <h4>Movable Floor</h4>
+          <p>Pressure plate controls an elevator. Clone holds the plate while player rides the floor to reach the door — vertical puzzle design introduced.</p>
+          <div class="tl-chips"><span>Elevator</span><span>Plates</span><span>Vertical</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item" style="--i:3">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 7 — On the Move</div>
+          <h4>Automatic Platform</h4>
+          <p>Moving platform activates on overlap. Player must time their clone's position to ride the platform across a gap — timing precision introduced.</p>
+          <div class="tl-chips"><span>Moving Platform</span><span>Timing</span></div>
+        </div>
+      </div>
+
+      <div class="tl-group-label">Phase 3 — Sequences &amp; Combinations (Levels 8–11)</div>
+
+      <div class="tl-item" style="--i:4">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 8 — Press in Order</div>
+          <h4>Ordered Buttons</h4>
+          <p>A series of buttons must be pressed in the correct sequence. Player must plan the recording carefully and execute presses with timing precision.</p>
+          <div class="tl-chips"><span>Sequence</span><span>Planning</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item" style="--i:4">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 11 — New Room</div>
+          <h4>Multi-Room Combination</h4>
+          <p>A new room introduces complex combinations of all mechanics so far. Increases spatial reasoning across multiple areas simultaneously.</p>
+          <div class="tl-chips"><span>Multi-Room</span><span>All Prior Mechanics</span></div>
+        </div>
+      </div>
+
+      <div class="tl-group-label">Phase 4 — Laser Hazards (Levels 12–18)</div>
+
+      <div class="tl-item" style="--i:5">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 12 — Laser Warning</div>
+          <h4>First Laser Hazard</h4>
+          <p>Introduces the laser. Contact resets to last checkpoint. Player learns that the clone physically blocks the beam — the shield pattern is established.</p>
+          <div class="tl-chips"><span>Laser</span><span>Shield Pattern</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item" style="--i:5">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 18 — Crossfire</div>
+          <h4>Intersecting Lasers</h4>
+          <p>Two lasers cross. Clone must be positioned precisely at the intersection to block both simultaneously — the most demanding spatial precision in the laser phase.</p>
+          <div class="tl-chips"><span>Dual Laser</span><span>Intersection</span><span>Precision</span></div>
+        </div>
+      </div>
+
+      <div class="tl-group-label">Phase 5 — Mastery (Levels 19–20)</div>
+
+      <div class="tl-item" style="--i:6">
+        <div class="tl-marker"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-card">
+          <div class="tl-stage">Level 19 — The Grand Puzzle</div>
+          <h4>All Mechanics Combined</h4>
+          <p>The final challenge. Buttons, pressure plates, movable floors, automatic platforms, and lasers in a single coordinated sequence. Mastery of all systems required.</p>
+          <div class="tl-chips"><span>All Mechanics</span><span>Full Mastery</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item" style="--i:7">
+        <div class="tl-marker"><div class="tl-dot tl-final"></div></div>
+        <div class="tl-card" style="border-color:rgba(167,139,250,.25);background:linear-gradient(135deg,var(--card),var(--pa-glow2))">
+          <div class="tl-stage">Level 20 — The Ending</div>
+          <h4>Interactive Finale</h4>
+          <p>Pressure plates surround a floating button. Stepping on the correct plate lowers it within reach. Interacting with the button triggers the game ending sequence.</p>
+          <div class="tl-chips" style=""><span style="border-color:rgba(167,139,250,.25);color:var(--pa)">Narrative Payoff</span><span style="border-color:rgba(167,139,250,.25);color:var(--pa)">All Mechanics</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ARCHITECTURE TABLE ═══ -->
+<section class="project-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">C++ Classes</div>
+    <h2 class="section-h2">Technical Architecture</h2>
+
+    <div class="arch-wrap">
+      <table class="arch-table">
+        <thead>
+          <tr><th>Class / Module</th><th>Lang</th><th>Responsibility</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>ATimeEchoCharacter</code></td><td><span class="lb lb-cpp">C++</span></td><td>Player character — movement, input, owns RecordingComponent and ActiveClone reference</td></tr>
+          <tr><td><code>TERecordingComponent</code></td><td><span class="lb lb-cpp">C++</span></td><td>Captures FTEFrameData at fixed intervals; stores TArray for clone handoff</td></tr>
+          <tr><td><code>FTEFrameData</code> (struct)</td><td><span class="lb lb-cpp">C++</span></td><td>Snapshot: Location, Rotation, Timestamp, bIsSprinting, bIsJumping, bIsInteracting</td></tr>
+          <tr><td><code>ATECloneActor</code></td><td><span class="lb lb-cpp">C++</span></td><td>Receives frame array; replays via timer; fires interaction events; freezes at last frame</td></tr>
+          <tr><td><code>ATEInteractableBase</code></td><td><span class="lb lb-cpp">C++</span></td><td>Abstract base for all interactables; shared interface for player and clone parity</td></tr>
+          <tr><td><code>ATEButton</code></td><td><span class="lb lb-bp">BP</span></td><td>Concrete interactable — player E-press or clone bIsInteracting proximity activation</td></tr>
+          <tr><td><code>ATEDoor</code></td><td><span class="lb lb-bp">BP</span></td><td>VInterpTo sliding door; locks LinkedButton during movement; optional auto-close</td></tr>
+          <tr><td><code>ATELaserHazard</code></td><td><span class="lb lb-cpp">C++</span></td><td>Directional beam; clone proximity check (3 height samples, 80u threshold) before player hit</td></tr>
+          <tr><td><code>TEMovablePlatform</code></td><td><span class="lb lb-bp">BP</span></td><td>Overlap-activated platform; one-way, looping, and auto-activate modes</td></tr>
+          <tr><td><code>ATECheckpoint</code></td><td><span class="lb lb-cpp">C++</span></td><td>Respawn marker; fires OnCheckpointActivatedGlobal; sorted by CheckpointIndex</td></tr>
+          <tr><td><code>ATELevelManager</code></td><td><span class="lb lb-cpp">C++</span></td><td>Singleton; discovers and sorts checkpoints; handles ResetToCheckpoint and ResetToStart</td></tr>
+          <tr><td><code>ATEGameHUD</code></td><td><span class="lb lb-cpp">C++</span></td><td>Reads player/clone state each tick; drives WBP_GameHUD Blueprint widget bindings</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="data-flow">
+      <div class="df-label">Data Flow</div>
+      <div class="df-steps">
+        <div class="df-step">Q — Start Recording</div><div class="df-arr">→</div>
+        <div class="df-step">TERecordingComponent<br><small>samples FTEFrameData</small></div><div class="df-arr">→</div>
+        <div class="df-step">R — Deploy Clone</div><div class="df-arr">→</div>
+        <div class="df-step">ATECloneActor spawned<br><small>with TArray payload</small></div><div class="df-arr">→</div>
+        <div class="df-step">Clone iterates<br><small>via repeating timer</small></div><div class="df-arr">→</div>
+        <div class="df-step">Freezes or<br><small>self-destructs</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FUTURE EXTENSIONS ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Roadmap</div>
+    <h2 class="section-h2">Planned Extensions</h2>
+    <p class="section-sub">The architecture is designed for these expansions without fundamental rewrites — modular, delegate-driven, and open-ended.</p>
+    <div class="future-grid">
+      <div class="future-card" style="--i:0"><span class="future-icon">⧖</span><h4>Multiple Simultaneous Clones</h4><p>2–3 active echoes for complex cooperative puzzles requiring layered timing and independent path planning.</p></div>
+      <div class="future-card" style="--i:1"><span class="future-icon">⟳</span><h4>Time Rewind</h4><p>Rewind the player's own position independently of any active clone replays — adding a second temporal layer.</p></div>
+      <div class="future-card" style="--i:2"><span class="future-icon">⌦</span><h4>Echo Overwrite</h4><p>Record a new echo that modifies or cancels an active replay mid-sequence, enabling puzzle solutions that require changing the past.</p></div>
+      <div class="future-card" style="--i:3"><span class="future-icon">⬡</span><h4>Branching Timelines</h4><p>Clones that behave differently based on world state at deployment time — different doors open, different platforms raised.</p></div>
+      <div class="future-card" style="--i:4"><span class="future-icon">◻</span><h4>Object Recording</h4><p>Record and replay object manipulation — carrying crates through triggers, positioning objects for puzzle activation.</p></div>
+      <div class="future-card" style="--i:5"><span class="future-icon">◈</span><h4>Narrative Layer</h4><p>Environmental storytelling elements triggered by checkpoint events — a story built around the mechanic without interrupting it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POSTMORTEM ═══ -->
+<section class="project-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Reflection</div>
+    <h2 class="section-h2">Prototype Notes</h2>
+    <div class="pm-grid">
+      <div class="pm-col">
+        <div class="pm-head"><span class="pm-dot green"></span><h3>Strengths</h3></div>
+        <ul class="pm-list">
+          <li>Clean C++ separation — recording, clone, hazard each fully independent</li>
+          <li>Frame-rate independent capture ensures accurate clone playback on all hardware</li>
+          <li>Shared interaction interface gives player and clone full parity with no duplication</li>
+          <li>FTEFrameData struct extensible without breaking existing replay logic</li>
+          <li>Delegate-driven communication decouples systems cleanly</li>
+          <li>20-level progression systematically introduces and layers every mechanic</li>
+        </ul>
+      </div>
+      <div class="pm-col">
+        <div class="pm-head"><span class="pm-dot yellow"></span><h3>Current Limits</h3></div>
+        <ul class="pm-list">
+          <li>Single active clone per puzzle room in the base prototype</li>
+          <li>10-second maximum recording window limits larger puzzle spaces</li>
+          <li>No narrative layer — pure mechanical prototype currently</li>
+          <li>Prototype-level visual polish only — no final art pass</li>
+          <li>No persistent save or meta-progression system</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
+    <span>© 2026 Yash Kamble. All rights reserved.</span>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="footer-resume">Resume ↗</a>
+  </div>
+</footer>
+
+<script>
+const cur=document.getElementById('cursor'),cf=document.getElementById('cf');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function t(){cur.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;cf.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(t)})();
+document.querySelectorAll('a,button,.phase-card,.future-card,.pm-col,.tl-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('ch');cf.classList.add('ch')});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('ch');cf.classList.remove('ch')});
+});
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>60));
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
+window.addEventListener('load',()=>{document.querySelectorAll('.reveal-up').forEach(el=>{setTimeout(()=>el.classList.add('visible'),parseInt(el.style.getPropertyValue('--d'))||0)})});
+document.addEventListener('mousemove',e=>{const px=(e.clientX/window.innerWidth-.5)*40,py=(e.clientY/window.innerHeight-.5)*40;document.querySelectorAll('.orb').forEach((o,i)=>{const m=(i+1)*.35;o.style.transform=`translate(${px*m}px,${py*m}px)`})});
+/* TABS */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+/* CAROUSEL */
+(function(){
+  const track=document.getElementById('track'),slides=Array.from(track.children),dotsWrap=document.getElementById('dots');
+  const SLIDE_TIME=18000; let idx=0,interval;
+  slides.forEach((_,i)=>{const d=document.createElement('div');d.className='cdot'+(i===0?' active':'');d.innerHTML='<span class="cdot-fill"></span>';dotsWrap.appendChild(d);d.addEventListener('click',()=>{idx=i;reset();update()})});
+  const cdots=Array.from(dotsWrap.children);
+  function updateDots(){cdots.forEach((d,i)=>{d.classList.toggle('active',i===idx);const f=d.querySelector('.cdot-fill');f.style.transition='none';f.style.width='0%';if(i===idx)requestAnimationFrame(()=>{f.style.transition=`width ${SLIDE_TIME}ms linear`;f.style.width='100%'})})}
+  function updateVideos(){slides.forEach((s,i)=>{const v=s.querySelector('video');if(!v)return;if(i===idx){v.currentTime=0;v.play().catch(()=>{})}else{v.pause();v.currentTime=0}})}
+  function update(){track.style.transform=`translateX(-${idx*100}%)`;updateDots();updateVideos()}
+  function next(){idx=(idx+1)%slides.length;update()}
+  function start(){interval=setInterval(next,SLIDE_TIME)}
+  function reset(){clearInterval(interval);start()}
+  document.getElementById('next').addEventListener('click',()=>{reset();next()});
+  document.getElementById('prev').addEventListener('click',()=>{reset();idx=(idx-1+slides.length)%slides.length;update()});
+  update();start();
+})();
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.phase-card,.future-card,.pm-grid,.tl-item,.arch-wrap,.data-flow,.stat-block').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

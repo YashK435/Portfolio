@@ -1,339 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forest of Undead | Yash Kamble</title>
-
-    <link rel="stylesheet" href="CSS/forest-of-undead.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest of Undead | Yash Kamble</title>
+  <link rel="stylesheet" href="CSS/project-base.css">
+  <style>
+    :root {
+      --pa:       #4ade80;
+      --pa2:      #86efac;
+      --pa-glow:  rgba(74,222,128,0.13);
+      --pa-glow2: rgba(74,222,128,0.05);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="container nav-inner">
-        <div class="logo">Yash Kamble</div>
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="../index.html#skills">Skills</a></li>
-            <li><a href="../index.html#about">About</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
-        </ul>
-    </div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cf"></div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
+    <ul class="nav-links">
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="nav-resume">Resume <span>↗</span></a>
+    <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  </div>
 </nav>
+<div class="mobile-menu" id="mob">
+  <ul>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+    <li><a href="../Documents/Yash_2026_Resume.pdf" target="_blank">Resume ↗</a></li>
+  </ul>
+</div>
 
-<!-- HERO -->
-<section class="hero project-hero page-enter">
-    <div class="container center-section">
-        <h3>Forest of Undead</h3>
-        <p class="tagline">
-            2D Top-Down Survival Shooter focused on scalable systems,
-            readable chaos, and player-driven builds.
-        </p>
+<!-- ═══ HERO ═══ -->
+<section class="proj-hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-rings">
+    <div class="ring ring-1"></div><div class="ring ring-2"></div>
+    <div class="ring ring-3"></div><div class="ring ring-4"></div>
+  </div>
 
-        <div class="project-meta">
-            <span>Unity</span>
-            <span>PC / Web</span>
-            <span>Solo Developer</span>
-            <span>Finished</span>
-        </div>
-        
-                <a
-            href="https://old-monkey.itch.io/forest-of-undead"
-            target="_blank"
-            class="btn-secondary"
-        >
-            View on Itch.io
-        </a>
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal-up" style="--d:0ms">
+      <span class="eyebrow-pill pill-finished">Finished</span>
+      <span class="eyebrow-dot"></span>
+      <span class="eyebrow-text">Unity · 2D Survival Shooter · PC / Web</span>
     </div>
-</section>
-
-<!-- VIDEO -->
-<section class="project-video">
-    <div class="container">
-        <div class="video-wrapper">
-            <iframe
-                src="https://www.youtube.com/embed/itYoGsxn9BU"
-                title="Forest of Undead Gameplay Demo"
-                frameborder="0"
-                allowfullscreen>
-            </iframe>
-        </div>
+    <h1 class="proj-title reveal-up" style="--d:120ms">
+      <span class="title-solid">Forest</span>
+      <span class="title-outline">of Undead</span>
+    </h1>
+    <p class="hero-sub reveal-up" style="--d:250ms">
+      Endless survival where upgrades compound into inevitable failure.<br>
+      Overwhelming power growth against hordes — until the game overwhelms you.
+    </p>
+    <div class="hero-tags reveal-up" style="--d:360ms">
+      <span class="htag">Unity 2D</span>
+      <span class="htag">PC / Web</span>
+      <span class="htag">Solo Developer</span>
+      <span class="htag">~7 Weeks</span>
+      <span class="htag">Finished</span>
     </div>
-</section>
-
-
-
-<!-- ACTION BUTTON -->
-<section class="project-actions">
-    <a
-        href="./Gdd/GDD_ForestOfUndead.pdf"
-        class="btn-primary"
-        target="_blank"
-    >
-        Download Game Design Document (PDF)
-    </a>
-</section>
-
-<!-- OVERVIEW -->
-<section class="project-section alt-bg" >
-    <div class="container">
-        <h2>Game Overview</h2>
-        <p>
-            Forest of Undead is a fast-paced survival shooter where the objective
-            is not completion but endurance. Players grow in power through
-            upgrade decisions while enemy pressure escalates endlessly, creating
-            inevitable failure driven by build choices rather than randomness.
-        </p>
+    <div class="hero-cta reveal-up" style="--d:460ms">
+      <a href="https://old-monkey.itch.io/forest-of-undead" target="_blank" class="btn-primary">Play on Itch.io ↗</a>
+      <a href="Gdd/GDD_ForestOfUndead.pdf" target="_blank" class="btn-secondary">Download GDD</a>
+      <a href="projects.html" class="btn-ghost">← All Projects</a>
     </div>
+  </div>
+  
 </section>
 
-<!-- SCREENSHOTS (FIXED) -->
-<section class="screenshots-carousel">
+<!-- ═══ YOUTUBE ═══ -->
+<section class="yt-section">
   <div class="container">
-    <h2>Screenshots</h2>
+    <div class="section-eyebrow">Gameplay Demo</div>
+    <h2>Watch It In Action</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/itYoGsxn9BU" title="Forest of Undead Gameplay Demo" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
 
-    <div class="carousel">
-      <div class="carousel-track">
+<!-- ═══ CAROUSEL ═══ -->
+<section class="carousel-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Gameplay Footage</div>
+    <h2 class="section-h2">Screenshots &amp; Clips</h2>
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="track">
 
         <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata"
-            src="./Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~4.mp4"></video>
-          <div class="carousel-caption">
+          <video muted loop playsinline preload="metadata" src="Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~4.mp4"></video>
+          <div class="slide-caption">
             <h4>Mid-Game Horde Combat</h4>
-            <p>Player faces dense enemy waves with stacked upgrades, showcasing readable chaos and build progression under pressure.</p>
+            <p>Dense enemy waves with stacked upgrades — readable chaos at its peak. Player build decisions determine whether survival or death comes first.</p>
           </div>
         </div>
 
         <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata"
-            src="./Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~3.mp4"></video>
-          <div class="carousel-caption">
+          <video muted loop playsinline preload="metadata" src="Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~3.mp4"></video>
+          <div class="slide-caption">
             <h4>Card-Based Upgrade Choice</h4>
-            <p>On level-up, players choose one of three randomized upgrade cards, shaping each run into a unique build.</p>
+            <p>On level-up, choose one of three randomized upgrade cards. Each run shapes into a unique build — area control, summoner, or glass cannon.</p>
           </div>
         </div>
 
         <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata"
-            src="./Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~2.mp4"></video>
-          <div class="carousel-caption">
-            <h4>Pet Summon & Companion</h4>
-            <p>A fireball-shooting pet follows the player and scales through its own three-tier upgrade path.</p>
+          <video muted loop playsinline preload="metadata" src="Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~2.mp4"></video>
+          <div class="slide-caption">
+            <h4>Pet Summon &amp; Companion</h4>
+            <p>A fireball-shooting summon follows the player and scales through its own three-tier upgrade path, adding consistent background damage.</p>
           </div>
         </div>
 
-
         <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata"
-            src="./Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~5.mp4"></video>
-          <div class="carousel-caption">
-            <h4>Player Death & Run End</h4>
-            <p>Health depletion triggers a clear death animation, reinforcing the endless loop of survive → upgrade → fail → retry.</p>
+          <video muted loop playsinline preload="metadata" src="Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~5.mp4"></video>
+          <div class="slide-caption">
+            <h4>Player Death &amp; Run End</h4>
+            <p>Health depletion ends the run. Clear death animation reinforces the endless loop — survive, upgrade, fail, retry, do better.</p>
           </div>
         </div>
 
       </div>
-
-      <!-- ARROWS (UNCHANGED) -->
-      <button class="carousel-btn prev">‹</button>
-      <button class="carousel-btn next">›</button>
+      <button class="carousel-btn prev" id="prev">‹</button>
+      <button class="carousel-btn next" id="next">›</button>
     </div>
-
-    <div class="carousel-indicators"></div>
+    <div class="carousel-dots" id="dots"></div>
   </div>
 </section>
 
-
-
-
-<!-- CORE LOOP -->
-<section class="project-section alt-bg">
-    <div class="container">
-        <h2>Core Gameplay Loop</h2>
-        <p class="loop-text">
-            Spawn Enemies → Defeat Enemies → Gain EXP → Level Up →
-            Choose 1 of 3 Upgrades → Difficulty Scales → Repeat Until Death
-        </p>
-    </div>
-</section>
-
-
-
-<!-- SYSTEMS -->
+<!-- ═══ OVERVIEW ═══ -->
 <section class="project-section">
-    <div class="container">
-        <h2>Key Systems</h2>
-
-        <h3>Upgrade System</h3>
-        <p>
-            The game uses stat-driven randomized upgrades to ensure scalability,
-            balance clarity, and replayability. Different upgrade combinations
-            naturally form distinct build archetypes such as area control,
-            summoner, and glass cannon.
-        </p>
-
-        <h3>Enemy Design</h3>
-        <p>
-            Difficulty increases through controlled stat progression rather than
-            complex AI behavior. This maintains performance stability and visual
-            readability even during high-intensity enemy swarms.
-        </p>
-    </div>
+  <div class="container">
+    <div class="section-eyebrow">Overview</div>
+    <h2 class="section-h2">Game Overview</h2>
+    <p>Forest of Undead is a 2D top-down survival shooter inspired by endless survival games like Vampire Survivors. The player is placed inside a cursed forest and must survive increasingly intense waves of undead enemies by continuously moving, fighting, and upgrading.</p>
+    <p>The game emphasizes long-term survival over completion. Failure is inevitable — the goal is to survive longer each run by making better upgrade decisions and adapting to escalating enemy pressure. The upgrade system is stat-driven and randomized, creating distinct build archetypes every playthrough without hand-authored content.</p>
+  </div>
 </section>
 
-
-<!-- POSTMORTEM -->
+<!-- ═══ CORE LOOP ═══ -->
 <section class="project-section alt-bg">
-    <div class="container">
-        <h2>Postmortem</h2>
-
-        <div class="postmortem-grid">
-            <div>
-                <h3>What Went Right</h3>
-                <ul>
-                    <li>Complete gameplay loop shipped within scope</li>
-                    <li>Strong replayability through upgrade randomness</li>
-                    <li>Clear system scalability</li>
-                </ul>
-            </div>
-
-            <div>
-                <h3>What Could Improve</h3>
-                <ul>
-                    <li>Limited enemy behavior variety</li>
-                    <li>No meta-progression between runs</li>
-                </ul>
-            </div>
-        </div>
+  <div class="container">
+    <div class="section-eyebrow">Gameplay</div>
+    <h2 class="section-h2">Core Loop</h2>
+    <div class="loop-flow">
+      <span class="loop-step">Spawn Enemies</span> → Defeat Enemies → Gain EXP →
+      <span class="loop-step">Level Up</span> → Choose 1 of 3 Upgrades →
+      <span class="loop-step">Difficulty Scales</span> → Repeat Until Death
     </div>
+    <p style="margin-top:24px">As the loop progresses, enemy spawn rates increase, enemy types expand, and player upgrade decisions compound into stronger or weaker builds — reinforcing learning through failure.</p>
+  </div>
 </section>
 
+<!-- ═══ UPGRADE SYSTEM ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Systems</div>
+    <h2 class="section-h2">Upgrade System &amp; Build Expression</h2>
+    <p>Players choose 1 of 3 randomized upgrades on level-up. All upgrades are stat-driven for rapid iteration and clear cause-effect relationships. Their combinations naturally form distinct build archetypes.</p>
+    <div class="systems-grid" style="margin-top:32px">
+      <div class="sys-card" style="--i:0">
+        <div class="sys-card-icon">💣</div>
+        <h4>Area Control — Bombs, Tornadoes, Scythes</h4>
+        <p>Clears dense clusters. Tornadoes force enemies into predictable paths. Orbiting scythes provide passive crowd control. Best combined for maximum space denial.</p>
+      </div>
+      <div class="sys-card" style="--i:1">
+        <div class="sys-card-icon">🔫</div>
+        <h4>Primary DPS — Gun &amp; Speed Upgrades</h4>
+        <p>Bullet count, damage, reload speed, and travel speed upgrades. High-risk direct combat builds that scale sharply but demand precise positioning.</p>
+      </div>
+      <div class="sys-card" style="--i:2">
+        <div class="sys-card-icon">👻</div>
+        <h4>Summoner Build — Indirect Damage</h4>
+        <p>Summon entities that fire fireballs autonomously. Combined with speed and health upgrades for consistent background damage with reduced player input burden.</p>
+      </div>
+      <div class="sys-card" style="--i:3">
+        <div class="sys-card-icon">❤️</div>
+        <h4>Survivability — Heart Upgrades</h4>
+        <p>Instant heal-to-max and max health increase. Allows recovery from mistakes and extends run longevity. The difference between a failed run and a dominant one.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- FOOTER -->
+<!-- ═══ ENEMY DESIGN ═══ -->
+<section class="project-section alt-bg">
+  <div class="container">
+    <div class="section-eyebrow">Enemy Design</div>
+    <h2 class="section-h2">Enemy Roster &amp; Scaling</h2>
+    <p>Difficulty scales through controlled stat progression rather than complex AI behaviors — ensuring readability and performance stability even during high-intensity swarms.</p>
+    <div class="enemy-table-wrap" style="margin-top:28px">
+      <table class="enemy-table">
+        <thead>
+          <tr><th>Enemy</th><th>Role</th><th>Health</th><th>Damage</th><th>Speed</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Enemy 0 — Starter Undead</td><td>Baseline threat, teaches core mechanics</td><td>10</td><td>1 Heart</td><td>1.0</td></tr>
+          <tr><td>Enemy 1 — Fast Undead</td><td>Reaction pressure, discourages static play</td><td>10</td><td>1 Heart</td><td>1.5</td></tr>
+          <tr><td>Enemy 2 — Durable Runner</td><td>Mid-game pressure, tests damage scaling</td><td>15</td><td>2 Hearts</td><td>2.0</td></tr>
+          <tr><td>Enemy 3 — Aggressive Runner</td><td>Attrition amplifier, exposes weak builds</td><td>15</td><td>2 Hearts</td><td>3.0</td></tr>
+          <tr><td>Enemy 4 — Heavy Hitter</td><td>Positional punishment, rewards careful movement</td><td>20</td><td>3 Hearts</td><td>1.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POSTMORTEM ═══ -->
+<section class="project-section">
+  <div class="container">
+    <div class="section-eyebrow">Reflection</div>
+    <h2 class="section-h2">Postmortem</h2>
+    <div class="pm-grid">
+      <div class="pm-col">
+        <div class="pm-head"><span class="pm-dot green"></span><h3>What Went Right</h3></div>
+        <ul class="pm-list">
+          <li>Complete gameplay loop shipped within scope and timeline</li>
+          <li>High replayability through upgrade randomness and build variety</li>
+          <li>Clear system scalability — stat-driven design easy to extend</li>
+          <li>Visual clarity maintained during high-intensity enemy swarms</li>
+        </ul>
+      </div>
+      <div class="pm-col">
+        <div class="pm-head"><span class="pm-dot yellow"></span><h3>What Could Improve</h3></div>
+        <ul class="pm-list">
+          <li>Limited enemy behavior variety — scaling is purely stat-based</li>
+          <li>No meta-progression system between runs</li>
+          <li>Additional enemy modifiers (knockback resistance, slow) would add depth without AI complexity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="project-actions">
+  <a href="Gdd/GDD_ForestOfUndead.pdf" target="_blank" class="btn-primary">Download Game Design Document</a>
+  <a href="projects.html" class="btn-ghost">← All Projects</a>
+</div>
+
 <footer class="footer">
-    <p>© 2026 Yash Kamble. All rights reserved.</p>
+  <div class="footer-inner">
+    <a href="../index.html" class="logo"><span class="logo-bracket">[</span>YK<span class="logo-bracket">]</span></a>
+    <span>© 2026 Yash Kamble. All rights reserved.</span>
+    <a href="../Documents/Yash_2026_Resume.pdf" target="_blank" class="footer-resume">Resume ↗</a>
+  </div>
 </footer>
 
-
-<!-- FIXED JS -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".carousel-track");
-  const slides = Array.from(track.children);
-  const nextBtn = document.querySelector(".carousel-btn.next");
-  const prevBtn = document.querySelector(".carousel-btn.prev");
-  const indicatorWrap = document.querySelector(".carousel-indicators");
-
-  let index = 0;
-  let interval = null;
-  const SLIDE_TIME = 20000; // ⏱ change this (ms)
-
-  if (!track || slides.length === 0) return;
-
-  /* ===============================
-     INDICATORS
-  =============================== */
-  slides.forEach((_, i) => {
-    const dot = document.createElement("div");
-    dot.className = "indicator";
-    dot.innerHTML = `<span class="indicator-fill"></span>`;
-    indicatorWrap.appendChild(dot);
-
-    dot.addEventListener("click", () => {
-      index = i;
-      resetAutoSlide();
-      updateCarousel();
-    });
-  });
-
-  const indicators = Array.from(indicatorWrap.children);
-
-  function updateIndicators() {
-    indicators.forEach((dot, i) => {
-      dot.classList.toggle("active", i === index);
-
-      const fill = dot.querySelector(".indicator-fill");
-      fill.style.transition = "none";
-      fill.style.width = "0%";
-
-      if (i === index) {
-        requestAnimationFrame(() => {
-          fill.style.transition = `width ${SLIDE_TIME}ms linear`;
-          fill.style.width = "100%";
-        });
-      }
-    });
-  }
-
-  /* ===============================
-     VIDEO CONTROL (GIF STYLE)
-  =============================== */
-  function updateVideos() {
-    slides.forEach((slide, i) => {
-      const video = slide.querySelector("video");
-      if (!video) return;
-
-      if (i === index) {
-        video.currentTime = 0;
-        video.play().catch(() => {});
-      } else {
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
-  }
-
-  /* ===============================
-     CORE UPDATE
-  =============================== */
-  function updateCarousel() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    updateIndicators();
-    updateVideos();
-  }
-
-  function nextSlide() {
-    index = (index + 1) % slides.length;
-    updateCarousel();
-  }
-
-  function prevSlide() {
-    index = (index - 1 + slides.length) % slides.length;
-    updateCarousel();
-  }
-
-  /* ===============================
-     AUTO SLIDE
-  =============================== */
-  function startAutoSlide() {
-    interval = setInterval(nextSlide, SLIDE_TIME);
-  }
-
-  function resetAutoSlide() {
-    clearInterval(interval);
-    startAutoSlide();
-  }
-
-  nextBtn.addEventListener("click", () => {
-    resetAutoSlide();
-    nextSlide();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    resetAutoSlide();
-    prevSlide();
-  });
-
-  /* ===============================
-     INIT
-  =============================== */
-  updateCarousel();
-  startAutoSlide();
+const cur=document.getElementById('cursor'),cf=document.getElementById('cf');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function t(){cur.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;cf.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(t)})();
+document.querySelectorAll('a,button,.sys-card,.pm-col').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('ch');cf.classList.add('ch')});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('ch');cf.classList.remove('ch')});
 });
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>60));
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
+mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
+window.addEventListener('load',()=>{document.querySelectorAll('.reveal-up').forEach(el=>{setTimeout(()=>el.classList.add('visible'),parseInt(el.style.getPropertyValue('--d'))||0)})});
+document.addEventListener('mousemove',e=>{const px=(e.clientX/window.innerWidth-.5)*40,py=(e.clientY/window.innerHeight-.5)*40;document.querySelectorAll('.orb').forEach((o,i)=>{const m=(i+1)*.35;o.style.transform=`translate(${px*m}px,${py*m}px)`})});
+(function(){
+  const track=document.getElementById('track'),slides=Array.from(track.children),dotsWrap=document.getElementById('dots');
+  const SLIDE_TIME=18000; let idx=0,interval;
+  slides.forEach((_,i)=>{const d=document.createElement('div');d.className='cdot'+(i===0?' active':'');d.innerHTML='<span class="cdot-fill"></span>';dotsWrap.appendChild(d);d.addEventListener('click',()=>{idx=i;reset();update()})});
+  const cdots=Array.from(dotsWrap.children);
+  function updateDots(){cdots.forEach((d,i)=>{d.classList.toggle('active',i===idx);const f=d.querySelector('.cdot-fill');f.style.transition='none';f.style.width='0%';if(i===idx)requestAnimationFrame(()=>{f.style.transition=`width ${SLIDE_TIME}ms linear`;f.style.width='100%'})})}
+  function updateVideos(){slides.forEach((s,i)=>{const v=s.querySelector('video');if(!v)return;if(i===idx){v.currentTime=0;v.play().catch(()=>{})}else{v.pause();v.currentTime=0}})}
+  function update(){track.style.transform=`translateX(-${idx*100}%)`;updateDots();updateVideos()}
+  function next(){idx=(idx+1)%slides.length;update()}
+  function start(){interval=setInterval(next,SLIDE_TIME)}
+  function reset(){clearInterval(interval);start()}
+  document.getElementById('next').addEventListener('click',()=>{reset();next()});
+  document.getElementById('prev').addEventListener('click',()=>{reset();idx=(idx-1+slides.length)%slides.length;update()});
+  update();start();
+})();
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.sys-card,.pm-grid').forEach(el=>obs.observe(el));
 </script>
-
 </body>
 </html>
