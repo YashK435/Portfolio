@@ -36,6 +36,9 @@
   </ul>
 </div>
 
+<!-- ── SCROLL TO TOP ── -->
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
 <!-- ══════════════════════
      HERO
 ══════════════════════ -->
@@ -64,7 +67,7 @@
 
       <div class="hero-meta" id="heroMeta">
         <div class="meta-stat">
-          <span class="meta-num" id="totalCount">6</span>
+          <span class="meta-num">6</span>
           <span class="meta-label">Projects</span>
         </div>
         <div class="meta-div"></div>
@@ -79,7 +82,6 @@
         </div>
       </div>
 
-      <!-- animated filter pill -->
       <div class="filter-bar" id="filterBar">
         <div class="filter-pill" id="filterPill"></div>
         <button class="filter-btn active" data-filter="all">All <span class="filter-count" id="countAll">6</span></button>
@@ -108,7 +110,7 @@
       <!-- ── HELLO OWNER — featured ── -->
       <a href="hello-owner.html" class="project-card project-card--featured" data-category="finished" data-accent="hello-owner">
         <div class="card-media">
-          <img src="Imgs/Project/HelloOwnerGif1.gif" alt="Hello Owner">
+          <img src="Imgs/Project/HelloOwnerGif1.gif" alt="Hello Owner — psychological horror warehouse game" loading="lazy">
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
         </div>
@@ -130,7 +132,7 @@
       <!-- ── FOREST OF UNDEAD ── -->
       <a href="forest-of-undead.html" class="project-card" data-category="finished" data-accent="forest-of-undead">
         <div class="card-media">
-          <img src="Imgs/Project/FotuGif1.gif" alt="Forest of Undead">
+          <img src="Imgs/Project/FotuGif1.gif" alt="Forest of Undead — 2D survival shooter" loading="lazy">
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
         </div>
@@ -151,7 +153,8 @@
       <!-- ── TIME ECHO ── -->
       <a href="time-echo.html" class="project-card" data-category="prototype" data-accent="time-echo">
         <div class="card-media card-media-placeholder">
-          <img src="Imgs/Project/time echo thumbnail.gif" alt="Time Echo"
+          <img src="Imgs/Project/time echo thumbnail.gif" alt="Time Echo — C++ puzzle platformer with time clones"
+            loading="lazy"
             onerror="this.style.display='none'; this.parentNode.classList.add('no-img')">
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
@@ -174,7 +177,7 @@
       <!-- ── ULTRA DRIVE ── -->
       <a href="ultra-drive.html" class="project-card" data-category="prototype" data-accent="ultra-drive">
         <div class="card-media">
-          <img src="Imgs/Project/UltraDriveGif1.gif" alt="Ultra Drive">
+          <img src="Imgs/Project/UltraDriveGif1.gif" alt="Ultra Drive — hardware sensor controlled racing" loading="lazy">
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
         </div>
@@ -195,7 +198,7 @@
       <!-- ── DYNAMIC NPC AI ── -->
       <a href="dynamic-npc-ai.html" class="project-card" data-category="prototype" data-accent="dynamic-npc">
         <div class="card-media">
-          <img src="Imgs/Project/NPC.gif" alt="Dynamic NPC AI">
+          <img src="Imgs/Project/NPC.gif" alt="Dynamic NPC AI — attribute driven conversation system" loading="lazy">
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
         </div>
@@ -216,7 +219,7 @@
       <!-- ── LOOP.EXE ── -->
       <a href="loop-exe.html" class="project-card" data-category="jam" data-accent="loop-exe">
         <div class="card-media">
-          <img src="Imgs/Project/Loopexe-Gif1.gif" alt="Loop.exe">
+          <img src="Imgs/Project/Loopexe-Gif1.gif" alt="Loop.exe — memory execution puzzle game jam" loading="lazy">
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
         </div>
@@ -300,7 +303,6 @@ function movePill(btn) {
   pill.style.transform = `translateX(${btnRect.left - barRect.left - 5}px)`;
 }
 
-// init pill position on first active btn
 window.addEventListener('load', () => {
   const active = filterBar.querySelector('.filter-btn.active');
   if (active) movePill(active);
@@ -310,32 +312,48 @@ window.addEventListener('resize', () => {
   if (active) movePill(active);
 });
 
-/* ── FILTERS ── */
+/* ── FILTERS — cards hidden with display:none, grid reflows cleanly ── */
 const cards = document.querySelectorAll('.project-card[data-category]');
 const visibleCount = document.getElementById('visibleCount');
 const emptyState = document.getElementById('emptyState');
 
-function updateCount(filter) {
-  const count = filter === 'all'
-    ? cards.length
-    : Array.from(cards).filter(c => c.dataset.category === filter).length;
+function applyFilter(filter) {
+  let count = 0;
+
+  cards.forEach((c, i) => {
+    const show = filter === 'all' || c.dataset.category === filter;
+    if (show) {
+      c.classList.remove('hidden');
+      /* re-trigger scroll reveal if not already visible */
+      if (!c.classList.contains('in-view')) {
+        c.style.transitionDelay = `${count * 60}ms`;
+      }
+      count++;
+    } else {
+      c.classList.add('hidden');
+      c.style.transitionDelay = '0ms';
+    }
+  });
+
   visibleCount.textContent = count;
   emptyState.classList.toggle('visible', count === 0);
+
+  /* featured card: only span full width when visible */
+  const featured = document.querySelector('.project-card--featured');
+  if (featured) {
+    if (featured.classList.contains('hidden')) {
+      featured.style.gridColumn = '';
+    } else {
+      featured.style.gridColumn = '1 / -1';
+    }
+  }
 }
 
 btns.forEach(btn => btn.addEventListener('click', () => {
   btns.forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   movePill(btn);
-
-  const f = btn.dataset.filter;
-  updateCount(f);
-
-  cards.forEach((c, i) => {
-    const show = f === 'all' || c.dataset.category === f;
-    c.style.transitionDelay = show ? `${i * 40}ms` : '0ms';
-    c.classList.toggle('hidden', !show);
-  });
+  applyFilter(btn.dataset.filter);
 }));
 
 /* ── SCROLL REVEAL FOR CARDS ── */
@@ -359,6 +377,15 @@ document.addEventListener('mousemove', e => {
     const m = (i + 1) * .4;
     o.style.transform = `translate(${px * m}px,${py * m}px)`;
   });
+});
+
+/* ── SCROLL TO TOP ── */
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY >= 400);
+});
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
 </body>
