@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-follower" id="cf"></div>
 
@@ -377,6 +377,14 @@ const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}
 }),{threshold:.12});
 document.querySelectorAll('.pillar-card,.sys-card,.ending-card,.pm-grid,.reveal-fade').forEach(el=>obs.observe(el));
+/* SCROLL TO TOP */
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY >= 400);
+});
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
 </body>
 </html>

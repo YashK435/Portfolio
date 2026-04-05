@@ -715,7 +715,21 @@ code {
    SHARED CAROUSEL JS INIT STYLES
 ════════════════════ */
 /* Handled by inline scripts per page */
-
+/* ── SCROLL TO TOP ── */
+.scroll-top-btn {
+  position: fixed; bottom: 32px; right: 32px; z-index: 200;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--pa); color: #080a0e;
+  border: none; cursor: pointer; font-size: 20px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .3s, box-shadow .2s;
+  box-shadow: 0 4px 20px var(--pa-glow);
+  line-height: 1;
+}
+.scroll-top-btn.visible { opacity: 1; pointer-events: all; }
+.scroll-top-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 28px var(--pa-glow); }
+@media (max-width: 768px) { .scroll-top-btn { bottom: 20px; right: 20px; width: 44px; height: 44px; font-size: 18px; } }
 /* ════════════════════
    RESPONSIVE
 ════════════════════ */
