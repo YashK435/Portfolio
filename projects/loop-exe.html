@@ -109,12 +109,12 @@
 <section class="carousel-section alt-bg">
   <div class="container">
     <div class="section-eyebrow">Gameplay Footage</div>
-    <h2 class="section-h2">Screenshots &amp; GIFs</h2>
+    <h2 class="section-h2">Screenshots &amp; Clips</h2>
     <div class="carousel-wrap">
       <div class="carousel-track" id="track">
 
         <div class="carousel-slide">
-          <img src="Imgs/Loop/Loopexe-Gif1.gif" alt="Loop.exe — System Boot">
+          <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif1.mp4"></video>
           <div class="slide-caption">
             <h4>System Boot &amp; Game Start</h4>
             <p>Player enters the system and initiates the first sequence — establishing the minimal terminal-style presentation before cognitive pressure begins.</p>
@@ -122,7 +122,7 @@
         </div>
 
         <div class="carousel-slide">
-          <img src="Imgs/Loop/Loopexe-Gif2.gif" alt="Loop.exe — Timer Pressure">
+          <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif2.mp4"></video>
           <div class="slide-caption">
             <h4>Timer-Based Pressure</h4>
             <p>After the beginner phase, a timer activates — adding time pressure to an already growing sequence length. Cognitive load compounds.</p>
@@ -130,7 +130,7 @@
         </div>
 
         <div class="carousel-slide">
-          <img src="Imgs/Loop/Loopexe-Gif3.gif" alt="Loop.exe — Thread Failure">
+          <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif3.mp4"></video>
           <div class="slide-caption">
             <h4>Thread Failure Visualization</h4>
             <p>A wrong input triggers screen shake and visual feedback. The thread is deleted permanently. There is no recovery within a run.</p>
@@ -138,7 +138,7 @@
         </div>
 
         <div class="carousel-slide">
-          <img src="Imgs/Loop/Loopexe-Gif4.gif" alt="Loop.exe — Game Over">
+          <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif4.mp4"></video>
           <div class="slide-caption">
             <h4>Loop Purged — Game Over</h4>
             <p>All threads exhausted. The execution loop terminates. The only option is to restart and commit the sequence to memory better next time.</p>
@@ -300,7 +300,8 @@ document.addEventListener('mousemove',e=>{const px=(e.clientX/window.innerWidth-
   slides.forEach((_,i)=>{const d=document.createElement('div');d.className='cdot'+(i===0?' active':'');d.innerHTML='<span class="cdot-fill"></span>';dotsWrap.appendChild(d);d.addEventListener('click',()=>{idx=i;reset();update()})});
   const cdots=Array.from(dotsWrap.children);
   function updateDots(){cdots.forEach((d,i)=>{d.classList.toggle('active',i===idx);const f=d.querySelector('.cdot-fill');f.style.transition='none';f.style.width='0%';if(i===idx)requestAnimationFrame(()=>{f.style.transition=`width ${SLIDE_TIME}ms linear`;f.style.width='100%'})})}
-  function update(){track.style.transform=`translateX(-${idx*100}%)`;updateDots()}
+  function updateVideos(){slides.forEach((s,i)=>{const v=s.querySelector('video');if(!v)return;if(i===idx){v.currentTime=0;v.play().catch(()=>{})}else{v.pause();v.currentTime=0}})}
+  function update(){track.style.transform=`translateX(-${idx*100}%)`;updateDots();updateVideos()}
   function next(){idx=(idx+1)%slides.length;update()}
   function start(){interval=setInterval(next,SLIDE_TIME)}
   function reset(){clearInterval(interval);start()}
