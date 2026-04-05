@@ -110,7 +110,6 @@ body {
   padding: 0 40px 80px; overflow: hidden;
 }
 
-/* two-column inner layout */
 .hero-inner {
   position: relative; z-index: 2;
   width: 100%; max-width: 1300px; margin: 0 auto;
@@ -120,7 +119,6 @@ body {
 
 .hero-content { max-width: 680px; flex: 1; }
 
-/* ── right column: profile + stats ── */
 .hero-right {
   display: flex; flex-direction: column; align-items: center;
   gap: 20px; flex-shrink: 0;
@@ -131,13 +129,12 @@ body {
   position: absolute; inset: 0; z-index: 0;
 }
 #particleCanvas {
-  position: absolute; /* FIX */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%; height: 100%;
   display: block;
 }
-/* Only needs fades at top (navbar) and bottom (text readability) */
 .hero-canvas-fade {
   position: absolute; inset: 0; pointer-events: none;
   background:
@@ -410,7 +407,6 @@ body {
 .footer-resume { color: var(--text-dim); text-decoration: none; transition: color .2s; }
 .footer-resume:hover { color: var(--accent); }
 
-
 /* ── SCROLL TO TOP ── */
 .scroll-top-btn {
   position: fixed; bottom: 32px; right: 32px; z-index: 200;
@@ -426,6 +422,7 @@ body {
 .scroll-top-btn.visible { opacity: 1; pointer-events: all; }
 .scroll-top-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(212,245,60,.4); }
 @media (max-width: 768px) { .scroll-top-btn { bottom: 20px; right: 20px; width: 44px; height: 44px; font-size: 18px; } }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1100px) {
   .hero-inner { gap: 40px; }
@@ -463,4 +460,17 @@ body {
   .btn-hero-primary, .btn-hero-ghost { width: 100%; justify-content: center; }
   .project-card { width: 280px; }
   .hero-right { flex-direction: column; align-items: flex-start; }
+}
+
+/* ════════════════════════════════════════
+   Task 9 — prefers-reduced-motion
+   Disables all animations/transitions for
+   users who prefer reduced motion
+════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

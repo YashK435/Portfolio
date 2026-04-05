@@ -4,23 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dynamic NPC AI System | Yash Kamble</title>
+
+  <!-- Task 5 — SEO -->
+  <meta name="description" content="Dynamic NPC AI System — Shared LLM framework generating distinct NPC behavior through attribute-based logic in Unreal Engine. No scripted dialogue trees.">
+  <meta property="og:title" content="Dynamic NPC AI System | Yash Kamble">
+  <meta property="og:description" content="Dynamic NPC AI System — Shared LLM framework generating distinct NPC behavior through attribute-based logic in Unreal Engine. No scripted dialogue trees.">
+  <meta property="og:image" content="https://yashk435.github.io/projects/Imgs/DynamicNPC/NPC_1.mp4">
+  <meta property="og:url" content="https://yashk435.github.io/projects/dynamic-npc-ai.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://yashk435.github.io/projects/dynamic-npc-ai.html">
+
   <link rel="stylesheet" href="CSS/project-base.css">
   <style>
-:root {
-  --pa:       #f97316;
-  --pa2:      #fb923c;
-  --pa-glow:  rgba(249,115,22,0.13);
-  --pa-glow2: rgba(249,115,22,0.05);
-}
-    /* network node subtle bg */
+    :root {
+      --pa:       #f97316;
+      --pa2:      #fb923c;
+      --pa-glow:  rgba(249,115,22,0.13);
+      --pa-glow2: rgba(249,115,22,0.05);
+    }
     .proj-hero::after {
       content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:radial-gradient(circle 2px at 25% 30%, rgba(249,115,22,.15) 0%, transparent 1%),
-             radial-gradient(circle 2px at 75% 60%, rgba(249,115,22,.1) 0%, transparent 1%),
-             radial-gradient(circle 2px at 50% 80%, rgba(249,115,22,.12) 0%, transparent 1%);
-}
+      background:radial-gradient(circle 2px at 25% 30%, rgba(249,115,22,.15) 0%, transparent 1%),
+                 radial-gradient(circle 2px at 75% 60%, rgba(249,115,22,.1) 0%, transparent 1%),
+                 radial-gradient(circle 2px at 50% 80%, rgba(249,115,22,.12) 0%, transparent 1%);
+    }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- Task 6 — Google Fonts optimized -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
 </head>
 <body>
 <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
@@ -54,14 +68,11 @@
 <section class="proj-hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-overlay"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
   <div class="hero-rings">
     <div class="ring ring-1"></div><div class="ring ring-2"></div>
     <div class="ring ring-3"></div><div class="ring ring-4"></div>
   </div>
-
   <div class="hero-content">
     <div class="hero-eyebrow reveal-up" style="--d:0ms">
       <span class="wip-badge"><span class="wip-dot"></span>Work In Progress</span>
@@ -75,10 +86,8 @@
       Four NPCs, one shared AI framework, behavioral diversity through attributes alone.
     </p>
     <div class="hero-tags reveal-up" style="--d:360ms">
-      <span class="htag">Unreal Engine</span>
-      <span class="htag">LLM Integration</span>
-      <span class="htag">Text-to-Text</span>
-      <span class="htag">Medieval Setting</span>
+      <span class="htag">Unreal Engine</span><span class="htag">LLM Integration</span>
+      <span class="htag">Text-to-Text</span><span class="htag">Medieval Setting</span>
       <span class="htag">System Prototype</span>
     </div>
     <div class="hero-cta reveal-up" style="--d:460ms">
@@ -86,7 +95,6 @@
       <a href="projects.html" class="btn-ghost">← All Projects</a>
     </div>
   </div>
- 
 </section>
 
 <!-- ═══ CAROUSEL ═══ -->
@@ -94,46 +102,43 @@
   <div class="container">
     <div class="section-eyebrow">System Demonstration</div>
     <h2 class="section-h2">Screenshots &amp; Clips</h2>
-    <div class="carousel-wrap">
-      <div class="carousel-track" id="track">
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/DynamicNPC/NPC_1.mp4"></video>
-          <div class="slide-caption">
-            <h4>Attribute-Driven NPC Interaction</h4>
-            <p>Real-time conversation with an NPC — demonstrating how shared AI logic produces unique responses through per-NPC attribute configuration.</p>
+    <div role="region" aria-label="Project footage carousel">
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="track">
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/DynamicNPC/NPC_1.mp4"></video>
+            <div class="slide-caption">
+              <h4>Attribute-Driven NPC Interaction</h4>
+              <p>Real-time conversation with an NPC — demonstrating how shared AI logic produces unique responses through per-NPC attribute configuration.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/DynamicNPC/NPC_Demo.mp4"></video>
+            <div class="slide-caption">
+              <h4>Core AI Logic — Isolated Test</h4>
+              <p>The AI system running without environment or presentation layers — validating behavior, stability, and response flow in isolation.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/DynamicNPC/NPC_Prototype.mp4"></video>
+            <div class="slide-caption">
+              <h4>Early Development Conversation Test</h4>
+              <p>Initial prototype using an actor component to test dialogue flow and AI responsiveness before full world integration.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/DynamicNPC/NPC_2.mp4"></video>
+            <div class="slide-caption">
+              <h4>Cross-NPC Response Variation</h4>
+              <p>Same player input, different NPC — showing how the same system generates entirely distinct behavior through attribute differences alone.</p>
+            </div>
           </div>
         </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/DynamicNPC/NPC_Demo.mp4"></video>
-          <div class="slide-caption">
-            <h4>Core AI Logic — Isolated Test</h4>
-            <p>The AI system running without environment or presentation layers — validating behavior, stability, and response flow in isolation.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/DynamicNPC/NPC_Prototype.mp4"></video>
-          <div class="slide-caption">
-            <h4>Early Development Conversation Test</h4>
-            <p>Initial prototype using an actor component to test dialogue flow and AI responsiveness before full world integration.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/DynamicNPC/NPC_2.mp4"></video>
-          <div class="slide-caption">
-            <h4>Cross-NPC Response Variation</h4>
-            <p>Same player input, different NPC — showing how the same system generates entirely distinct behavior through attribute differences alone.</p>
-          </div>
-        </div>
-
+        <button class="carousel-btn prev" id="prev" aria-label="Previous slide">‹</button>
+        <button class="carousel-btn next" id="next" aria-label="Next slide">›</button>
       </div>
-      <button class="carousel-btn prev" id="prev">‹</button>
-      <button class="carousel-btn next" id="next">›</button>
+      <div class="carousel-dots" id="dots"></div>
     </div>
-    <div class="carousel-dots" id="dots"></div>
   </div>
 </section>
 
@@ -211,36 +216,12 @@
     <h2 class="section-h2">Future Scope</h2>
     <p class="section-sub">Planned extensions that build on the current architecture without requiring fundamental rewrites.</p>
     <div class="future-grid">
-      <div class="future-card" style="--i:0">
-        <span class="future-icon">🎙️</span>
-        <h4>Voice-to-Voice Interaction</h4>
-        <p>Speech-to-Text replaces player text input. Text-to-Speech replaces NPC text output. The core AI logic remains completely unchanged.</p>
-      </div>
-      <div class="future-card" style="--i:1">
-        <span class="future-icon">🧩</span>
-        <h4>Conversational Memory</h4>
-        <p>NPCs retain memory of previous questions, player tone, and logical contradictions. Memory influences future responses and trust levels within a session.</p>
-      </div>
-      <div class="future-card" style="--i:2">
-        <span class="future-icon">😶</span>
-        <h4>MetaHuman Visual Feedback</h4>
-        <p>Facial animation and lip-sync driven by dialogue output. Emotion-aware delivery through tone modulation analyzed from AI responses.</p>
-      </div>
-      <div class="future-card" style="--i:3">
-        <span class="future-icon">🔍</span>
-        <h4>Deduction Gameplay</h4>
-        <p>Full gameplay concept: an investigator interrogating four NPCs in a blacked-out space to identify a criminal through conversation alone. No traditional UI, no explicit markers — truth must be deduced.</p>
-      </div>
-      <div class="future-card" style="--i:4">
-        <span class="future-icon">📈</span>
-        <h4>Dynamic Attribute Shifting</h4>
-        <p>NPC attributes that evolve during gameplay based on conversation history, player behavior, and trust levels — creating NPCs that feel like they remember who you are.</p>
-      </div>
-      <div class="future-card" style="--i:5">
-        <span class="future-icon">🌐</span>
-        <h4>World-State Integration</h4>
-        <p>Dialogue outcomes that change NPC behavior, unlock areas, or alter the world. Conversation as a gameplay action with persistent consequences.</p>
-      </div>
+      <div class="future-card" style="--i:0"><span class="future-icon">🎙️</span><h4>Voice-to-Voice Interaction</h4><p>Speech-to-Text replaces player text input. Text-to-Speech replaces NPC text output. The core AI logic remains completely unchanged.</p></div>
+      <div class="future-card" style="--i:1"><span class="future-icon">🧩</span><h4>Conversational Memory</h4><p>NPCs retain memory of previous questions, player tone, and logical contradictions. Memory influences future responses and trust levels within a session.</p></div>
+      <div class="future-card" style="--i:2"><span class="future-icon">😶</span><h4>MetaHuman Visual Feedback</h4><p>Facial animation and lip-sync driven by dialogue output. Emotion-aware delivery through tone modulation analyzed from AI responses.</p></div>
+      <div class="future-card" style="--i:3"><span class="future-icon">🔍</span><h4>Deduction Gameplay</h4><p>Full gameplay concept: an investigator interrogating four NPCs in a blacked-out space to identify a criminal through conversation alone. No traditional UI, no explicit markers — truth must be deduced.</p></div>
+      <div class="future-card" style="--i:4"><span class="future-icon">📈</span><h4>Dynamic Attribute Shifting</h4><p>NPC attributes that evolve during gameplay based on conversation history, player behavior, and trust levels — creating NPCs that feel like they remember who you are.</p></div>
+      <div class="future-card" style="--i:5"><span class="future-icon">🌐</span><h4>World-State Integration</h4><p>Dialogue outcomes that change NPC behavior, unlock areas, or alter the world. Conversation as a gameplay action with persistent consequences.</p></div>
     </div>
   </div>
 </section>
@@ -287,46 +268,17 @@
   </div>
 </footer>
 
+<script src="js/page.js"></script>
 <script>
-const cur=document.getElementById('cursor'),cf=document.getElementById('cf');
-let mx=0,my=0,fx=0,fy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function t(){cur.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;cf.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(t)})();
-document.querySelectorAll('a,button,.how-card,.future-card,.pm-col').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.classList.add('ch');cf.classList.add('ch')});
-  el.addEventListener('mouseleave',()=>{cur.classList.remove('ch');cf.classList.remove('ch')});
+document.querySelectorAll('.how-card,.future-card,.pm-col').forEach(el => {
+  const cur = document.getElementById('cursor'), cf = document.getElementById('cf');
+  el.addEventListener('mouseenter', () => { cur.classList.add('ch'); cf.classList.add('ch'); });
+  el.addEventListener('mouseleave', () => { cur.classList.remove('ch'); cf.classList.remove('ch'); });
 });
-window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>60));
-const ham=document.getElementById('ham'),mob=document.getElementById('mob');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
-mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
-window.addEventListener('load',()=>{document.querySelectorAll('.reveal-up').forEach(el=>{setTimeout(()=>el.classList.add('visible'),parseInt(el.style.getPropertyValue('--d'))||0)})});
-document.addEventListener('mousemove',e=>{const px=(e.clientX/window.innerWidth-.5)*40,py=(e.clientY/window.innerHeight-.5)*40;document.querySelectorAll('.orb').forEach((o,i)=>{const m=(i+1)*.35;o.style.transform=`translate(${px*m}px,${py*m}px)`})});
-(function(){
-  const track=document.getElementById('track'),slides=Array.from(track.children),dotsWrap=document.getElementById('dots');
-  const SLIDE_TIME=18000; let idx=0,interval;
-  slides.forEach((_,i)=>{const d=document.createElement('div');d.className='cdot'+(i===0?' active':'');d.innerHTML='<span class="cdot-fill"></span>';dotsWrap.appendChild(d);d.addEventListener('click',()=>{idx=i;reset();update()})});
-  const cdots=Array.from(dotsWrap.children);
-  function updateDots(){cdots.forEach((d,i)=>{d.classList.toggle('active',i===idx);const f=d.querySelector('.cdot-fill');f.style.transition='none';f.style.width='0%';if(i===idx)requestAnimationFrame(()=>{f.style.transition=`width ${SLIDE_TIME}ms linear`;f.style.width='100%'})})}
-  function updateVideos(){slides.forEach((s,i)=>{const v=s.querySelector('video');if(!v)return;if(i===idx){v.currentTime=0;v.play().catch(()=>{})}else{v.pause();v.currentTime=0}})}
-  function update(){track.style.transform=`translateX(-${idx*100}%)`;updateDots();updateVideos()}
-  function next(){idx=(idx+1)%slides.length;update()}
-  function start(){interval=setInterval(next,SLIDE_TIME)}
-  function reset(){clearInterval(interval);start()}
-  document.getElementById('next').addEventListener('click',()=>{reset();next()});
-  document.getElementById('prev').addEventListener('click',()=>{reset();idx=(idx-1+slides.length)%slides.length;update()});
-  update();start();
-})();
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.how-card,.future-card,.pm-grid').forEach(el=>obs.observe(el));
-/* SCROLL TO TOP */
-const scrollTopBtn = document.getElementById('scrollTopBtn');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY >= 400);
-});
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.how-card,.future-card,.pm-grid').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

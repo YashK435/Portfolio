@@ -4,25 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loop.exe | Yash Kamble</title>
+
+  <!-- Task 5 — SEO -->
+  <meta name="description" content="Loop.exe — Memory-execution puzzle game built in 4 days for GMTK Game Jam 2025. Every mistake permanently deletes an execution thread.">
+  <meta property="og:title" content="Loop.exe | Yash Kamble">
+  <meta property="og:description" content="Loop.exe — Memory-execution puzzle game built in 4 days for GMTK Game Jam 2025. Every mistake permanently deletes an execution thread.">
+  <meta property="og:image" content="https://yashk435.github.io/projects/Imgs/Loop/Loopexe-Gif1.gif">
+  <meta property="og:url" content="https://yashk435.github.io/projects/loop-exe.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://yashk435.github.io/projects/loop-exe.html">
+
   <link rel="stylesheet" href="CSS/project-base.css">
   <style>
     :root {
-  --pa:       #6db33f;
-  --pa2:      #c9d16a;
-  --pa-glow:  rgba(109,179,63,0.13);
-  --pa-glow2: rgba(109,179,63,0.05);
-}
-    /* CRT scanline overlay on hero */
+      --pa:       #6db33f;
+      --pa2:      #c9d16a;
+      --pa-glow:  rgba(109,179,63,0.13);
+      --pa-glow2: rgba(109,179,63,0.05);
+    }
     .proj-hero::after {
       content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:repeating-linear-gradient(
-    0deg,
-    transparent, transparent 2px,
-    rgba(109,179,63,0.015) 2px, rgba(109,179,63,0.015) 4px
-  );
-}
+      background:repeating-linear-gradient(
+        0deg, transparent, transparent 2px,
+        rgba(109,179,63,0.015) 2px, rgba(109,179,63,0.015) 4px
+      );
+    }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- Task 6 — Google Fonts optimized -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
 </head>
 <body>
 <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
@@ -56,14 +69,11 @@
 <section class="proj-hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-overlay"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
   <div class="hero-rings">
     <div class="ring ring-1"></div><div class="ring ring-2"></div>
     <div class="ring ring-3"></div><div class="ring ring-4"></div>
   </div>
-
   <div class="hero-content">
     <div class="hero-eyebrow reveal-up" style="--d:0ms">
       <span class="eyebrow-pill pill-jam">Game Jam</span>
@@ -79,10 +89,8 @@
       Memory-execution puzzle built for GMTK Game Jam 2025 in 4 days.
     </p>
     <div class="hero-tags reveal-up" style="--d:360ms">
-      <span class="htag">Unreal Engine 5</span>
-      <span class="htag">PC — Keyboard Only</span>
-      <span class="htag">GMTK 2025</span>
-      <span class="htag">Solo Developer</span>
+      <span class="htag">Unreal Engine 5</span><span class="htag">PC — Keyboard Only</span>
+      <span class="htag">GMTK 2025</span><span class="htag">Solo Developer</span>
       <span class="htag">Submitted Ahead of Deadline</span>
     </div>
     <div class="hero-cta reveal-up" style="--d:460ms">
@@ -91,7 +99,6 @@
       <a href="projects.html" class="btn-ghost">← All Projects</a>
     </div>
   </div>
-  
 </section>
 
 <!-- ═══ YOUTUBE ═══ -->
@@ -100,7 +107,7 @@
     <div class="section-eyebrow">Gameplay Demo</div>
     <h2>Watch It In Action</h2>
     <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/NZ2YteY25RY" title="Loop.exe Gameplay Demo" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/NZ2YteY25RY" title="Loop.exe Gameplay Demo" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -109,47 +116,45 @@
 <section class="carousel-section alt-bg">
   <div class="container">
     <div class="section-eyebrow">Gameplay Footage</div>
-    <h2 class="section-h2">Screenshots &amp; Clips</h2>
-    <div class="carousel-wrap">
-      <div class="carousel-track" id="track">
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif1.mp4"></video>
-          <div class="slide-caption">
-            <h4>System Boot &amp; Game Start</h4>
-            <p>Player enters the system and initiates the first sequence — establishing the minimal terminal-style presentation before cognitive pressure begins.</p>
+    <h2 class="section-h2">Screenshots &amp; GIFs</h2>
+    <div role="region" aria-label="Project footage carousel">
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="track">
+          <!-- Task 4 — MP4s replace GIFs (first slide: no lazy load) -->
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif1.mp4"></video>
+            <div class="slide-caption">
+              <h4>System Boot &amp; Game Start</h4>
+              <p>Player enters the system and initiates the first sequence — establishing the minimal terminal-style presentation before cognitive pressure begins.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif2.mp4"></video>
+            <div class="slide-caption">
+              <h4>Timer-Based Pressure</h4>
+              <p>After the beginner phase, a timer activates — adding time pressure to an already growing sequence length. Cognitive load compounds.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif3.mp4"></video>
+            <div class="slide-caption">
+              <h4>Thread Failure Visualization</h4>
+              <p>A wrong input triggers screen shake and visual feedback. The thread is deleted permanently. There is no recovery within a run.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif4.mp4"></video>
+            <div class="slide-caption">
+              <h4>Loop Purged — Game Over</h4>
+              <p>All threads exhausted. The execution loop terminates. The only option is to restart and commit the sequence to memory better next time.</p>
+            </div>
           </div>
         </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif2.mp4"></video>
-          <div class="slide-caption">
-            <h4>Timer-Based Pressure</h4>
-            <p>After the beginner phase, a timer activates — adding time pressure to an already growing sequence length. Cognitive load compounds.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif3.mp4"></video>
-          <div class="slide-caption">
-            <h4>Thread Failure Visualization</h4>
-            <p>A wrong input triggers screen shake and visual feedback. The thread is deleted permanently. There is no recovery within a run.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/Loop/Loopexe-Gif4.mp4"></video>
-          <div class="slide-caption">
-            <h4>Loop Purged — Game Over</h4>
-            <p>All threads exhausted. The execution loop terminates. The only option is to restart and commit the sequence to memory better next time.</p>
-          </div>
-        </div>
-
+        <button class="carousel-btn prev" id="prev" aria-label="Previous slide">‹</button>
+        <button class="carousel-btn next" id="next" aria-label="Next slide">›</button>
       </div>
-      <button class="carousel-btn prev" id="prev">‹</button>
-      <button class="carousel-btn next" id="next">›</button>
+      <div class="carousel-dots" id="dots"></div>
     </div>
-    <div class="carousel-dots" id="dots"></div>
   </div>
 </section>
 
@@ -279,46 +284,17 @@
   </div>
 </footer>
 
+<script src="js/page.js"></script>
 <script>
-const cur=document.getElementById('cursor'),cf=document.getElementById('cf');
-let mx=0,my=0,fx=0,fy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function t(){cur.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;cf.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(t)})();
-document.querySelectorAll('a,button,.pillar-card,.sys-card,.pm-col').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.classList.add('ch');cf.classList.add('ch')});
-  el.addEventListener('mouseleave',()=>{cur.classList.remove('ch');cf.classList.remove('ch')});
+document.querySelectorAll('.pillar-card,.sys-card,.pm-col').forEach(el => {
+  const cur = document.getElementById('cursor'), cf = document.getElementById('cf');
+  el.addEventListener('mouseenter', () => { cur.classList.add('ch'); cf.classList.add('ch'); });
+  el.addEventListener('mouseleave', () => { cur.classList.remove('ch'); cf.classList.remove('ch'); });
 });
-window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>60));
-const ham=document.getElementById('ham'),mob=document.getElementById('mob');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
-mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
-window.addEventListener('load',()=>{document.querySelectorAll('.reveal-up').forEach(el=>{setTimeout(()=>el.classList.add('visible'),parseInt(el.style.getPropertyValue('--d'))||0)})});
-document.addEventListener('mousemove',e=>{const px=(e.clientX/window.innerWidth-.5)*40,py=(e.clientY/window.innerHeight-.5)*40;document.querySelectorAll('.orb').forEach((o,i)=>{const m=(i+1)*.35;o.style.transform=`translate(${px*m}px,${py*m}px)`})});
-(function(){
-  const track=document.getElementById('track'),slides=Array.from(track.children),dotsWrap=document.getElementById('dots');
-  const SLIDE_TIME=8000; let idx=0,interval;
-  slides.forEach((_,i)=>{const d=document.createElement('div');d.className='cdot'+(i===0?' active':'');d.innerHTML='<span class="cdot-fill"></span>';dotsWrap.appendChild(d);d.addEventListener('click',()=>{idx=i;reset();update()})});
-  const cdots=Array.from(dotsWrap.children);
-  function updateDots(){cdots.forEach((d,i)=>{d.classList.toggle('active',i===idx);const f=d.querySelector('.cdot-fill');f.style.transition='none';f.style.width='0%';if(i===idx)requestAnimationFrame(()=>{f.style.transition=`width ${SLIDE_TIME}ms linear`;f.style.width='100%'})})}
-  function updateVideos(){slides.forEach((s,i)=>{const v=s.querySelector('video');if(!v)return;if(i===idx){v.currentTime=0;v.play().catch(()=>{})}else{v.pause();v.currentTime=0}})}
-  function update(){track.style.transform=`translateX(-${idx*100}%)`;updateDots();updateVideos()}
-  function next(){idx=(idx+1)%slides.length;update()}
-  function start(){interval=setInterval(next,SLIDE_TIME)}
-  function reset(){clearInterval(interval);start()}
-  document.getElementById('next').addEventListener('click',()=>{reset();next()});
-  document.getElementById('prev').addEventListener('click',()=>{reset();idx=(idx-1+slides.length)%slides.length;update()});
-  update();start();
-})();
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.pillar-card,.sys-card,.pm-grid').forEach(el=>obs.observe(el));
-/* SCROLL TO TOP */
-const scrollTopBtn = document.getElementById('scrollTopBtn');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY >= 400);
-});
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.pillar-card,.sys-card,.pm-grid').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

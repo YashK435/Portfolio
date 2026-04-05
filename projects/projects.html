@@ -4,8 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Yash Kamble</title>
+
+  <!-- Task 5 — SEO -->
+  <meta name="description" content="All projects by Yash Kamble — psychological horror, hardware-controlled racing, C++ puzzle systems, and AI-driven NPC architecture.">
+  <meta property="og:title" content="Projects | Yash Kamble">
+  <meta property="og:description" content="All projects by Yash Kamble — psychological horror, hardware-controlled racing, C++ puzzle systems, and AI-driven NPC architecture.">
+  <meta property="og:image" content="https://yashk435.github.io/projects/Imgs/HelloOwner/Wh_ending.mp4">
+  <meta property="og:url" content="https://yashk435.github.io/projects/projects.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://yashk435.github.io/projects/projects.html">
+
   <link rel="stylesheet" href="./CSS/projects.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- Task 6 — Google Fonts optimized -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
 </head>
 <body>
 <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
@@ -35,9 +50,6 @@
     <li><a href="../Documents/Yash_2026_Resume.pdf" target="_blank">Resume ↗</a></li>
   </ul>
 </div>
-
-<!-- ── SCROLL TO TOP ── -->
-<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
 
 <!-- ══════════════════════
      HERO
@@ -110,7 +122,7 @@
       <!-- ── HELLO OWNER — featured ── -->
       <a href="hello-owner.html" class="project-card project-card--featured" data-category="finished" data-accent="hello-owner">
         <div class="card-media">
-<video autoplay muted loop playsinline src="Imgs/HelloOwner/Wh_ending.mp4" style="width:100%;height:100%;object-fit:cover;"></video>
+          <video autoplay muted loop playsinline src="Imgs/HelloOwner/Wh_ending.mp4" style="width:100%;height:100%;object-fit:cover;"></video>
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
         </div>
@@ -132,7 +144,7 @@
       <!-- ── FOREST OF UNDEAD ── -->
       <a href="forest-of-undead.html" class="project-card" data-category="finished" data-accent="forest-of-undead">
         <div class="card-media">
-            <video autoplay muted loop playsinline src="Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~4.mp4" style="width:100%;height:100%;object-fit:cover;"></video>
+          <video autoplay muted loop playsinline src="Imgs/FOTU/Forest%20of%20Undead%20Show%20reel~4.mp4" style="width:100%;height:100%;object-fit:cover;"></video>
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
         </div>
@@ -149,27 +161,29 @@
           </div>
         </div>
       </a>
-<!-- ── TIME ECHO ── -->
-<a href="time-echo.html" class="project-card" data-category="prototype" data-accent="time-echo">
-  <div class="card-media card-media-placeholder">
-    <video autoplay muted loop playsinline src="Imgs/TimeEcho/TE_Thumbnail.mp4" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'; this.parentNode.classList.add('no-img')"></video>
-    <div class="card-media-overlay"></div>
-    <div class="card-hover-cta">View Project →</div>
-    <div class="placeholder-label">Time Echo</div>
-  </div>
-  <div class="card-body">
-    <div class="card-top">
-      <span class="tag tag-proto">Prototype</span>
-      <span class="card-engine">Unreal C++</span>
-    </div>
-    <h3>Time Echo</h3>
-    <p class="card-desc">First-person puzzle platformer — record your own actions and deploy cooperative clones to solve spatial puzzles. Custom frame-data replay system in C++.</p>
-    <div class="card-footer">
-      <span class="card-genre">Puzzle · C++ Architecture</span>
-      <span class="card-duration">2025</span>
-    </div>
-  </div>
-</a>
+
+      <!-- ── TIME ECHO ── -->
+      <a href="time-echo.html" class="project-card" data-category="prototype" data-accent="time-echo">
+        <div class="card-media card-media-placeholder">
+          <video autoplay muted loop playsinline src="Imgs/TimeEcho/TE_Thumbnail.mp4" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'; this.parentNode.classList.add('no-img')"></video>
+          <div class="card-media-overlay"></div>
+          <div class="card-hover-cta">View Project →</div>
+          <div class="placeholder-label">Time Echo</div>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="tag tag-proto">Prototype</span>
+            <span class="card-engine">Unreal C++</span>
+          </div>
+          <h3>Time Echo</h3>
+          <p class="card-desc">First-person puzzle platformer — record your own actions and deploy cooperative clones to solve spatial puzzles. Custom frame-data replay system in C++.</p>
+          <div class="card-footer">
+            <span class="card-genre">Puzzle · C++ Architecture</span>
+            <span class="card-duration">2025</span>
+          </div>
+        </div>
+      </a>
+
       <!-- ── ULTRA DRIVE ── -->
       <a href="ultra-drive.html" class="project-card" data-category="prototype" data-accent="ultra-drive">
         <div class="card-media">
@@ -215,6 +229,7 @@
       <!-- ── LOOP.EXE ── -->
       <a href="loop-exe.html" class="project-card" data-category="jam" data-accent="loop-exe">
         <div class="card-media">
+          <!-- Task 7 — lazy load (not first visible image on page) -->
           <img src="Imgs/Project/Loopexe-Gif1.gif" alt="Loop.exe — memory execution puzzle game jam" loading="lazy">
           <div class="card-media-overlay"></div>
           <div class="card-hover-cta">View Project →</div>
@@ -308,41 +323,28 @@ window.addEventListener('resize', () => {
   if (active) movePill(active);
 });
 
-/* ── FILTERS — cards hidden with display:none, grid reflows cleanly ── */
+/* ── FILTERS ── */
 const cards = document.querySelectorAll('.project-card[data-category]');
 const visibleCount = document.getElementById('visibleCount');
 const emptyState = document.getElementById('emptyState');
 
 function applyFilter(filter) {
   let count = 0;
-
-  cards.forEach((c, i) => {
+  cards.forEach((c) => {
     const show = filter === 'all' || c.dataset.category === filter;
     if (show) {
       c.classList.remove('hidden');
-      /* re-trigger scroll reveal if not already visible */
-      if (!c.classList.contains('in-view')) {
-        c.style.transitionDelay = `${count * 60}ms`;
-      }
+      if (!c.classList.contains('in-view')) c.style.transitionDelay = `${count * 60}ms`;
       count++;
     } else {
       c.classList.add('hidden');
       c.style.transitionDelay = '0ms';
     }
   });
-
   visibleCount.textContent = count;
   emptyState.classList.toggle('visible', count === 0);
-
-  /* featured card: only span full width when visible */
   const featured = document.querySelector('.project-card--featured');
-  if (featured) {
-    if (featured.classList.contains('hidden')) {
-      featured.style.gridColumn = '';
-    } else {
-      featured.style.gridColumn = '1 / -1';
-    }
-  }
+  if (featured) featured.style.gridColumn = featured.classList.contains('hidden') ? '' : '1 / -1';
 }
 
 btns.forEach(btn => btn.addEventListener('click', () => {
@@ -354,35 +356,23 @@ btns.forEach(btn => btn.addEventListener('click', () => {
 
 /* ── SCROLL REVEAL FOR CARDS ── */
 const obs = new IntersectionObserver(entries => entries.forEach(e => {
-  if (e.isIntersecting) {
-    e.target.classList.add('in-view');
-    obs.unobserve(e.target);
-  }
+  if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
 }), { threshold: 0.08 });
-
-cards.forEach((el, i) => {
-  el.style.transitionDelay = `${i * 70}ms`;
-  obs.observe(el);
-});
+cards.forEach((el, i) => { el.style.transitionDelay = `${i * 70}ms`; obs.observe(el); });
 
 /* ── ORB PARALLAX ── */
 document.addEventListener('mousemove', e => {
   const px = (e.clientX / window.innerWidth - .5) * 30;
   const py = (e.clientY / window.innerHeight - .5) * 30;
   document.querySelectorAll('.hero-orb').forEach((o, i) => {
-    const m = (i + 1) * .4;
-    o.style.transform = `translate(${px * m}px,${py * m}px)`;
+    o.style.transform = `translate(${px * (i + 1) * .4}px,${py * (i + 1) * .4}px)`;
   });
 });
 
 /* ── SCROLL TO TOP ── */
 const scrollTopBtn = document.getElementById('scrollTopBtn');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY >= 400);
-});
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+window.addEventListener('scroll', () => { scrollTopBtn.classList.toggle('visible', window.scrollY >= 400); });
+scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 </script>
 </body>
 </html>

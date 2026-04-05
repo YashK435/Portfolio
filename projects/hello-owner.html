@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello Owner | Yash Kamble</title>
+
+  <!-- Task 5 — SEO -->
+  <meta name="description" content="Hello Owner — First-person psychological horror game by Yash Kamble. Built in Unreal Engine with audio-first design and a rule-based maze system.">
+  <meta property="og:title" content="Hello Owner | Yash Kamble">
+  <meta property="og:description" content="Hello Owner — First-person psychological horror game by Yash Kamble. Built in Unreal Engine with audio-first design and a rule-based maze system.">
+  <meta property="og:image" content="https://yashk435.github.io/projects/Imgs/HelloOwner/Wh_ending.mp4">
+  <meta property="og:url" content="https://yashk435.github.io/projects/hello-owner.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://yashk435.github.io/projects/hello-owner.html">
+
   <link rel="stylesheet" href="./CSS/project-base.css">
   <style>
     :root {
@@ -12,14 +23,17 @@
       --pa-glow:  rgba(255,77,109,0.13);
       --pa-glow2: rgba(255,77,109,0.05);
     }
-    /* horror grain overlay */
     .proj-hero::after {
       content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
       background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       opacity:.5;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- Task 6 — Google Fonts optimized -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
 </head>
 <body>
 <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
@@ -60,7 +74,6 @@
     <div class="ring ring-1"></div><div class="ring ring-2"></div>
     <div class="ring ring-3"></div><div class="ring ring-4"></div>
   </div>
-
   <div class="hero-content">
     <div class="hero-eyebrow reveal-up" style="--d:0ms">
       <span class="eyebrow-pill pill-finished">Completed</span>
@@ -88,53 +101,52 @@
       <a href="projects.html" class="btn-ghost">← All Projects</a>
     </div>
   </div>
-  </section>
+</section>
 
 <!-- ═══ CAROUSEL ═══ -->
 <section class="carousel-section alt-bg">
   <div class="container">
     <div class="section-eyebrow">Gameplay Footage</div>
     <h2 class="section-h2">Screenshots &amp; Clips</h2>
-    <div class="carousel-wrap">
-      <div class="carousel-track" id="track">
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/HelloOwner/Wh_ending.mp4"></video>
-          <div class="slide-caption">
-            <h4>Endgame Outcomes</h4>
-            <p>Three distinct endings shaped by player choices — each reinforcing the themes of ownership, greed, and consequence.</p>
+    <!-- Task 8 — ARIA region -->
+    <div role="region" aria-label="Project footage carousel">
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="track">
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/HelloOwner/Wh_ending.mp4"></video>
+            <div class="slide-caption">
+              <h4>Endgame Outcomes</h4>
+              <p>Three distinct endings shaped by player choices — each reinforcing the themes of ownership, greed, and consequence.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/HelloOwner/WH_Forest.mp4"></video>
+            <div class="slide-caption">
+              <h4>Arrival at the Forest</h4>
+              <p>The quiet opening sequence — establishing isolation and unease before anything hostile begins.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/HelloOwner/WH_maze.mp4"></video>
+            <div class="slide-caption">
+              <h4>Maze &amp; Rule-Based Pressure</h4>
+              <p>The warehouse reconfigures. Lights dictate movement. Standing still during darkness is survival.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/HelloOwner/WH_bossBox.mp4"></video>
+            <div class="slide-caption">
+              <h4>Narrative Cutscene</h4>
+              <p>Story-driven in-game moments reveal the warehouse's past without breaking immersion.</p>
+            </div>
           </div>
         </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/HelloOwner/WH_Forest.mp4"></video>
-          <div class="slide-caption">
-            <h4>Arrival at the Forest</h4>
-            <p>The quiet opening sequence — establishing isolation and unease before anything hostile begins.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/HelloOwner/WH_maze.mp4"></video>
-          <div class="slide-caption">
-            <h4>Maze &amp; Rule-Based Pressure</h4>
-            <p>The warehouse reconfigures. Lights dictate movement. Standing still during darkness is survival.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/HelloOwner/WH_bossBox.mp4"></video>
-          <div class="slide-caption">
-            <h4>Narrative Cutscene</h4>
-            <p>Story-driven in-game moments reveal the warehouse's past without breaking immersion.</p>
-          </div>
-        </div>
-
+        <!-- Task 8 — aria-labels on carousel buttons -->
+        <button class="carousel-btn prev" id="prev" aria-label="Previous slide">‹</button>
+        <button class="carousel-btn next" id="next" aria-label="Next slide">›</button>
       </div>
-      <button class="carousel-btn prev" id="prev">‹</button>
-      <button class="carousel-btn next" id="next">›</button>
+      <div class="carousel-dots" id="dots"></div>
     </div>
-    <div class="carousel-dots" id="dots"></div>
   </div>
 </section>
 
@@ -279,7 +291,6 @@
   </div>
 </section>
 
-<!-- ═══ GDD ═══ -->
 <div class="project-actions">
   <a href="Gdd/GDD_HelloOwner.pdf" target="_blank" class="btn-primary">Download Game Design Document</a>
   <a href="projects.html" class="btn-ghost">← All Projects</a>
@@ -293,98 +304,20 @@
   </div>
 </footer>
 
+<!-- Task 10 — shared JS -->
+<script src="js/page.js"></script>
 <script>
-/* CURSOR */
-const cur=document.getElementById('cursor'),cf=document.getElementById('cf');
-let mx=0,my=0,fx=0,fy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function t(){cur.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;cf.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(t)})();
-document.querySelectorAll('a,button,.pillar-card,.sys-card,.ending-card,.pm-col').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.classList.add('ch');cf.classList.add('ch')});
-  el.addEventListener('mouseleave',()=>{cur.classList.remove('ch');cf.classList.remove('ch')});
+/* Page-specific cursor hover targets */
+document.querySelectorAll('.pillar-card,.sys-card,.ending-card,.pm-col').forEach(el => {
+  const cur = document.getElementById('cursor'), cf = document.getElementById('cf');
+  el.addEventListener('mouseenter', () => { cur.classList.add('ch'); cf.classList.add('ch'); });
+  el.addEventListener('mouseleave', () => { cur.classList.remove('ch'); cf.classList.remove('ch'); });
 });
-
-/* NAVBAR */
-window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>60));
-
-/* HAMBURGER */
-const ham=document.getElementById('ham'),mob=document.getElementById('mob');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
-mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
-
-/* HERO REVEAL */
-window.addEventListener('load',()=>{
-  document.querySelectorAll('.reveal-up').forEach(el=>{
-    setTimeout(()=>el.classList.add('visible'), parseInt(el.style.getPropertyValue('--d'))||0);
-  });
-});
-
-/* ORB PARALLAX */
-document.addEventListener('mousemove',e=>{
-  const px=(e.clientX/window.innerWidth-.5)*40,py=(e.clientY/window.innerHeight-.5)*40;
-  document.querySelectorAll('.orb').forEach((o,i)=>{const m=(i+1)*.35;o.style.transform=`translate(${px*m}px,${py*m}px)`});
-});
-
-/* CAROUSEL */
-(function(){
-  const track=document.getElementById('track');
-  const slides=Array.from(track.children);
-  const dotsWrap=document.getElementById('dots');
-  const SLIDE_TIME=15000;
-  let idx=0,interval;
-
-  slides.forEach((_,i)=>{
-    const d=document.createElement('div');
-    d.className='cdot'+(i===0?' active':'');
-    d.innerHTML='<span class="cdot-fill"></span>';
-    dotsWrap.appendChild(d);
-    d.addEventListener('click',()=>{idx=i;reset();update()});
-  });
-  const cdots=Array.from(dotsWrap.children);
-
-  function updateDots(){
-    cdots.forEach((d,i)=>{
-      d.classList.toggle('active',i===idx);
-      const f=d.querySelector('.cdot-fill');
-      f.style.transition='none'; f.style.width='0%';
-      if(i===idx) requestAnimationFrame(()=>{f.style.transition=`width ${SLIDE_TIME}ms linear`;f.style.width='100%'});
-    });
-  }
-  function updateVideos(){
-    slides.forEach((s,i)=>{
-      const v=s.querySelector('video');
-      if(!v)return;
-      if(i===idx){v.currentTime=0;v.play().catch(()=>{})}
-      else{v.pause();v.currentTime=0}
-    });
-  }
-  function update(){
-    track.style.transform=`translateX(-${idx*100}%)`;
-    updateDots(); updateVideos();
-  }
-  function next(){idx=(idx+1)%slides.length;update()}
-  function prev(){idx=(idx-1+slides.length)%slides.length;update()}
-  function start(){interval=setInterval(next,SLIDE_TIME)}
-  function reset(){clearInterval(interval);start()}
-
-  document.getElementById('next').addEventListener('click',()=>{reset();next()});
-  document.getElementById('prev').addEventListener('click',()=>{reset();prev()});
-  update(); start();
-})();
-
 /* SCROLL REVEAL */
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
-  if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}
-}),{threshold:.12});
-document.querySelectorAll('.pillar-card,.sys-card,.ending-card,.pm-grid,.reveal-fade').forEach(el=>obs.observe(el));
-/* SCROLL TO TOP */
-const scrollTopBtn = document.getElementById('scrollTopBtn');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY >= 400);
-});
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.pillar-card,.sys-card,.ending-card,.pm-grid,.reveal-fade').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

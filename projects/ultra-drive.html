@@ -4,26 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ultra Drive | Yash Kamble</title>
+
+  <!-- Task 5 — SEO -->
+  <meta name="description" content="Ultra Drive — Hardware-integrated racing prototype controlled by ultrasonic sensors and PIR motion detection via ESP8266 and Unreal Engine 5.">
+  <meta property="og:title" content="Ultra Drive | Yash Kamble">
+  <meta property="og:description" content="Ultra Drive — Hardware-integrated racing prototype controlled by ultrasonic sensors and PIR motion detection via ESP8266 and Unreal Engine 5.">
+  <meta property="og:image" content="https://yashk435.github.io/projects/Imgs/Ultradirve/UD_Overlap.mp4">
+  <meta property="og:url" content="https://yashk435.github.io/projects/ultra-drive.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://yashk435.github.io/projects/ultra-drive.html">
+
   <link rel="stylesheet" href="CSS/project-base.css">
-
   <style>
-:root {
-  --pa:       #818cf8;
-  --pa2:      #a5b4fc;
-  --pa-glow:  rgba(129,140,248,0.13);
-  --pa-glow2: rgba(129,140,248,0.05);
-}
-
+    :root {
+      --pa:       #818cf8;
+      --pa2:      #a5b4fc;
+      --pa-glow:  rgba(129,140,248,0.13);
+      --pa-glow2: rgba(129,140,248,0.05);
+    }
     .proj-hero::after {
       content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:repeating-linear-gradient(
-    100deg,
-    transparent,transparent 98px,
-    rgba(129,140,248,0.015) 98px, rgba(129,140,248,0.015) 100px
-  );
-}
+      background:repeating-linear-gradient(
+        100deg, transparent,transparent 98px,
+        rgba(129,140,248,0.015) 98px, rgba(129,140,248,0.015) 100px
+      );
+    }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- Task 6 — Google Fonts optimized -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap">
 </head>
 <body>
 <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
@@ -57,14 +69,11 @@
 <section class="proj-hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-overlay"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
   <div class="hero-rings">
     <div class="ring ring-1"></div><div class="ring ring-2"></div>
     <div class="ring ring-3"></div><div class="ring ring-4"></div>
   </div>
-
   <div class="hero-content">
     <div class="hero-eyebrow reveal-up" style="--d:0ms">
       <span class="eyebrow-pill pill-proto">Prototype</span>
@@ -80,10 +89,8 @@
       Distance-based steering replaces traditional input entirely.
     </p>
     <div class="hero-tags reveal-up" style="--d:360ms">
-      <span class="htag">Unreal Engine 5</span>
-      <span class="htag">ESP8266 NodeMCU</span>
-      <span class="htag">Hardware Integration</span>
-      <span class="htag">PC + Custom Hardware</span>
+      <span class="htag">Unreal Engine 5</span><span class="htag">ESP8266 NodeMCU</span>
+      <span class="htag">Hardware Integration</span><span class="htag">PC + Custom Hardware</span>
       <span class="htag">Solo Developer</span>
     </div>
     <div class="hero-cta reveal-up" style="--d:460ms">
@@ -92,7 +99,6 @@
       <a href="projects.html" class="btn-ghost">← All Projects</a>
     </div>
   </div>
- 
 </section>
 
 <!-- ═══ CAROUSEL ═══ -->
@@ -100,54 +106,50 @@
   <div class="container">
     <div class="section-eyebrow">Gameplay &amp; Hardware</div>
     <h2 class="section-h2">Screenshots &amp; Clips</h2>
-    <div class="carousel-wrap">
-      <div class="carousel-track" id="track">
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_Overlap.mp4"></video>
-          <div class="slide-caption">
-            <h4>Real-Time Hardware Gameplay</h4>
-            <p>Live gameplay overlaid with physical hand and sensor footage — direct hardware input mapped into in-game vehicle control.</p>
+    <div role="region" aria-label="Project footage carousel">
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="track">
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_Overlap.mp4"></video>
+            <div class="slide-caption">
+              <h4>Real-Time Hardware Gameplay</h4>
+              <p>Live gameplay overlaid with physical hand and sensor footage — direct hardware input mapped into in-game vehicle control.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_GameMode.mp4"></video>
+            <div class="slide-caption">
+              <h4>Multiple Control Modes</h4>
+              <p>Classic, Endless, and Tutorial modes used to validate sensor behavior, learning curve, and control stability across different contexts.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_Boost.mp4"></video>
+            <div class="slide-caption">
+              <h4>Motion-Triggered Boost</h4>
+              <p>A PIR sensor detects player movement to trigger boost events — separating acceleration from the ultrasonic steering inputs entirely.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_OnlySensor.mp4"></video>
+            <div class="slide-caption">
+              <h4>Physical Sensor Interaction</h4>
+              <p>Direct view of ultrasonic and PIR sensors in use, showing the physical hand movement that drives all in-game behavior.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_SeonsorValue.mp4"></video>
+            <div class="slide-caption">
+              <h4>Early Prototype &amp; Debug Visualization</h4>
+              <p>Initial Unreal Engine build with live debug values (−1, 0, 1) used to verify sensor detection and steering logic before the full pipeline was completed.</p>
+            </div>
           </div>
         </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_GameMode.mp4"></video>
-          <div class="slide-caption">
-            <h4>Multiple Control Modes</h4>
-            <p>Classic, Endless, and Tutorial modes used to validate sensor behavior, learning curve, and control stability across different contexts.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_Boost.mp4"></video>
-          <div class="slide-caption">
-            <h4>Motion-Triggered Boost</h4>
-            <p>A PIR sensor detects player movement to trigger boost events — separating acceleration from the ultrasonic steering inputs entirely.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_OnlySensor.mp4"></video>
-          <div class="slide-caption">
-            <h4>Physical Sensor Interaction</h4>
-            <p>Direct view of ultrasonic and PIR sensors in use, showing the physical hand movement that drives all in-game behavior.</p>
-          </div>
-        </div>
-
-        <div class="carousel-slide">
-          <video muted loop playsinline preload="metadata" src="Imgs/Ultradirve/UD_SeonsorValue.mp4"></video>
-          <div class="slide-caption">
-            <h4>Early Prototype &amp; Debug Visualization</h4>
-            <p>Initial Unreal Engine build with live debug values (−1, 0, 1) used to verify sensor detection and steering logic before the full pipeline was completed.</p>
-          </div>
-        </div>
-
+        <button class="carousel-btn prev" id="prev" aria-label="Previous slide">‹</button>
+        <button class="carousel-btn next" id="next" aria-label="Next slide">›</button>
       </div>
-      <button class="carousel-btn prev" id="prev">‹</button>
-      <button class="carousel-btn next" id="next">›</button>
+      <div class="carousel-dots" id="dots"></div>
     </div>
-    <div class="carousel-dots" id="dots"></div>
   </div>
 </section>
 
@@ -212,7 +214,8 @@
     <h2 class="section-h2">Sensor Circuit Diagram</h2>
     <p class="diagram-desc">Hardware wiring layout showing the ESP8266 NodeMCU, dual ultrasonic sensors for distance-based steering, and PIR sensor used as the motion-based boost trigger.</p>
     <div class="diagram-img-wrap">
-      <img src="Imgs/Ultradirve/Cktdg.png" alt="Ultra Drive ESP8266 Circuit Diagram">
+      <!-- Task 7 — lazy load non-hero images -->
+      <img src="Imgs/Ultradirve/Cktdg.png" alt="Ultra Drive ESP8266 Circuit Diagram" loading="lazy">
     </div>
     <div class="pin-legend">
       <h4>Pin Mapping</h4>
@@ -258,17 +261,15 @@ long readDistance(int trigPin, int echoPin) {
 }
 
 void loop() {
-  // PIR boost / reset detection
   if (digitalRead(pirPin) == HIGH) {
     Serial.println("RESET");
     delay(50);
     return;
   }
 
-  long distance1 = readDistance(trigPin1, echoPin1); // Left hand
-  long distance2 = readDistance(trigPin2, echoPin2); // Right hand
+  long distance1 = readDistance(trigPin1, echoPin1);
+  long distance2 = readDistance(trigPin2, echoPin2);
 
-  // Steering depth system: 5-20cm = normal, <5cm = drift
   if (distance1 > 5 && distance1 <= 20 && distance2 > 20) {
     Serial.println("LEFT");
   } else if (distance1 <= 5 && distance2 > 20) {
@@ -281,7 +282,7 @@ void loop() {
     Serial.println("NONE");
   }
 
-  delay(50); // Avoid serial spam
+  delay(50);
 }</code></pre>
     </div>
   </div>
@@ -328,52 +329,24 @@ void loop() {
   </div>
 </footer>
 
+<script src="js/page.js"></script>
 <script>
-const cur=document.getElementById('cursor'),cf=document.getElementById('cf');
-let mx=0,my=0,fx=0,fy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function t(){cur.style.transform=`translate(${mx}px,${my}px)`;fx+=(mx-fx)*.12;fy+=(my-fy)*.12;cf.style.transform=`translate(${fx}px,${fy}px)`;requestAnimationFrame(t)})();
-document.querySelectorAll('a,button,.sys-card,.pm-col').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.classList.add('ch');cf.classList.add('ch')});
-  el.addEventListener('mouseleave',()=>{cur.classList.remove('ch');cf.classList.remove('ch')});
+/* Page-specific: copy button */
+document.getElementById('copyBtn').addEventListener('click', function () {
+  navigator.clipboard.writeText(document.getElementById('arduinoCode').innerText);
+  this.textContent = 'Copied!';
+  setTimeout(() => this.textContent = 'Copy', 1400);
 });
-window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>60));
-const ham=document.getElementById('ham'),mob=document.getElementById('mob');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open')});
-mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mob.classList.remove('open')}));
-window.addEventListener('load',()=>{document.querySelectorAll('.reveal-up').forEach(el=>{setTimeout(()=>el.classList.add('visible'),parseInt(el.style.getPropertyValue('--d'))||0)})});
-document.addEventListener('mousemove',e=>{const px=(e.clientX/window.innerWidth-.5)*40,py=(e.clientY/window.innerHeight-.5)*40;document.querySelectorAll('.orb').forEach((o,i)=>{const m=(i+1)*.35;o.style.transform=`translate(${px*m}px,${py*m}px)`})});
-document.getElementById('copyBtn').addEventListener('click',function(){
-  const text=document.getElementById('arduinoCode').innerText;
-  navigator.clipboard.writeText(text);
-  this.textContent='Copied!';
-  setTimeout(()=>this.textContent='Copy',1400);
+/* Cursor hover extras */
+document.querySelectorAll('.sys-card,.pm-col').forEach(el => {
+  const cur = document.getElementById('cursor'), cf = document.getElementById('cf');
+  el.addEventListener('mouseenter', () => { cur.classList.add('ch'); cf.classList.add('ch'); });
+  el.addEventListener('mouseleave', () => { cur.classList.remove('ch'); cf.classList.remove('ch'); });
 });
-(function(){
-  const track=document.getElementById('track'),slides=Array.from(track.children),dotsWrap=document.getElementById('dots');
-  const SLIDE_TIME=18000; let idx=0,interval;
-  slides.forEach((_,i)=>{const d=document.createElement('div');d.className='cdot'+(i===0?' active':'');d.innerHTML='<span class="cdot-fill"></span>';dotsWrap.appendChild(d);d.addEventListener('click',()=>{idx=i;reset();update()})});
-  const cdots=Array.from(dotsWrap.children);
-  function updateDots(){cdots.forEach((d,i)=>{d.classList.toggle('active',i===idx);const f=d.querySelector('.cdot-fill');f.style.transition='none';f.style.width='0%';if(i===idx)requestAnimationFrame(()=>{f.style.transition=`width ${SLIDE_TIME}ms linear`;f.style.width='100%'})})}
-  function updateVideos(){slides.forEach((s,i)=>{const v=s.querySelector('video');if(!v)return;if(i===idx){v.currentTime=0;v.play().catch(()=>{})}else{v.pause();v.currentTime=0}})}
-  function update(){track.style.transform=`translateX(-${idx*100}%)`;updateDots();updateVideos()}
-  function next(){idx=(idx+1)%slides.length;update()}
-  function start(){interval=setInterval(next,SLIDE_TIME)}
-  function reset(){clearInterval(interval);start()}
-  document.getElementById('next').addEventListener('click',()=>{reset();next()});
-  document.getElementById('prev').addEventListener('click',()=>{reset();idx=(idx-1+slides.length)%slides.length;update()});
-  update();start();
-})();
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');obs.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.sys-card,.pm-grid').forEach(el=>obs.observe(el));
-/* SCROLL TO TOP */
-const scrollTopBtn = document.getElementById('scrollTopBtn');
-window.addEventListener('scroll', () => {
-  scrollTopBtn.classList.toggle('visible', window.scrollY >= 400);
-});
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.sys-card,.pm-grid').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
