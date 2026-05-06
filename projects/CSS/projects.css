@@ -161,13 +161,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
   grid-auto-rows:auto;
 }
 
-/* ── FEATURED CARD (first card, full-width) ── */
-.project-card--featured{grid-column:1/-1;}
-.project-card--featured .card-media{aspect-ratio:21/9;}
-.project-card--featured .card-body{padding:32px;}
-.project-card--featured .card-body h3{font-size:28px;}
-.project-card--featured .card-desc{font-size:15px;max-width:600px;}
-.project-card--featured .featured-badge{
+/* ── FEATURED BADGE ── */
+.featured-badge{
   display:inline-flex;align-items:center;gap:6px;
   font-size:10px;font-weight:700;color:var(--accent);
   text-transform:uppercase;letter-spacing:.1em;
@@ -176,6 +171,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
   padding:4px 12px;border-radius:100px;
   margin-bottom:16px;
 }
+
+/* ── FEATURED CARD (first card, full-width) ── */
+.project-card--featured{grid-column:1/-1;}
+.project-card--featured .card-media{aspect-ratio:16/9;}
+.project-card--featured .card-body{padding:32px;}
+.project-card--featured .card-body h3{font-size:28px;}
+.project-card--featured .card-desc{font-size:15px;max-width:600px;}
 .featured-badge-dot{
   width:5px;height:5px;border-radius:50%;background:var(--accent);
   animation:blink 2s ease-in-out infinite;
